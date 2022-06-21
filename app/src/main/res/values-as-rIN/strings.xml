@@ -1,0 +1,241 @@
+<resources>
+    <string name="app_name">vp_app</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">UserName</string>
+    <string name="btn_login">Login</string>
+    <string name="font_circular_medium">circular-medium.ttf</string>
+    <string name="font_circular_bold">circular-bold.ttf</string>
+    <string name="font_circular_book">circular-book.ttf</string>
+    <string name="font_circular_black">circular-black.ttf</string>
+    <string name="font_normal">din_pro_light.otf</string>
+    <string name="no_internet">Your internet seems to be offline!</string>
+    <string name="view_image">View Inspected Image</string>
+    <string name="take_action">Take Action</string>
+    <string name="view_action">View Action</string>
+    <string name="action_taken_tv">Action Taken Against Inspection Report for High Value Project</string>
+    <string name="init_vector">2SN22SkJGDyOAXUU</string>
+    <string name="street_dialog_title">Select Purpose</string>
+    <string name="OHT_dialog_title">Select OHT</string>
+    <string name="POWER_PUMP_dialog_title">Select Power Pump</string>
+
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Clear all</string>
+
+
+
+    ///////new Strings Added for tamil_and English
+    <string name="connection_no_">Connection No :  </string>
+    <string name="select_connection_status">Select Connection Status</string>
+    <string name="eb_meter">EB Meter</string>
+    <string name="last_eb_bill">Last EB Bill</string>
+    <string name="eb_card">EB Card</string>
+    <string name="select_habitation">Select Habitation</string>
+    <string name="select_purpose_type">Select Purpose Type</string>
+    <string name="select_motor_type">Select OHT Motor Type</string>
+    <string name="motor">Motor</string>
+    <string name="please_note_this_number">please note this number</string>
+    <string name="oht_meter">OHT Meter</string>
+    <string name="horse_power">Horse Power</string>
+    <string name="enter_tank_capacity_in_ltr">Enter OHT Tank Capacity (in Ltr)</string>
+    <string name="submit">Submit</string>
+    <string name="user_canceled_image_capture">User cancelled image capture</string>
+    <string name="sorry_failed_to_capture_image">Sorry! Failed to capture image</string>
+    <string name="gps_is_not_turned_on">GPS is not turned on...</string>
+    <string name="satelite_communication_not_available">Satellite communication not available to get GPS Co-ordination Please Capture Photo in Open Area..</string>
+    <string name="permissions_required">Permissions required!</string>
+    <string name="camera_needs_few_permissions">Camera needs few permissions to work properly. Grant them in settings.</string>
+    <string name="go_to_settings">GOTO SETTINGS</string>
+    <string name="CANCEL">CANCEL</string>
+    <string name="please_select_purpose_type">Please Select Purpose Type!</string>
+    <string name="please_select_habitation">Please Select Habitation!</string>
+    <string name="please_capture_last_eb_bill">Please Capture Last EB Bill!</string>
+    <string name="please_capture_eb_meter">Please Capture EB Meter!</string>
+    <string name="choose_connection_status">Choose Connection Status!</string>
+    <string name="please_enter_tank_capacity">Please Enter Tank Capacity!</string>
+    <string name="please_enter_horse_power">Please Enter Horse Power!</string>
+    <string name="please_select_motor_type">Please Select Motor Type!</string>
+    <string name="enter_no_of_street_lights">Enter No Of Street Lights!</string>
+    <string name="your_track_data_synchronized">Your track data is synchronized to the server!</string>
+    <string name="do_u_want_to_upload">Do you want upload this Data ? </string>
+    <string name="do_u_want_to_delete">Do you want to delete this Data ? </string>
+    <string name="search_by_connection_no">Search by connection no</string>
+    <string name="connection_list">Connection List</string>
+    <string name="are_you_sure_logout">Are you sure you want to Logout?</string>
+    <string name="are_you_sure_exit">Are you sure you want to exit ?</string>
+    <string name="logging_out_loss_data">Logging out while offline may leads to loss of data!</string>
+    <string name="sync_all_the_data_before_logout">Sync all the data before logout!</string>
+    <string name="version">Version</string>
+    <string name="please_enter_the_user_name">Please enter the username</string>
+    <string name="please_enter_the_password">Please enter the password</string>
+    <string name="please_enter_the_user_name_and_password">Please enter your username and password!</string>
+    <string name="please_turn_on_network_or_continue_offline">Internet Connection is not available..Please Turn ON Network Connection OR Continue With Off-line Mode..</string>
+    <string name="settings">Settings</string>
+    <string name="continue_with_off_line">Continue With Off-Line</string>
+    <string name="invalid_user_name_or_password">Invalid UserName Or Password</string>
+    <string name="log_in_again">Login Again</string>
+    <string name="no_data_available_for_offline">No data available for offline. Please Turn On Your Network</string>
+    <string name="connection_details">Connection Details</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="you_need_to_update">You need to update TNEB APPlication</string>
+    <string name="this_version_is_no_longer_supported">This version of TNEB is no longer supported. Please go to Official Site and install new version</string>
+    <string name="update">UPDATE</string>
+    <string name="view_details"><u>View Details</u></string>
+    <string name="details_of_electrical_connections_not_available">Details of Panchayat electrical connections not available on the TNRD website</string>
+    <string name="details_of_electrical_connections_available">Details of Panchayat electrical connections available on the TNRD website</string>
+    <string name="details_of_electrical_connections_missing">Details of Panchayat Electrical Connections Missing on the TNRD Website</string>
+    <string name="edit_details"><u>Edit Details</u></string>
+    <string name="update_details"><u>Update Details</u></string>
+    <string name="enter_motor_hp">Enter OHT Motor HP(Horse Power)</string>
+    <string name="connection_status">Connection Status</string>
+    <string name="motor_type">Motor Type</string>
+    <string name="cus_code">Electrical connection code number</string>
+    <string name="consumer_name">Consumer Name</string>
+    <string name="location">Location</string>
+    <string name="purpose_as_per_tneb">Purpose As per TNEB</string>
+    <string name="connection_purpose_details">Connection Purpose Details</string>
+    <string name="connection_purpose">Connection Purpose</string>
+    <string name="street_light_count">Street Light Count</string>
+    <string name="tank_capacity_in_ltr">Tank Capacity in (Ltr)</string>
+    <string name="number_of_works_for_upload">Number of information to be Uploaded to Server</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="go">Go</string>
+    <string name="bank_account_details">Bank Account Details</string>
+    <string name="complaint_monitoring">Compliant Monitoring</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="select_village">Select Village</string>
+    <string name="hint_ifsc">IFSC code</string>
+    <string name="hint_bank_acc_no">Bank Acc No</string>
+    <string name="hint_bank_confirm_acc_no">Confirm Bank Acc No</string>
+    <string name="software_designed_developed">Software Designed &amp; Developed By NIC</string>
+    <string name="please_enter_bank_account_name">Please Enter Bank Account Name</string>
+    <string name="please_enetr_bank_account_number">Please Enter Bank Account Number</string>
+    <string name="please_enetr_confirm_account_number">Please Enter Confirm Bank Account Number</string>
+    <string name="connection_no">Connection No</string>
+    <string name="name">Name</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="bank_branch_name">Bank Branch Name</string>
+    <string name="tnrd_connections">TNRD Connections</string>
+    <string name="connection">Connection</string>
+    <string name="add_details">Add Details</string>
+    <string name="enter_connection_no">Enter Connection No</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="enter_purpose_as_per_tneb">Enter Purpose As per TNEB</string>
+    <string name="please_enetr_ifsc_code">Please Enter IFSC code!</string>
+    <string name="please_valiadte_ifsc_code">Please Validate IFSC code!</string>
+    <string name="please_check_the_account_number">Please Check the Account Number</string>
+
+
+
+
+
+
+
+    <string name="take_photo">Take Photo</string>
+    <string name="add_photo">Add Photo!</string>
+    <string name="cancel">cancel</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="failed">Failed</string>
+    <string name="no_image">No Image</string>
+    <string name="values_inserted_successfully">Values Inserted Successfully</string>
+    <string name="values_updated_successfully">Values Updated Successfully</string>
+    <string name="images_inserted_successfully">Images Inserted Successfully</string>
+    <string name="images_updated_successfully">Images Updated Successfully</string>
+
+    <string name="upload_photo">Upload Photo</string>
+    <string name="edit_photo">Edit Photo</string>
+    <string name="select_mini_motor_type">Select Mini Motor Type</string>
+    <string name="enter_mini_motor_hp">Enter Mini Motor HP(Horse Power)</string>
+    <string name="enter_mini_tank_capacity_in_ltr">Enter Mini Motor Tank Capacity (in Ltr)</string>
+    <string name="Tank">OHT Tank</string>
+
+    <string name="mini_Tank">M Tank</string>
+    <string name="mini_motor">M Motor</string>
+    <string name="Enter_Land_Mark">Enter Land Mark</string>
+
+    <string name="oht_motor_image">OHT MOTOR</string>
+    <string name="mini_horse_power">Motor Horse Power</string>
+    <string name="mini_motor_type">Motor Type</string>
+    <string name="mini_tank_capacity">Tank Capacity(Ltr)</string>
+    <string name="mini_motor_land_mark">Motor Land Mark</string>
+    <string name="oht_motor_land_mark">Motor Land Mark</string>
+
+    <string name="add_bank">Add</string>
+    <string name="added_bank">Added</string>
+
+    <string name="district">District</string>
+    <string name="designation">Designation</string>
+    <string name="user_name">Name</string>
+    <string name="block">Block</string>
+    <string name="village">Village</string>
+    <string name="number_of_connections">Number Of Connections</string>
+
+    <string name="mini_oht_details">Mini OHT Details</string>
+    <string name="oht_details">OHT Details</string>
+    <string name="valid_connection">Valid Connection - Live</string>
+    <string name="invalid_connection">InValid Connection</string>
+    <string name="valid_connection_disconnected">Valid Connection-Disconnected</string>
+    <string name="eb_meter_available_status">Choose EB Meter Available Status</string>
+    <string name="eb_meter_available_status_text">EB Meter Available Status</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="please_choose_eb_meter_available_status">Please Choose EB Meter Available Status</string>
+    <string name="enter_number_of_tank_count">Enter No of Tank Count</string>
+    <string name="mini_connected_tank_counts">No of Connected Tank Count</string>
+    <string name="log_in_header_1">ஊரக வளர்ச்சி மற்றும் ஊராட்சி துறை</string>
+    <string name="log_in_header_2">மின் இணைப்பு , குடிநீர் மோட்டார் மற்றும்</string>
+    <string name="log_in_header_3">கணக்கெடுப்பு செயலி</string>
+
+    <string name="select_mini_oht_horse_power">Select Mini OHT Motor Horse Power</string>
+    <string name="select_oht_horse_power">Select OHT Motor Horse Power</string>
+    <string name="select_oht_tank_capacity">Select OHT Motor Tank Capacity</string>
+    <string name="select_mini__oht_tank_capacity">Select Mini OHT Motor Tank Capacity</string>
+    <string name="please_capture_mini_oht_motor">Please Capture Mini OHT Motor!</string>
+    <string name="please_capture_oht_motor">Please Capture OHT Motor!</string>
+    <string name="please_enter_land_mark">Please Enter Land Mark!</string>
+
+    <string name="select_glr_motor_type">Select GLR Motor Type</string>
+    <string name="select_power_pump_motor_type">Select Power Pump Motor Type</string>
+    <string name="please_enter_oht_connected_tank_counts">Please Enter Number of connected Tank CountS WITH OHT MOTOR</string>
+    <string name="please_enter_mini_oht_connected_tank_counts">Please Enter Number of connected Tank CountS WITH Mini OHT MOTOR</string>
+    <string name="please_enter_glr_motor_connected_tank_counts">Please Enter Number of connected Tank CountS WITH GLR MOTOR</string>
+    <string name="please_enter_mini_power_pump_connected_tank_counts">Please Enter Number of connected Tank CountS WITH Mini Power Pump MOTOR</string>
+    <string name="select_motor_type_">Select Motor Type</string>
+    <string name="select_motor_hp_">Select Motor HP(Horse Power)</string>
+    <string name="select_tank_capacity_">Select Tank Capacity(in Ltr)</string>
+
+    <string name="glr_details_heading">GLR Details</string>
+    <string name="mini_power_pump_details_heading">Mini Power Pump Details</string>
+    <string name="grl_motor_image">GRL MOTOR</string>
+    <string name="mini_power_pump_motor_image">Mini Power Pump MOTOR</string>
+    <string name="please_capture_glr_motor">Please Capture GLR Motor</string>
+    <string name="please_capture_mini_power_pump_motor">Please Capture Mini Power Pump Motor</string>
+
+    <string name="habitation">Habitation</string>
+    <string name="connection_deleted_successfully">Connection Deleted Successfully</string>
+    <string name="mini_oht_without_water_tank">Mini OHT Without Water Tank</string>
+
+    <string name="all">All</string>
+    <string name="taken">Taken</string>
+    <string name="not_taken">Not Taken</string>
+
+    <string name="please_uplaod_all_data">Please Upload All Data</string>
+    <string name="habitation_activity">Whether Drinking Water was Supplied to the Habitation</string>
+    <string name="full_supply">Full Supply</string>
+    <string name="partial_supply">Partial Supply</string>
+    <string name="no_supply">No Supply</string>
+    <string name="total_no_of_trips">Total No.of Trips</string>
+    <string name="water_supply_liter">Water Supply Liter</string>
+    <string name="amount">Amount</string>
+    <string name="water_supply_details">Water Supply Details</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="your_habitation">Your Habitation</string>
+    <string name="select_reason">Select Reason</string>
+    <string name="select_water_supply_through">Select Water Supply through</string>
+    <string name="reason">Reason</string>
+    <string name="water_supply_through">Water Supply Through</string>
+
+
+
+</resources>

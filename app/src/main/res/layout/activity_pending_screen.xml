@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:customfontdemo="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.PendingScreen" />
+    </data>
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tool_bar"
+            android:background="@color/colorPrimary">
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/tool_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/back_img"
+                android:src="@drawable/back"
+                android:padding="0dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_centerVertical="true"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/back_img"
+                android:layout_toLeftOf="@+id/home_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Connection"
+                android:textStyle="bold"></TextView>
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/home_icon"
+                android:src="@mipmap/home_img"
+                android:tint="@color/white"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:padding="5dp"></ImageView>
+        </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@+id/tool_rl"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:visibility="visible"
+                android:background="@drawable/stroke_bg">
+
+                <RelativeLayout
+                    android:id="@+id/connection_details_layout"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/connection_details_text"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="Connection Details"></TextView>
+
+                    <View
+                        android:id="@+id/add_view_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/white"></View>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/bank_details_layout"
+                    android:layout_toRightOf="@+id/connection_details_layout"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/bank_details_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/_10sdp"
+                        android:text="Bank Details"></TextView>
+                    <View
+                        android:id="@+id/view_view_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/white"></View>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:background="@color/white"
+            android:id="@+id/recycler_view_layout">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycler_view_"
+                android:layout_margin="@dimen/_10sdp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bank_recycler_view_"
+                android:layout_margin="@dimen/_10sdp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@id/bank_recycler_view_"
+                android:id="@+id/sync_all_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/button_background_green"
+                android:text="Upload All"
+                android:textColor="@color/white"></Button>
+
+            <ImageView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/no_data_ic"
+                android:layout_centerInParent="true"
+                android:id="@+id/no_data_icon"
+                android:visibility="gone"></ImageView>
+<!--
+            <pl.droidsonroids.gif.GifImageView
+                android:visibility="gone"
+                android:id="@+id/no_data_icon_new"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:background="#fff"
+                android:src="@drawable/no_data_gif_view" />
+-->
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

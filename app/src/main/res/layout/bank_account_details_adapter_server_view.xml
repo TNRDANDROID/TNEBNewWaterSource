@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.adapter.BankAccountDetailsAdapterServer" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_toLeftOf="@+id/go"
+            android:background="@drawable/cornered_border_bg_strong">
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_edit_layout"
+                android:layout_centerHorizontal="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/circle_bg_new1">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <ImageView
+                    android:padding="@dimen/_2sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_icon"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_edit"
+                    android:layout_centerVertical="true"></ImageView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/account_details_layout"
+                android:layout_below="@id/detail_edit_layout"
+                android:layout_marginTop="@dimen/_7sdp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/acc_no_layout"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/account_number_label"
+                        android:text="@string/hint_bank_acc_no"></TextView>
+                    <TextView
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:layout_toRightOf="@id/account_number_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11321432443243"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/account_number"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_below="@id/acc_no_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bank_branch_layout"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bank_branch_label"
+                        android:text="@string/bank_branch_name"></TextView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:layout_below="@id/bank_branch_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="State Bank of India &amp; Thirumangalam Branch"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/bank_branch_"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_below="@id/bank_branch_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ifsc_layout"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ifsc_label"
+                        android:text="@string/hint_ifsc"></TextView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:layout_toRightOf="@id/ifsc_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11321432443243"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/ifsc_code"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_below="@id/ifsc_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name_layout"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name_label"
+                        android:text="@string/name"></TextView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:layout_toRightOf="@id/name_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11321432443243"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/name"></TextView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:id="@+id/verified_layout"
+                    android:background="@drawable/verified_bg"
+                    android:layout_below="@+id/name_layout">
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/verified"
+                        android:text="verified"></TextView>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

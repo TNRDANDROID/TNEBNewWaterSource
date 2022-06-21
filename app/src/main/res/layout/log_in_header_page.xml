@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_75sdp"
+            android:src="@mipmap/tamilnadu_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:id="@+id/tn_logo"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tn_logo"
+            android:layout_margin="@dimen/_5sdp">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_1"
+            android:textSize="@dimen/_12sdp"
+            android:text="@string/log_in_header_1"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_2"
+            android:text="@string/log_in_header_2"
+            android:layout_below="@+id/tv_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"/>
+        <TextView
+            android:visibility="gone"
+            android:textSize="@dimen/_11sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_3"
+            android:text="@string/log_in_header_3"
+            android:layout_below="@+id/tv_2"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_1sdp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

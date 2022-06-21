@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/ll1"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_19sdp"
+            android:layout_marginTop="@dimen/_19sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@drawable/adapter_design_drawable_1">
+        </RelativeLayout>
+
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/bac1"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/back"
+            android:rotation="135"
+            android:tint="@color/colorPrimary"
+            android:layout_alignParentEnd="true"></ImageView>
+        <ImageView
+            android:layout_marginTop="-41dp"
+            android:layout_below="@+id/ll1"
+            android:id="@+id/bac2"
+            android:layout_marginLeft="@dimen/_1sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/back"
+            android:rotation="-44"
+            android:tint="@color/colorPrimary"
+            ></ImageView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ee1"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/adapter_design_drwable_3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/co"
+                    android:textColor="@color/white"
+                    android:text="Connection Number"
+                    android:textSize="@dimen/_13sdp"></TextView>
+                <TextView
+                    android:layout_below="@id/co"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/co_1"
+                    android:textColor="@color/white"
+                    android:text="12321312421"
+                    android:textSize="@dimen/_13sdp"></TextView>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

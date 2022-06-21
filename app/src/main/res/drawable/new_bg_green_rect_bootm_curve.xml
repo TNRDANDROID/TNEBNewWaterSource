@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <corners android:bottomLeftRadius="20dp" android:bottomRightRadius="20dp"></corners>
+    <gradient android:startColor="@color/account_status_green_color" android:endColor="@color/account_status_green_color"></gradient>
+</shape>

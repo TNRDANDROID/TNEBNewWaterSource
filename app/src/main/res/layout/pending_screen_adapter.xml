@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.adapter.PendingScreenAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/card_view"
+            android:background="@drawable/elevation_top_bottom_lite_bg_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            >
+
+            <View
+                android:layout_width="5dp"
+                android:minHeight="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:background="@color/accept"
+                android:id="@+id/view"/>
+
+
+            <RelativeLayout
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_100sdp"
+                android:layout_toRightOf="@+id/view"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:id="@+id/relative1"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/available_status"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/gallery_icon1">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <RelativeLayout
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_toLeftOf="@+id/upload"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_toRightOf="@+id/available_status"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/connection_number_lay">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/connection_number_h"
+                            android:text="@string/connection_no_"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_11sdp"></TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/connection_number"
+                            android:text="476577856476577856476577856"
+                            android:layout_below="@+id/connection_number_h"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_11sdp"></TextView>
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/id1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="Conn. No"
+                            android:gravity="end"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:text=":"
+                            android:gravity="center"
+                            android:layout_below="@+id/eb_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.6"
+                            android:id="@+id/connection_number_1"
+                            android:text="754457754"
+                            android:layout_toRightOf="@+id/village_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=">> Permanently "
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:id="@+id/connection_status"
+                        android:textColor="@color/pink"
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_below="@+id/connection_number_lay"/>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="Cus. Code"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:text=":"
+                            android:gravity="center"
+                            android:layout_below="@+id/eb_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.6"
+                            android:id="@+id/cus_code"
+                            android:text="754457754"
+                            android:layout_toRightOf="@+id/village_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="3"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="Status"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:text=":"
+                            android:gravity="center"
+                            android:layout_below="@+id/eb_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.6"
+                            android:id="@+id/conn_status"
+                            android:text="Connected"
+                            android:layout_toRightOf="@+id/village_name_tv"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_14sdp"></TextView>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/upload"
+                    >
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/cornered_bg_right"
+                        android:text="Upload"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_16sdp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/sync"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/grad_curve"
+                        android:src="@drawable/ic_upload"
+                        android:padding="@dimen/_5sdp"
+                        android:tint="@color/white"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        />
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_below="@id/relative1"
+                android:weightSum="3"
+                android:id="@+id/eb_images">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:id="@+id/eb_meter_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="EB Meter"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:id="@+id/eb_bill_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="Last EB Bill"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:id="@+id/eb_card_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="EB Card"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_trash"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/delete"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/circle_grey"
+            />
+
+    </RelativeLayout>
+</layout>

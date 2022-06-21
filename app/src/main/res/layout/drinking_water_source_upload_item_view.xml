@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.adapter.PendingScreenAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/card_view"
+            android:background="@drawable/elevation_top_bottom_lite_bg_white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            >
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/accept"
+                android:id="@+id/view"/>
+
+
+            <RelativeLayout
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_100sdp"
+                android:layout_toEndOf="@+id/view"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:id="@+id/relative1"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/available_status"
+                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/gallery_icon1">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <RelativeLayout
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/upload"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toEndOf="@+id/available_status"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/connection_number_lay">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/title_habitation_name"
+                                android:text="@string/habitation"
+                                android:textColor="@color/grey_9"
+                                android:textSize="@dimen/_11sdp"/>
+                            <TextView
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_toEndOf="@+id/title_habitation_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/habitation_name"
+                                android:textColor="@color/blue_background"
+                                android:textSize="@dimen/_12sdp"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/water_source_lay">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/title_water_source_name"
+                                android:text="Water Source "
+                                android:textColor="@color/grey_9"
+                                android:textSize="@dimen/_11sdp"/>
+                            <TextView
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_toEndOf="@+id/title_water_source_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/water_source_name"
+                                android:textColor="@color/blue_background"
+                                android:textSize="@dimen/_12sdp"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/land_mark_lay">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/title_land_mark"
+                                android:text="Land Mark "
+                                android:textColor="@color/grey_9"
+                                android:textSize="@dimen/_11sdp"/>
+                            <TextView
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_toEndOf="@+id/title_land_mark"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/land_mark"
+                                android:textColor="@color/blue_background"
+                                android:textSize="@dimen/_12sdp"/>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/upload"
+                    >
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/cornered_bg_right"
+                        android:text="Upload"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_16sdp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/sync"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/grad_curve"
+                        android:src="@drawable/ic_upload"
+                        android:padding="@dimen/_5sdp"
+                        android:tint="@color/white"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        />
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_below="@id/relative1"
+                android:weightSum="3"
+                android:id="@+id/eb_images">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:id="@+id/eb_meter_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="EB Meter"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:id="@+id/eb_bill_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="Last EB Bill"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:id="@+id/eb_card_img"
+                    android:drawableLeft="@drawable/ic_image_gallery"
+                    android:drawableTint="@color/light_blue_3"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="EB Card"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/light_blue_2"
+                    android:textStyle="bold"/>
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_trash"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/delete"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/circle_grey"
+            />
+
+    </RelativeLayout>
+</layout>

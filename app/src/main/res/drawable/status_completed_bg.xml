@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <size android:height="@dimen/_30sdp" android:width="@dimen/_30sdp"></size>
+            <solid android:color="@color/account_status_green_color"/>
+        </shape>
+    </item>
+
+    <item>
+
+
+        <bitmap android:gravity="center" android:src="@drawable/tick_icon" />
+
+    </item>
+
+</layer-list>

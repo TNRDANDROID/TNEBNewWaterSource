@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">vp_app</string>
+    <string name="hint_password">கடவுச்சொல்</string>
+    <string name="hint_username">பயனர் பெயர்</string>
+    <string name="btn_login">உள்நுழை</string>
+    <string name="font_circular_medium">circular-medium.ttf</string>
+    <string name="font_circular_bold">circular-bold.ttf</string>
+    <string name="font_circular_book">circular-book.ttf</string>
+    <string name="font_circular_black">circular-black.ttf</string>
+    <string name="font_normal">din_pro_light.otf</string>
+    <string name="no_internet">உங்கள் இணையம் ஆஃப்லைனில் இருப்பது போல் தெரிகிறது!</string>
+    <string name="view_image">பரிசோதிக்கப்பட்ட படத்தைப் பார்க்கவும்</string>
+    <string name="take_action">Take Action</string>
+    <string name="view_action">View Action</string>
+    <string name="action_taken_tv">Action Taken Against Inspection Report for High Value Project</string>
+    <string name="init_vector">2SN22SkJGDyOAXUU</string>
+    <string name="street_dialog_title">தெருவைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="OHT_dialog_title">OHT ஐத் தேர்ந்தெடுக்கவும்</string>
+
+    <string name="POWER_PUMP_dialog_title">பவர் பம்பைத் தேர்ந்தெடுக்கவும்</string>
+
+    <string name="ok_label">சரி</string>
+    <string name="dismiss_label">நிராகரி</string>
+    <string name="clear_all_label">அனைத்தையும் அழி</string>
+
+
+
+    //////
+    ///////new Strings Added for tamil_and English
+    <string name="connection_no_">மின் இணைப்பு எண் : </string>
+    <string name="select_connection_status">மின் இணைப்பு நிலையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="eb_meter">EB மீட்டர்</string>
+    <string name="last_eb_bill">கடைசி EB பில்</string>
+    <string name="eb_card">EB அட்டை</string>
+    <string name="select_habitation">குக்கிராமத்தைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_purpose_type">பயன்பாட்டு வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_motor_type">OHT மோட்டார் வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="motor">மோட்டார்</string>
+    <string name="please_note_this_number">இந்த எண்ணை கவனத்தில் கொள்ளவும்</string>
+    <string name="oht_meter">OHT மோட்டார்</string>
+    <string name="horse_power">குதிரை சக்தி</string>
+    <string name="enter_tank_capacity_in_ltr">"OHT டேங்க் கொள்ளளவை உள்ளிடவும் (லிட்டர்)</string>
+    <string name="submit">சமர்ப்பிக்கவும்</string>
+    <string name="user_canceled_image_capture">"படத்தைப் பிடிப்பது பயனரால் ரத்து செய்யப்பட்டது</string>
+    <string name="sorry_failed_to_capture_image">மன்னிக்கவும்! படத்தைப் பிடிக்க முடியவில்லை</string>
+    <string name="satelite_communication_not_available">"ஜிபிஎஸ் ஒருங்கிணைப்பைப் பெற செயற்கைக்கோள் தொடர்பு கிடைக்கவில்லை, திறந்த பகுதியில் புகைப்படம் எடுக்கவும்…</string>
+    <string name="gps_is_not_turned_on">ஜிபிஎஸ் இயக்கப்படவில்லை…</string>
+    <string name="permissions_required">அனுமதி தேவை!</string>
+    <string name="camera_needs_few_permissions">கேமரா சரியாக வேலை செய்ய சில அனுமதிகள் தேவை.அமைப்புகளில் அவற்றை வழங்கவும்.</string>
+    <string name="go_to_settings">அமைப்புகளுக்குச் செல்லவும்</string>
+    <string name="CANCEL">ரத்துசெய்</string>
+    <string name="please_select_purpose_type">"தயவுசெய்து பயன்பாட்டு வகையைத் தேர்ந்தெடுக்கவும்!</string>
+    <string name="please_select_habitation">"தயவுசெய்து வாழ்விடத்தைத் தேர்ந்தெடுங்கள்!</string>
+    <string name="please_capture_last_eb_bill">"தயவு செய்து கடைசி EB பில்லை புகைப்படம் எடுக்கவும்!</string>
+    <string name="please_capture_eb_meter">"தயவு செய்து EB மீட்டரை புகைப்படம் எடுக்கவும்!</string>
+    <string name="choose_connection_status">"மின் இணைப்பு நிலையைத் தேர்ந்தெடுக்கவும்!</string>
+    <string name="please_enter_tank_capacity">தயவு செய்து டேங்க் கொள்ளளவை உள்ளிடவும்!</string>
+    <string name="please_enter_horse_power">தயவுசெய்து குதிரை சக்தியை உள்ளிடவும்!</string>
+    <string name="please_select_motor_type">தயவுசெய்து மோட்டார் வகையைத் தேர்ந்தெடுக்கவும்!</string>
+    <string name="enter_no_of_street_lights">தெரு விளக்குகளின் எண்ணிக்கையை உள்ளிடவும்</string>
+    <string name="your_track_data_synchronized">"உங்கள் தரவு வெற்றிகரமாக பதிவேற்றப்பட்டது</string>
+    <string name="do_u_want_to_upload">இந்தத் தரவைப் பதிவேற்ற விரும்புகிறீர்களா ?</string>
+    <string name="do_u_want_to_delete">இந்தத் தரவை நீக்க விரும்புகிறீர்களா ?</string>
+    <string name="search_by_connection_no">மின் இணைப்பு எண் மூலம் தேடவும்</string>
+    <string name="connection_list">"மின் இணைப்பு பட்டியல்</string>
+    <string name="are_you_sure_logout">"நிச்சயமாக வெளியேற விரும்புகிறீர்களா ?</string>
+    <string name="are_you_sure_exit">நிச்சயமாக நீங்கள் வெளியேற வேண்டுமா ?</string>
+    <string name="logging_out_loss_data">"ஆஃப்லைனில் இருக்கும் போது வெளியேறுவது தரவு இழப்புக்கு வழிவகுக்கும்!</string>
+    <string name="sync_all_the_data_before_logout">வெளியேறும் முன் எல்லா தரவையும் ஒத்திசைக்கவும்!</string>
+    <string name="version">பதிப்பு</string>
+    <string name="please_enter_the_user_name">தயவு செய்து பயனர்பெயரை உள்ளிடவும்</string>
+    <string name="please_enter_the_password">"தயவு செய்து கடவுச்சொல்லை உள்ளிடவும்</string>
+    <string name="please_enter_the_user_name_and_password">தயவு செய்து உங்கள் பயனர்பெயர் மற்றும் கடவுச்சொல்லை உள்ளிடவும்!</string>
+    <string name="please_turn_on_network_or_continue_offline">இணைய இணைப்பு கிடைக்கவில்லை..தயவுசெய்து பிணைய இணைப்பை இயக்கவும் அல்லது ஆஃப்லைன் பயன்முறையில் தொடரவும்..</string>
+    <string name="settings">அமைப்புகள்</string>
+    <string name="continue_with_off_line">ஆஃப்லைனில் தொடரவும்</string>
+    <string name="invalid_user_name_or_password">தவறான பயனர்பெயர் அல்லது கடவுச்சொல்</string>
+    <string name="log_in_again">மீண்டும் உள்நுழைக</string>
+    <string name="no_data_available_for_offline">"ஆஃப்லைனில் தரவு இல்லை. உங்கள் நெட்வொர்க்கை இயக்கவும்</string>
+    <string name="connection_details">"மின் இணைப்பு விவரங்கள்</string>
+    <string name="no_internet_connection">இணைய இணைப்பு இல்லை</string>
+    <string name="you_need_to_update">"நீங்கள் TNEB பதிப்பை புதுப்பிக்க வேண்டும்</string>
+    <string name="this_version_is_no_longer_supported">இந்தப் பதிப்பு இனி ஆதரிக்கப்படாது. அதிகாரப்பூர்வ தளத்திற்குச் சென்று புதிய பதிப்பை நிறுவவும்</string>
+    <string name="update">புதுப்பிக்கவும்</string>
+    <string name="view_details"><u>விபரங்களை பார்க்க</u></string>
+    <string name="details_of_electrical_connections_not_available">TNRD இணையத்தளத்தில் இல்லாத பஞ்சாயத்து  மின் இணைப்புகளின் விவரங்களை பதிவு செய்ய</string>
+    <string name="details_of_electrical_connections_available">TNRD இணையத்தளத்தில் உள்ள பஞ்சாயத்து மின் இணைப்புகளின் விவரங்ககளை பதிவு செய்ய</string>
+    <string name="details_of_electrical_connections_missing">TNRD இணையத்தளத்தில் விடுபட்டுள்ள பஞ்சாயத்து மின் இணைப்புகளின் விவரங்களை பதிவு செய்ய</string>
+    <string name="edit_details"><u>விவரங்களைத் திருத்தவும்</u></string>
+    <string name="update_details"><u>விவரங்களை மாற்ற</u></string>
+    <string name="enter_motor_hp">OHT மோட்டார் ஹெச்பியை உள்ளிடவும்(குதிரை சக்தி)</string>
+    <string name="connection_status">மின் இணைப்பு நிலை</string>
+    <string name="motor_type">மோட்டார் வகை</string>
+    <string name="cus_code">மின் இணைப்பு குறியீட்டு எண்</string>
+    <string name="consumer_name">நுகர்வோர் பெயர்</string>
+    <string name="location">இடம்</string>
+    <string name="purpose_as_per_tneb">TNEB படி நோக்கம்</string>
+    <string name="connection_purpose_details">மின் இணைப்பு நோக்க விவரங்கள்</string>
+    <string name="connection_purpose">இணைப்பு நோக்கங்கள்</string>
+    <string name="street_light_count">தெரு விளக்கு எண்ணிக்கை</string>
+    <string name="tank_capacity_in_ltr">தொட்டி கொள்ளளவு (லிட்டர்)</string>
+    <string name="number_of_works_for_upload">பதிவேற்றம் செய்யப்படவேண்டிய தகவல்களின் எண்ணிக்கை</string>
+    <string name="choose_language">மொழியை தேர்வு செய்யவும்</string>
+    <string name="go">உள்நுழைக</string>
+    <string name="bank_account_details">வங்கி கணக்கு விவரங்களை பதிவு செய்ய</string>
+    <string name="complaint_monitoring">புகார் கண்காணிப்பு</string>
+    <string name="dashboard">டாஷ்போர்டு</string>
+    <string name="select_village">கிராமத்தை தேர்ந்தெடுங்கள்</string>
+    <string name="hint_ifsc">IFSC code</string>
+    <string name="hint_bank_acc_no">வங்கி கணக்கு எண்</string>
+    <string name="hint_bank_confirm_acc_no">வங்கி கணக்கு எண்ணை உறுதிப்படுத்தவும்</string>
+<!--    <string name="software_designed_developed">மென்பொருள் என்ஐசியால் வடிவமைக்கப்பட்டு உருவாக்கப்பட்டுள்ளது</string>-->
+    <string name="software_designed_developed">Software Designed &amp; Developed By NIC</string>
+    <string name="please_enter_bank_account_name">வங்கிக் கணக்கின் பெயரை உள்ளிடவும்</string>
+    <string name="please_enetr_bank_account_number">வங்கி கணக்கு எண்ணை உள்ளிடவும்</string>
+    <string name="please_enetr_confirm_account_number">வங்கி கணக்கு எண்ணை உறுதிப்படுத்தவும்</string>
+    <string name="connection_no">மின் இணைப்பு எண்</string>
+    <string name="name">பெயர்</string>
+    <string name="bank_name">வங்கி பெயர்</string>
+    <string name="bank_branch_name">வங்கிக் கிளையின் பெயர்</string>
+    <string name="connection">மின் இணைப்பு</string>
+    <string name="tnrd_connections">TNRD மின் இணைப்புகள்</string>
+    <string name="add_details">விவரங்களைச் சேர்க்கவும்</string>
+    <string name="enter_connection_no">மின் இணைப்பு எண்ணை உள்ளிடவும்</string>
+    <string name="enter_name">பெயரை உள்ளிடவும்</string>
+    <string name="enter_location">இடத்தை உள்ளிடவும்</string>
+    <string name="enter_purpose_as_per_tneb">TNEB படி பயன்பாட்டினை உள்ளிடவும்</string>
+    <string name="please_valiadte_ifsc_code">IFSC குறியீட்டை சரிபார்க்கவும்!</string>
+    <string name="please_enetr_ifsc_code">IFSC குறியீட்டை உள்ளிடவும்!</string>
+    <string name="please_check_the_account_number">வங்கி கணக்கு எண்ணை சரிபார்க்கவும்!</string>
+
+
+    <string name="take_photo">புகைப்படம் எடு</string>
+    <string name="add_photo">புகைப்படம் சேர்க்க</string>
+    <string name="cancel">ரத்து செய்</string>
+    <string name="choose_from_gallery">கேலரியில் இருந்து தேர்வு செய்யவும்</string>
+    <string name="failed">தோல்வி</string>
+    <string name="no_image">உருவம் இல்லை</string>
+    <string name="values_inserted_successfully">மதிப்புகள் வெற்றிகரமாகச் செருகப்பட்டன</string>
+    <string name="values_updated_successfully">மதிப்புகள் வெற்றிகரமாக புதுப்பிக்கப்பட்டன</string>
+    <string name="images_inserted_successfully">புகைப்படங்கள் வெற்றிகரமாகச் செருகப்பட்டன</string>
+    <string name="images_updated_successfully">புகைப்படங்கள் வெற்றிகரமாக புதுப்பிக்கப்பட்டன</string>
+
+    <string name="upload_photo">புகைப்படத்தைப் பதிவேற்றவும்</string>
+    <string name="edit_photo">புகைப்படத்தைத் திருத்து</string>
+    <string name="select_mini_motor_type">மினி மோட்டார் வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="enter_mini_motor_hp">மினி மோட்டார் ஹெச்பி (குதிரை சக்தி) உள்ளிடவும்</string>
+    <string name="enter_mini_tank_capacity_in_ltr">மினி மோட்டார் டேங்க் கொள்ளளவை உள்ளிடவும் (லிட்டரில்)</string>
+    <string name="Tank">OHT தொட்டி</string>
+    <string name="mini_Tank">M தொட்டி</string>
+    <string name="mini_motor">M மோட்டார்</string>
+    <string name="Enter_Land_Mark">இடத்தை உள்ளிடவும்</string>
+
+    <string name="oht_motor_image">OHT மோட்டார்</string>
+    <string name="mini_horse_power">மோட்டார் குதிரை சக்தி</string>
+    <string name="mini_motor_type">மோட்டார் வகை</string>
+    <string name="mini_tank_capacity">டேங்க் கொள்ளளவு (லிட்டர்)</string>
+
+    <string name="mini_motor_land_mark">மோட்டார் நில எல்லைக்குறி</string>
+    <string name="oht_motor_land_mark">மோட்டார் நில எல்லைக்குறி</string>
+    <string name="add_bank">சேர்க்கவும்</string>
+    <string name="added_bank">சேர்க்கப்பட்டது</string>
+
+    <string name="district">மாவட்டம்</string>
+    <string name="designation">பதவி பெயர்</string>
+    <string name="user_name">பெயர்</string>
+    <string name="block">வட்டாரம்</string>
+    <string name="village">கிராம ஊராட்சி</string>
+    <string name="number_of_connections">இணைப்புகளின் எண்ணிக்கை</string>
+    <string name="mini_oht_details">மினி OHT விவரங்கள்</string>
+    <string name="oht_details">OHT விவரங்கள்</string>
+    <string name="valid_connection">மேற்கண்ட மின்னிணைப்பு ஊராட்சிக்கு சொந்தமனாது என்று உறுதி செய்கிறேன்</string>
+    <string name="invalid_connection">மேற்கண்ட மின்னிணைப்பு ஊராட்சிக்கு சொந்தமில்லாதது என்று உறுதி செய்கிறேன்</string>
+    <string name="valid_connection_disconnected">மேற்கண்ட மின்னிணைப்பு நீண்ட நாட்களாக பயன்படுத்தப்படவில்லை என்று உறுதி செய்கிறேன்</string>
+    <string name="eb_meter_available_status">மின் மீட்டர் உள்ளதா?</string>
+    <string name="eb_meter_available_status_text">மின் மீட்டர் நிலை</string>
+    <string name="yes">ஆம்</string>
+    <string name="no">இல்லை</string>
+    <string name="please_choose_eb_meter_available_status">தயவு செய்து மின் மீட்டர் நிலையை தேர்வு செய்யவும்</string>
+    <string name="enter_number_of_tank_count">தொட்டி எண்ணை உள்ளிடவும்</string>
+    <string name="mini_connected_tank_counts">மோட்டருடன் இணைக்கப்பட்ட தொட்டி எண்ணிக்கை</string>
+    <string name="log_in_header_1">ஊரக வளர்ச்சி மற்றும் ஊராட்சி துறை</string>
+    <string name="log_in_header_2">மின் இணைப்பு , குடிநீர் மோட்டார் மற்றும்</string>
+    <string name="log_in_header_3">கணக்கெடுப்பு செயலி</string>
+
+    <string name="select_mini_oht_horse_power">மினி OHT மோட்டார் குதிரை சக்தியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_oht_horse_power">OHT மோட்டார் குதிரை சக்தியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_oht_tank_capacity">OHT மோட்டார் டேங்க் கொள்ளளவை தேர்ந்தெடுக்கவும்</string>
+    <string name="select_mini__oht_tank_capacity">மினி மோட்டார் டேங்க் கொள்ளளவை தேர்ந்தெடுக்கவும்</string>
+    <string name="please_capture_mini_oht_motor">தயவு செய்து மினி OHT மோட்டாரைப் புகைப்படம் எடுக்கவும்!</string>
+    <string name="please_capture_oht_motor">தயவு செய்து OHT மோட்டாரைப் புகைப்படம் எடுக்கவும்!</string>
+    <string name="please_capture_glr_motor">தயவு செய்து GLR மோட்டாரைப் புகைப்படம் எடுக்கவும்!</string>
+    <string name="please_capture_mini_power_pump_motor">தயவு செய்து மினி பவர் பம்ப் மோட்டாரைப் புகைப்படம் எடுக்கவும்!</string>
+    <string name="please_enter_land_mark">தயவுசெய்து நில அடையாளத்தை உள்ளிடவும்</string>
+
+
+    <string name="select_glr_motor_type">Select GLR Motor Type</string>
+    <string name="select_power_pump_motor_type">Select Power Pump Motor Type</string>
+    <string name="please_enter_oht_connected_tank_counts">OHT மோட்டருடன் இணைக்கப்பட்ட டேங்க் எண்ணிக்கையின் எண்ணை உள்ளிடவும்</string>
+    <string name="please_enter_mini_oht_connected_tank_counts">Mini OHT மோட்டருடன் இணைக்கப்பட்ட டேங்க் எண்ணிக்கையின் எண்ணை உள்ளிடவும்</string>
+    <string name="please_enter_glr_motor_connected_tank_counts">GLR மோட்டருடன் இணைக்கப்பட்ட டேங்க் எண்ணிக்கையின் எண்ணை உள்ளிடவும்</string>
+    <string name="please_enter_mini_power_pump_connected_tank_counts">Mini Power Pump மோட்டருடன் இணைக்கப்பட்ட டேங்க் எண்ணிக்கையின் எண்ணை உள்ளிடவும்</string>
+
+    <string name="select_motor_type_">மோட்டார் வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_motor_hp_">மோட்டார் ஹெச்பி (குதிரை சக்தி) தேர்ந்தெடுக்கவும்</string>
+    <string name="select_tank_capacity_">தொட்டி கொள்ளளவை (லிட்டரில்) தேர்ந்தெடுக்கவும்</string>
+
+    <string name="glr_details_heading">GLR விவரங்கள்</string>
+    <string name="mini_power_pump_details_heading">மினி பவர் பம்ப் விவரங்கள்</string>
+    <string name="grl_motor_image">GRL மோட்டார்</string>
+    <string name="mini_power_pump_motor_image">மினி பவர் பம்ப் மோட்டார்</string>
+    <string name="habitation">குக்கிராமம்</string>
+
+    <string name="connection_deleted_successfully">இணைப்பு வெற்றிகரமாக நீக்கப்பட்டது</string>
+    <string name="mini_oht_without_water_tank">மினி OHT Without Water Tank</string>
+
+    <string name="all">அனைத்தும்</string>
+    <string name="taken">எடுக்கப்பட்டது</string>
+    <string name="not_taken">எடுக்கப்படாதது</string>
+    <string name="please_uplaod_all_data">எல்லா தரவையும் பதிவேற்றவும்</string>
+    <string name="habitation_activity">Whether Drinking Water was Supplied to the Habitation</string>
+    <string name="full_supply">Full Supply</string>
+    <string name="partial_supply">Partial Supply</string>
+    <string name="no_supply">No Supply</string>
+    <string name="total_no_of_trips">Total No.of Trips</string>
+    <string name="water_supply_liter">Water Supply Liter</string>
+    <string name="amount">Amount</string>
+    <string name="water_supply_details">Water Supply Details</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="your_habitation">Your Habitation</string>
+    <string name="select_reason">Select Reason</string>
+    <string name="select_water_supply_through">Select Water Supply through</string>
+    <string name="reason">Reason</string>
+    <string name="water_supply_through">Water Supply Through</string>
+
+
+
+</resources>

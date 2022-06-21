@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.SplashScreen" />
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.nic.tnebnewwatersource.activity.SplashScreen">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@mipmap/tamilnadu_logo"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/headtext"
+            style="@style/font_circular_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Rural Development &amp; Panchayat Raj Department"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+        <TextView
+            android:id="@+id/headtext1"
+            android:layout_marginTop="@dimen/_5sdp"
+            style="@style/font_circular_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headtext"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Village Panchayat Electricity Consumption  Monitoring System"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+        <TextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/headtext2"
+            style="@style/font_circular_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headtext1"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Survey of TNEB Meter, Water Supply Motor and OHT"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

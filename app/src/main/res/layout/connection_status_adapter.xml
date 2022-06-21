@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.adapter.ConnectionStatusAdapter" />
+    </data>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:id="@+id/card_view"
+            app:cardElevation="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/connection_list_item">
+
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_80sdp"
+                android:id="@+id/left3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Connect"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/arrow_layout"
+                    android:id="@+id/connection_status"
+                    android:textColor="@color/grey_8"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/_80sdp"
+
+                    android:id="@+id/arrow_layout">
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/arrow_ic"
+                        android:padding="@dimen/_5sdp"
+                        android:rotation="90"
+                        android:tint="@color/white"
+                        android:src="@drawable/arrow_double"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+</layout>

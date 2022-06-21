@@ -1,0 +1,2036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.ViewImagesActivity" />
+    </data>
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:id="@+id/tool_bar"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:id="@+id/back_img"
+            android:src="@drawable/back"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:padding="0dp"
+            android:layout_centerVertical="true"></ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/back_img"
+            android:layout_toLeftOf="@+id/home"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_40sdp"
+            android:text="Images"
+            android:textStyle="bold"></TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            androidadding="6dp"
+            android:visibility="gone"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/home"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/home_img" />
+
+
+    </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_below="@id/tool_bar">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:id="@+id/connection_details_layout"
+            android:background="@color/transparent_black_hex_1"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:background="@drawable/cornered_left_bottom_bg">
+                <TextView
+                    android:id="@+id/connection_number_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Connection No : 35646456"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_11sdp"
+                    android:textColor="@color/white"
+                    />
+
+            </RelativeLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:visibility="visible"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/images_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/connection_status_layout"
+                        android:background="@drawable/elevation_top_bottom_lite_bg_white"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        >
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbarSize="0dp"
+    android:id="@+id/images">
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eb_meter_img_layout">
+
+            <ImageView
+                android:id="@+id/eb_meter_img"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg1"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/eb_meter"
+                android:id="@+id/eb_meter_img_txt"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/eb_meter_img"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eb_bill_img_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg2"
+                android:visibility="visible"
+                android:id="@+id/eb_bill_img"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/last_eb_bill"
+                android:id="@+id/eb_bill_img_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/eb_bill_img"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eb_card_img_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/eb_card_img"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/eb_card"
+                android:id="@+id/eb_card_img_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/eb_card_img"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mini_oht_motor_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/mini_oht_motor_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mini OHT Motor"
+                android:id="@+id/mini_oht_motor_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_oht_motor_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mini_oht_motor_number"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_oht_motor_image_txt"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/oht_motor_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/oht_motor_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/oht_motor_image"
+                android:id="@+id/oht_motor_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/oht_motor_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/oht_motor_number"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/oht_motor_image_txt"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/oht_tank_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/oht_tank_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/oht_motor_image"
+                android:id="@+id/oht_tank_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/oht_tank_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/mini_oht_tank_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/mini_oht_tank_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/oht_motor_image"
+                android:id="@+id/mini_oht_tank_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_oht_tank_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grl_motor_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/grl_motor_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/grl_motor_image"
+                android:id="@+id/grl_motor_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/grl_motor_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/grl_motor_number"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/grl_motor_image_txt"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mini_power_pump_motor_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/mini_power_pump_motor_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mini_power_pump_motor_image"
+                android:id="@+id/mini_power_pump_motor_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_power_pump_motor_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mini_power_pump_motor_number"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_power_pump_motor_image_txt"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mini_with_out_oht_motor_image_layout">
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/bg3"
+                android:visibility="visible"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/mini_with_out_oht_motor_image"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mini_oht_without_water_tank"
+                android:id="@+id/mini_with_out_oht_motor_image_txt"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_with_out_oht_motor_image"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mini_with_out_oht_motor_number"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mini_with_out_oht_motor_image_txt"
+                android:textStyle="bold"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</HorizontalScrollView>
+
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/connection_status"
+                            android:textSize="@dimen/_11sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColor="@color/black" />
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:id="@+id/left3">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Connect"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/connection_status"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_7sdp"                    android:layout_toLeftOf="@+id/arrow_layout"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:background="@color/accept"
+                            android:id="@+id/arrow_layout">
+                            <ImageView
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_42sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/arrow_ic"
+                                android:padding="@dimen/_5sdp"
+                                android:rotation="90"
+                                android:tint="@color/white"
+                                android:src="@drawable/arrow_double"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                   <!-- <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:id="@+id/changePasswordLayout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="1dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connected"
+                            android:id="@+id/connection_status"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:id="@+id/reset_password_layout"
+                            android:gravity="end">
+
+                            <ImageView
+                                android:id="@+id/arrow_ic"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="end"
+                                android:layout_marginEnd="10dp"
+                                android:padding="4dp"
+                                android:tint="@color/accept"
+                                android:rotation="90"
+                                app:srcCompat="@drawable/arrow_double" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/connection_details"
+                            android:textSize="@dimen/_11sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColor="@color/black" />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_11sdp"
+                        android:weightSum="2"
+                        android:id="@+id/meter_available_status_layout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/eb_meter_available_status_text"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:id="@+id/meter_available_status"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_11sdp"
+                        android:weightSum="2"
+                        android:id="@+id/connection_cus_code_layout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cus_code"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:id="@+id/cus_code"
+                            android:layout_height="wrap_content"
+                            android:text="Connection Purpose"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_11sdp"
+                        android:weightSum="2"
+                        android:id="@+id/consumer_name_layout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/consumer_name"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:id="@+id/consumer_name"
+                            android:layout_height="wrap_content"
+                            android:text="consumer_name"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_11sdp"
+                        android:weightSum="2"
+                        android:id="@+id/location_layout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/location"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:id="@+id/location"
+                            android:layout_height="wrap_content"
+                            android:text="location"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_11sdp"
+                        android:weightSum="2"
+                        android:id="@+id/purpose_as_per_tneb_layout"
+                        android:background="@color/white"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/purpose_as_per_tneb"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:id="@+id/purpose_as_per_tneb"
+                            android:layout_height="wrap_content"
+                            android:text="purpose"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/purpose_details_layout"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/connection_purpose_details"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+                        </RelativeLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/connection_purpose_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/connection_purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/connection_purpose"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/no_of_street_light_count_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/street_light_count"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/street_light_count"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/oht_details_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/oht_details"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/motor_type_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/motor_type"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/motor_type"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/tank_capacity_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tank_capacity_in_ltr"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/tank_capacity"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/tank_count_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_connected_tank_counts"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/tank_count"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/horse_power_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/horse_power"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/horse_power"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/oht_motor_land_mark_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oht_motor_land_mark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/oht_motor_land_mark"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/mini_oht_details_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/mini_oht_details"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_motor_type_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_motor_type"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_motor_type"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_tank_capacity_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_tank_capacity"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_tank_capacity"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_tank_count_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_connected_tank_counts"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_tank_count"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_horse_power_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_horse_power"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_horse_power"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_motor_land_mark_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_motor_land_mark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_motor_land_mark"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/glr_details_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/glr_details_heading"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/glr_motor_type_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/motor_type"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/glr_motor_type"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/glr_tank_capacity_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tank_capacity_in_ltr"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/glr_tank_capacity"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/glr_tank_count_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_connected_tank_counts"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/glr_tank_count"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/glr_horse_power_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/horse_power"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/glr_horse_power"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/glr_motor_land_mark_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oht_motor_land_mark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/glr_motor_land_mark"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/mini_power_pump_details_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/mini_power_pump_details_heading"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_power_pump_motor_type_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/motor_type"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_power_pump_motor_type"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_power_pump_tank_capacity_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tank_capacity_in_ltr"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_power_pump_tank_capacity"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_power_pump_tank_count_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mini_connected_tank_counts"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_power_pump_tank_count"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_power_pump_horse_power_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/horse_power"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_power_pump_horse_power"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_power_pump_motor_land_mark_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oht_motor_land_mark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_power_pump_motor_land_mark"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/mini_with_out_oht_details_heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="@string/mini_oht_without_water_tank"
+                                android:textSize="@dimen/_11sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/black" />
+
+
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_with_out_oht_motor_type_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/motor_type"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_with_out_oht_motor_type"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_with_out_oht_horse_power_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/horse_power"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_with_out_oht_horse_power"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_11sdp"
+                            android:weightSum="2"
+                            android:id="@+id/mini_with_out_oht_motor_land_mark_layout"
+                            android:background="@color/white"
+                            android:layout_marginBottom="2dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oht_motor_land_mark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:id="@+id/mini_with_out_oht_motor_land_mark"
+                                android:layout_height="wrap_content"
+                                android:text="Connection Purpose"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="end"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:id="@+id/ll1">
+            <LinearLayout
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/eb_meter_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/eb_meter_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/eb_meter_image"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/eb_meter_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/eb_meter"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/last_eb_bill_image_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/eb_meter_capture_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/last_eb_bill_image"
+                        android:scaleType="centerCrop"></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/eb_meter_capture_1"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_eb_bill"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/eb_meter_card_image_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/eb_meter_capture_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/eb_meter_card_image"
+                        android:scaleType="centerCrop"></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/eb_meter_capture_2"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/eb_card"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/oht_motor_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/oht_motor_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/oht_motor_image_ll1"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/oht_motor_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/motor"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/mini_oht_motor_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/mini_oht_motor_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/mini_oht_motor_image_ll1"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/mini_oht_motor_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mini_motor"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/grl_motor_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/grl_motor_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/grl_motor_image_ll1"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/grl_motor_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/grl_motor_image"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/mini_power_pump_motor_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/mini_power_pump_motor_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/mini_power_pump_motor_image_ll1"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/mini_power_pump_motor_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mini_power_pump_motor_image"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:id="@+id/mini_with_out_oht_motor_capture_layout"
+                    android:background="@drawable/eb_meter_capture_bg">
+                    <ImageView
+                        android:layout_above="@+id/mini_with_out_oht_motor_capture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/mini_with_out_oht_motor_image_ll1"
+                        android:scaleType="centerCrop"
+                        ></ImageView>
+
+                    <RelativeLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/mini_with_out_oht_motor_capture"
+                        android:background="@drawable/circle_bg_new1">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mini_oht_without_water_tank"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"></TextView>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+</layout>

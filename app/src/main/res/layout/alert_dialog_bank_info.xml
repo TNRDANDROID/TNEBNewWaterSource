@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customfontdemo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/close_icon"
+            android:id="@+id/card_close_icon"></ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/account_details_layout"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginBottom="@dimen/_7sdp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/acc_no_layout_view"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/account_number_label"
+                    android:text="@string/hint_bank_acc_no"></TextView>
+                <TextView
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_toRightOf="@id/account_number_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11321432443243"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/account_number"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_below="@id/acc_no_layout_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bank_branch_layout"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bank_branch_label"
+                    android:text="@string/bank_branch_name"></TextView>
+                <TextView
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_below="@id/bank_branch_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="State Bank of India &amp; Thirumangalam Branch"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/bank_branch_value"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_below="@id/bank_branch_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ifsc_layout"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ifsc_label"
+                    android:text="@string/hint_ifsc"></TextView>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_toRightOf="@id/ifsc_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11321432443243"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/ifsc_code_value"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_below="@id/ifsc_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_layout"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name_label"
+                    android:text="@string/name"></TextView>
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_toRightOf="@id/name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11321432443243"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/name"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:id="@+id/verified_layout"
+                android:background="@drawable/verified_bg"
+                android:layout_below="@+id/name_layout">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/verified"
+                    android:text="verified"></TextView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

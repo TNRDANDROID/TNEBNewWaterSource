@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:customfontdemo="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.LoginScreen" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/new_bg_for_log_in_page_gradient"
+        >
+
+        <include
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_layout"
+            layout="@layout/log_in_header_page"></include>
+
+        <include
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_layout"
+            layout="@layout/log_in_bootom_page"></include>
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/img_rll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:id="@+id/relative1"
+                >
+                <ImageView
+                    android:id="@+id/ivIlls"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:src="@mipmap/tamilnadu_logo" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/tv_version_nic_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom">
+
+
+
+            <TextView
+                android:id="@+id/tv_version_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="adaadadadad"
+                android:layout_above="@+id/nic_name"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/nic_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:layout_alignParentBottom="true"
+                android:text="Software Designed &amp; Developed by NIC"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/log_in_details_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_7sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp">
+            <ScrollView
+                android:visibility="visible"
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_gravity="top|center"
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:padding="2dp"
+                        android:text="Tamil Nadu Government"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        customfontdemo:fontName="@string/font_circular_medium" />
+
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:id="@+id/dpt"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rd"
+                        android:text="for_official_use"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        customfontdemo:fontName="@string/font_circular_medium" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:id="@+id/ll1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bg_for_user_pass_rect_curve"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginEnd="10dp"                                    android:layout_marginTop="@dimen/padding"
+                                            android:text="username"
+                                            android:textColor="@color/grey_9"
+                                            android:textSize="@dimen/_15sdp"
+                                            android:visibility="gone"
+                                            customfontdemo:fontName="@string/font_circular_medium" />
+
+                                        <LinearLayout
+                                            android:id="@+id/ivItemOne"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:orientation="horizontal">
+
+
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/_40sdp"
+                                                android:orientation="vertical">
+
+                                                <com.google.android.material.textfield.TextInputLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    app:hintEnabled="false"
+                                                    android:id="@+id/userNameTXINP"
+                                                    app:boxStrokeColor="@android:color/white"
+                                                    android:layout_toLeftOf="@+id/user_img"
+                                                    app:boxStrokeWidth="0dp"
+                                                    android:layout_centerVertical="true"
+                                                    app:boxBackgroundColor="@android:color/transparent"
+                                                    android:padding="0dp"
+                                                    android:hint="Username">
+
+                                                    <com.google.android.material.textfield.TextInputEditText
+                                                        android:id="@+id/username"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="40dp"
+                                                        android:background="@android:color/transparent"
+                                                        android:inputType="textPersonName"
+                                                        android:padding="0dp"
+                                                        android:textColorHint="@color/grey_9"
+                                                        android:hint="Username"
+                                                        />
+
+                                                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                                                <ImageView
+                                                    android:id="@+id/user_img"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_marginRight="@dimen/_9sdp"
+                                                    android:background="@drawable/usernamebg" />
+
+
+                                            </RelativeLayout>
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:visibility="gone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:background="@color/grey"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:background="@drawable/bg_for_user_pass_rect_curve"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginEnd="10dp"                                    android:layout_marginTop="@dimen/padding"
+                                            android:text="password"
+                                            android:textColor="@color/grey_9"
+                                            android:textSize="@dimen/_15sdp"
+                                            android:visibility="gone"
+                                            customfontdemo:fontName="@string/font_circular_medium" />
+
+                                        <LinearLayout
+                                            android:id="@+id/ivItemTwo"
+                                            android:layout_below="@+id/ivItemOne"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_marginEnd="10dp"
+
+                                            android:orientation="horizontal">
+
+
+                                            <RelativeLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/_40sdp"
+                                                android:orientation="vertical">
+
+                                                <com.google.android.material.textfield.TextInputLayout
+                                                    android:layout_centerVertical="true"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    app:endIconMode="password_toggle"
+                                                    app:endIconTint="@color/grey_7"
+                                                    android:hint="password"
+                                                    app:hintEnabled="false"
+                                                    app:boxStrokeColor="@android:color/white"
+                                                    app:boxStrokeWidth="0dp"
+                                                    app:boxBackgroundColor="@android:color/transparent"
+                                                    android:padding="0dp"
+                                                    android:textColor="@android:color/black">
+
+                                                    <com.google.android.material.textfield.TextInputEditText
+                                                        android:id="@+id/password"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="40dp"
+                                                        android:background="@android:color/transparent"
+                                                        android:padding="0dp"
+                                                        android:longClickable="false"
+                                                        android:hint="Password"
+                                                        android:textColorHint="@color/grey_9"
+                                                        android:inputType="textPassword"/>
+
+                                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                                            </RelativeLayout>
+
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:visibility="gone"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.5dp"
+                                        android:background="@color/grey"/>
+
+                                </LinearLayout>
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/grad_curve"
+                                    android:gravity="center"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:layout_below="@+id/ll1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_gravity="center_horizontal"
+                                    >
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/_10sdp"
+                                        android:paddingLeft="@dimen/_20sdp"
+                                        android:paddingRight="@dimen/_20sdp"
+                                        android:id="@+id/btnBuy"
+                                        android:text="Login"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/_15sdp"
+                                        android:textColor="@color/white"
+                                        android:onClick="@{()-> activity.checkLoginScreen()}"
+                                        />
+
+                                </RelativeLayout>
+
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:customfontdemo="http://schemas.android.com/tools">
+
+        <data>
+            <variable
+                name="activity"
+                type="com.nic.tneb.activity.LoginScreen" />
+        </data>
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/grad"
+            >
+
+            <ScrollView
+                android:visibility="visible"
+                android:id="@+id/scroll_view"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:id="@+id/relative1"
+                        >
+                        <ImageView
+                            android:id="@+id/ivIlls"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@mipmap/tamilnadu_logo" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/cornered_border_bg_strong_right"
+                        android:layout_marginRight="@dimen/_30sdp"
+                        android:paddingBottom="@dimen/_40sdp"
+                        android:paddingTop="@dimen/_30sdp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_gravity="top|center"
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:padding="2dp"
+                            android:text="Tamil Nadu Government"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold"
+                            customfontdemo:fontName="@string/font_circular_medium" />
+
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:id="@+id/dpt"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rd"
+                            android:text="for_official_use"
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            customfontdemo:fontName="@string/font_circular_medium" />
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    >
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingTop="20dp"
+                                        android:paddingBottom="20dp"
+                                        android:paddingLeft="20dp"
+                                        android:paddingRight="20dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/colorPrimaryLite"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginEnd="10dp"                                    android:layout_marginTop="@dimen/padding"
+                                                android:text="username"
+                                                android:textColor="@color/grey_9"
+                                                android:textSize="@dimen/_15sdp"
+                                                android:visibility="gone"
+                                                customfontdemo:fontName="@string/font_circular_medium" />
+
+                                            <LinearLayout
+                                                android:id="@+id/ivItemOne"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginEnd="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:orientation="horizontal">
+
+
+                                                <RelativeLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <com.google.android.material.textfield.TextInputLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        app:hintEnabled="false"
+                                                        android:id="@+id/userNameTXINP"
+                                                        app:boxStrokeColor="@android:color/white"
+                                                        android:layout_toLeftOf="@+id/user_img"
+                                                        app:boxStrokeWidth="0dp"
+                                                        app:boxBackgroundColor="@android:color/transparent"
+                                                        android:padding="0dp"
+                                                        android:hint="Username">
+
+                                                        <com.google.android.material.textfield.TextInputEditText
+                                                            android:id="@+id/username"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="40dp"
+                                                            android:background="@android:color/transparent"
+                                                            android:inputType="textPersonName"
+                                                            android:padding="0dp"
+                                                            android:textColorHint="@color/grey_9"
+                                                            android:hint="Username"
+                                                            />
+
+                                                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                                                    <ImageView
+                                                        android:id="@+id/user_img"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_alignParentEnd="true"
+                                                        android:layout_centerVertical="true"
+                                                        android:layout_margin="@dimen/_5sdp"
+                                                        android:background="@drawable/usernamebg" />
+
+
+                                                </RelativeLayout>
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.5dp"
+                                            android:background="@color/grey"/>
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_10sdp"
+                                            android:background="@color/colorPrimaryLite"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginEnd="10dp"                                    android:layout_marginTop="@dimen/padding"
+                                                android:text="password"
+                                                android:textColor="@color/grey_9"
+                                                android:textSize="@dimen/_15sdp"
+                                                android:visibility="gone"
+                                                customfontdemo:fontName="@string/font_circular_medium" />
+
+                                            <LinearLayout
+                                                android:id="@+id/ivItemTwo"
+                                                android:layout_below="@+id/ivItemOne"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginEnd="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:orientation="horizontal">
+
+
+                                                <RelativeLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <com.google.android.material.textfield.TextInputLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        app:endIconMode="password_toggle"
+                                                        app:endIconTint="@color/grey_7"
+                                                        android:hint="password"
+                                                        app:hintEnabled="false"
+                                                        app:boxStrokeColor="@android:color/white"
+                                                        app:boxStrokeWidth="0dp"
+                                                        app:boxBackgroundColor="@android:color/transparent"
+                                                        android:padding="0dp"
+                                                        android:textColor="@android:color/black">
+
+                                                        <com.google.android.material.textfield.TextInputEditText
+                                                            android:id="@+id/password"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="40dp"
+                                                            android:background="@android:color/transparent"
+                                                            android:padding="0dp"
+                                                            android:longClickable="false"
+                                                            android:hint="Password"
+                                                            android:textColorHint="@color/grey_9"
+                                                            android:inputType="textPassword"/>
+
+                                                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                                                </RelativeLayout>
+
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.5dp"
+                                            android:background="@color/grey"/>
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/grad_curve"
+                                android:gravity="center"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_10sdp"
+                                    android:paddingLeft="@dimen/_20sdp"
+                                    android:paddingRight="@dimen/_20sdp"
+                                    android:id="@+id/btnBuy"
+                                    android:text="Login"
+                                    android:textStyle="bold"
+                                    android:textSize="@dimen/_15sdp"
+                                    android:textColor="@color/white"
+                                    android:onClick="@{()-> activity.checkLoginScreen()}"
+                                    />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/tv_version_nic_name_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_gravity="bottom">
+
+
+
+                        <TextView
+                            android:id="@+id/tv_version_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="adaadadadad"
+                            android:layout_above="@+id/nic_name"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/nic_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_10sdp"
+                            android:layout_alignParentBottom="true"
+                            android:text="Sofware Designed &amp; Developed by NIC"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_15sdp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </ScrollView>
+        </RelativeLayout>
+
+    </layout>-->
+
+
+
+
+

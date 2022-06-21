@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/tv_version_nic_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <LinearLayout
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:id="@+id/images_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/oht"
+                    android:layout_centerInParent="true"></de.hdodenhof.circleimageview.CircleImageView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mini_power_pumb"
+                    android:layout_centerInParent="true"></de.hdodenhof.circleimageview.CircleImageView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ebmeter"
+                    android:layout_centerInParent="true"></de.hdodenhof.circleimageview.CircleImageView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/glr"
+                    android:layout_centerInParent="true"></de.hdodenhof.circleimageview.CircleImageView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:padding="@dimen/_5sdp"
+            android:layout_below="@+id/images_layout"
+            android:id="@+id/tv_version_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="adaadadadad"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/nic_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_version_number"
+            android:text="Software Designed &amp; Developed by NIC"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_15sdp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.adapter.TypeOfBankDetailsAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/connection_list_item">
+
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cornered_border_bg_strong"
+                android:id="@+id/left3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Connect"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:id="@+id/connection_status"
+                    android:layout_toLeftOf="@+id/info_icon"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/grey_8"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/info_icon"
+                    android:src="@drawable/bank_icon"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_toLeftOf="@+id/arrow_layout"></ImageView>
+
+                <RelativeLayout
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/mild_green_pendind_adapter_bg"
+                    android:id="@+id/arrow_layout">
+                    <TextView
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:id="@+id/arrow_ic"
+                        android:text="Added"
+                        android:tint="@color/white"
+                        android:src="@drawable/arrow_double"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

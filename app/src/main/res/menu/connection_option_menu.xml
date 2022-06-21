@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/eb_connection"
+        android:title="EB Connection" />
+    <item android:id="@+id/water_connection"
+        android:title="Water Connection"
+         />
+    <item android:id="@+id/sample_connection"
+        android:title="Sample Connection" />
+</menu>

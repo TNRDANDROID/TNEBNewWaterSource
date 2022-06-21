@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.ComplaintMonitoringActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context="com.nic.tnebnewwatersource.activity.HomePage">
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/colorPrimary">
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/back_img"
+                android:src="@drawable/back"
+                android:onClick="@{()-> activity.onBackPressed()}"
+                android:padding="0dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_centerVertical="true"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/complaint_monitoring"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                style="@style/font_circular_bold"/>
+
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:id="@+id/home_icon"
+                android:src="@mipmap/home_img"
+                android:tint="@color/white"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:padding="5dp"></ImageView>
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin"
+            android:text="This feature is under process"
+            android:textColor="@color/grey_10"
+            android:textSize="@dimen/_13sdp"
+            />
+
+
+<!--
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scroll_view"
+                    android:background="@color/white"
+                    android:layout_above="@+id/textView1"
+                    android:layout_below="@id/header_layout">
+                    <LinearLayout
+                        android:id="@+id/linlay1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+                </ScrollView>
+-->
+
+    </RelativeLayout>
+</layout>

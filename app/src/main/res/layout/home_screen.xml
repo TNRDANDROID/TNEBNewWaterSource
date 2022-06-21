@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.nic.tnebnewwatersource.activity.HomePage" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+
+        tools:context="com.nic.tnebnewwatersource.activity.HomePage">
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin"
+                android:text="Home Page"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                style="@style/font_circular_bold"/>
+
+            <ImageView
+                android:id="@+id/log_out"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                android:onClick="@{()-> activity.logout()}"
+                android:scaleType="centerInside"
+                android:src="@mipmap/log_out" />
+
+
+        </RelativeLayout>
+
+        <!--
+                <LinearLayout
+                    android:id="@+id/linlay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rellay1"
+                    android:background="@drawable/card_bg"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_marginRight="@dimen/_7sdp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/left3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginLeft="-28dp"
+                            android:rotation="90"
+                            android:layout_toRightOf="@+id/activity_name"
+                            android:src="@drawable/play_cornered"
+                            android:tint="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/activity_name"
+                            style="@string/font_circular_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                            android:gravity="center"
+
+                            android:minLines="2"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:text="Pending works for Upload"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </RelativeLayout>
+
+                    &lt;!&ndash;
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Pending works for Upload"
+                            android:textAlignment="center"
+                            android:textColor="@color/grey_9"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </RelativeLayout>
+        &ndash;&gt;
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/elevation_bottom_lite_bg_white"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/pendingCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingLeft="@dimen/_7sdp"
+                            android:paddingTop="@dimen/_7sdp"
+                            android:paddingRight="@dimen/_7sdp"
+                            android:paddingBottom="@dimen/_7sdp"
+                            android:text="87555555555453"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+        -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:id="@+id/header_img"
+            android:background="@drawable/bottom_curve_bg"
+            android:layout_below="@+id/header_layout"/>
+
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-70dp"
+            android:layout_below="@+id/header_img"
+            android:paddingBottom="10dp">
+
+            <RelativeLayout
+                android:id="@+id/imgUser_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_shadow">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"
+                    android:padding="0dp"
+                    android:id="@+id/user_img"
+                    android:src="@drawable/user_color"
+                    />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/edit_text_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgUser_layout"
+                android:text="@string/edit_photo"
+                android:onClick="@{()-> activity.getPerMissionCapture()}"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scroll_view"
+            android:background="@color/white"
+            android:layout_above="@+id/textView1"
+            android:layout_below="@id/rellay1">
+            <LinearLayout
+                android:id="@+id/linlay1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/district_new_icon"
+                        android:id="@+id/img11"
+                        android:padding="@dimen/_6sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/district_name"
+                        android:layout_toEndOf="@+id/img11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/block_new_icon"
+                        android:id="@+id/img21"
+                        android:padding="@dimen/_6sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/block_name"
+                        android:layout_toRightOf="@+id/img21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/village_new_icon"
+                        android:id="@+id/img31"
+                        android:padding="@dimen/_6sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/village_name"
+                        android:layout_toRightOf="@+id/img31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/user_icon"
+                        android:id="@+id/img1"
+                        android:padding="@dimen/_6sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_toRightOf="@+id/img1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="Joey Tribbiani"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_designation"
+                        android:id="@+id/img2"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/designation"
+                        android:layout_toRightOf="@+id/img2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="new york, usa"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/language"
+                        android:id="@+id/img4"
+                        android:padding="@dimen/_4sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/choose_language"
+                        android:layout_toRightOf="@+id/img4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="@string/choose_language"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:id="@+id/linear"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/view_housing_works"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingLeft="@dimen/_30sdp"
+                            android:paddingRight="@dimen/_30sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/view_works_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/grad"
+                            android:onClick="@{()-> activity.viewDashboard()}"
+                            android:text="@string/go"
+                            android:textAlignment="center"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-light"
+                            android:text="View Works"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:visibility="gone"/>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/view_works_tv"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="15dp"
+                            android:visibility="gone"
+                            android:background="@color/grey" />
+                        <!--<RelativeLayout
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_toRightOf="@+id/view_works_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sync_layout"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+                            <Button
+                                android:id="@+id/sync"
+                                android:layout_width="120dp"
+                                android:layout_height="35dp"
+                                android:layout_marginBottom="@dimen/margin"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="@dimen/margin"
+                                android:layout_marginRight="@dimen/margin"
+                                android:background="@drawable/grad_curve"
+                                android:onClick="@{()-> activity.openPendingScreen()}"
+                                android:text="Sync Data"
+                                android:textAlignment="center"
+                                android:clickable="true"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp"
+                                />
+
+
+                        </RelativeLayout>-->
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pending_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:onClick="@{()-> activity.openPendingScreen()}"
+                    android:background="@drawable/elevation_bottom_lite_bg_white">
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/report"
+                        android:id="@+id/img3"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/pending_name"
+                        android:layout_toRightOf="@+id/img3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="@string/number_of_works_for_upload"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"  />
+                    <RelativeLayout
+                        android:layout_toRightOf="@+id/pending_name"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sync_layout"
+                        android:layout_centerVertical="true"
+                        android:visibility="visible"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/sync"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/grad_curve"
+                            android:src="@drawable/ic_upload"
+                            android:padding="@dimen/_7sdp"
+                            android:tint="@color/white"
+                            android:textAlignment="center"
+                            android:clickable="true"
+                            android:textColor="@color/white"
+                            />
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/img5"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:rotation="0"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-15dp"
+                    android:src="@drawable/ic_triangle"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/left3"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp">
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_below="@+id/activity_name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-15dp"
+                        android:rotation="90"
+                        android:src="@drawable/play_cornered"
+                        android:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/activity_name"
+                        style="@string/font_circular_bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                        android:gravity="center"
+
+                        android:minLines="2"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="Pending works for Upload"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+
+                <!--
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Pending works for Upload"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_9"
+                        android:textSize="@dimen/_12sdp" />
+
+                </RelativeLayout>
+    -->
+
+                <RelativeLayout
+                    android:id="@+id/count_text_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/elevation_bottom_lite_bg_white"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/pendingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingLeft="@dimen/_30sdp"
+                        android:paddingTop="@dimen/_7sdp"
+                        android:paddingRight="@dimen/_30sdp"
+                        android:paddingBottom="@dimen/_7sdp"
+                        android:text="873"
+                        android:textColor="#344050"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text=""
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:padding="@dimen/_13sdp"
+                android:text="@string/software_designed_developed"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="sans-serif-light"
+                />
+
+    </RelativeLayout>
+</layout>
