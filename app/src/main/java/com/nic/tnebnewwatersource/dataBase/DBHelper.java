@@ -32,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TN_EB_WATER_SUPPLY_DETAILS_TABLE = "tn_eb_water_supply_details_table";
     public static final String DRINKING_WATER_SOURCE_TABLE = "m_drinking_water_source";
     public static final String DRINKING_WATER_SOURCE_VILLAGE_LEVEL = "m_driking_water_source_village_level";
+    public static final String DRINKING_WATER_SOURCE_SERVER_DATA = "m_drinking_water_source_server_data";
 
     private Context context;
 
@@ -103,67 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tariff_desc TEXT," +
                 "photo_saved_status TEXT," +
                 "purpose_as_per_tneb TEXT)");
-// old save deails
-/*
-        db.execSQL("CREATE TABLE " + TN_EB_CONNECTION_DETAILS_SAVE_TABLE_NEW + " ("
-                + "id TEXT," +
-                "cuscode TEXT," +
-                "connection_number TEXT," +
-                "connection_status_id TEXT," +
-                "habcode TEXT," +
-                "meter_image BLOB," +
-                "last_bill_image BLOB," +
-                "eb_card_image BLOB," +
-                "mini_oht_motor_image BLOB," +
-                "mini_oht_tank_image BLOB," +
-                "oht_tank_image BLOB," +
-                "oht_motor_image BLOB," +
-                "glr_motor_image BLOB," +
-                "mini_with_out_oht_motor_image BLOB," +
-                "meter_image_lat TEXT," +
-                "meter_image_long TEXT," +
-                "mini_with_out_oht_lat_TextValue TEXT," +
-                "mini_with_out_oht_long_TextValue TEXT," +
-                "mini_with_out_oht_land_mark TEXT," +
-                "mini_with_out_oht_motor_type TEXT," +
-                "mini_with_out_oht_horse_power TEXT," +
-                "mini_oht_lat_TextValue TEXT," +
-                "oht_lat_TextValue TEXT," +
-                "glr_lat_TextValue TEXT," +
-                "mini_oht_long_TextValue TEXT," +
-                "oht_long_TextValue TEXT," +
-                "glr_long_TextValue TEXT," +
-                "oht_tank_lat_Value TEXT," +
-                "oht_tank_long_Value TEXT," +
-                "mini_oht_tank_lat_Value TEXT," +
-                "mini_oht_tank_long_Value TEXT," +
-                "land_mark TEXT," +
-                "glr_land_mark TEXT," +
-                "mini_land_mark TEXT," +
-                "mini_motor_type TEXT," +
-                "mini_motor_hp TEXT," +
-                "mini_motor_tank_capacity TEXT," +
-                "street_light_count TEXT," +
-                "motor_type TEXT," +
-                "glr_motor_type TEXT," +
-                "horse_power TEXT," +
-                "glr_horse_power TEXT," +
-                "meter_available TEXT," +
-                "tank_capacity TEXT," +
-                "glr_tank_capacity TEXT," +
-                "mini_motor_tank_count TEXT," +
-                "oht_motor_tank_count TEXT," +
-                "glr_motor_tank_count TEXT," +
-                "mini_power_pump_motor_tank_count TEXT," +
-                "mini_power_pump_tank_capacity TEXT," +
-                "mini_power_pump_horse_power TEXT," +
-                "mini_power_pump_motor_type TEXT," +
-                "mini_power_pump_land_mark TEXT," +
-                "mini_power_pump_long_TextValue TEXT," +
-                "mini_power_pump_lat_TextValue TEXT," +
-                "mini_power_pump_motor_image BLOB," +
-                "purpose_ids TEXT)");
-*/
+
         db.execSQL("CREATE TABLE " + TN_EB_CONNECTION_DETAILS_SAVE_TABLE_NEW + " ("
                 + "id TEXT," +
                 "cuscode TEXT," +
@@ -278,13 +219,32 @@ public class DBHelper extends SQLiteOpenHelper {
                  "water_source_type_name TEXT)");
 
         db.execSQL("CREATE TABLE " + DRINKING_WATER_SOURCE_VILLAGE_LEVEL + " ("
-                + "water_source_details_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                + "water_source_details_primary_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "water_source_details_id TEXT," +
                 "dcode TEXT," +
                 "bcode TEXT," +
                 "pv_code TEXT," +
                 "hab_code TEXT," +
                 "hab_name TEXT," +
                 "no_of_photos TEXT," +
+                "water_source_type_id TEXT," +
+                "water_source_type_name TEXT," +
+                "landmark TEXT," +
+                "image_1 BLOB," +
+                "image_1_lat TEXT," +
+                "image_1_long TEXT," +
+                "image_2 BLOB," +
+                "image_2_lat TEXT," +
+                "image_2_long TEXT)");
+
+        db.execSQL("CREATE TABLE " + DRINKING_WATER_SOURCE_SERVER_DATA + " ("
+                + "server_water_source_details_primary_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "water_source_details_id TEXT," +
+                "dcode TEXT," +
+                "bcode TEXT," +
+                "pv_code TEXT," +
+                "hab_code TEXT," +
+                "hab_name TEXT," +
                 "water_source_type_id TEXT," +
                 "water_source_type_name TEXT," +
                 "landmark TEXT," +
@@ -321,6 +281,7 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TN_EB_WATER_SUPPLY_DETAILS_TABLE);
             db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_TABLE);
             db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_VILLAGE_LEVEL);
+            db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_SERVER_DATA);
 
 
             onCreate(db);

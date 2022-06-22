@@ -1088,6 +1088,8 @@ public class TNEBSystem {
     private String water_source_type_id;
     private String water_source_type_name;
     private String water_source_details_id;
+    private int water_source_details_primary_id;
+    private int server_water_source_details_primary_id;
     private String image_1;
     private String image_1_lat;
     private String image_1_long;
@@ -1095,6 +1097,22 @@ public class TNEBSystem {
     private String image_2_lat;
     private String image_2_long;
     private String no_of_photos;
+
+    public int getServer_water_source_details_primary_id() {
+        return server_water_source_details_primary_id;
+    }
+
+    public void setServer_water_source_details_primary_id(int server_water_source_details_primary_id) {
+        this.server_water_source_details_primary_id = server_water_source_details_primary_id;
+    }
+
+    public int getWater_source_details_primary_id() {
+        return water_source_details_primary_id;
+    }
+
+    public void setWater_source_details_primary_id(int water_source_details_primary_id) {
+        this.water_source_details_primary_id = water_source_details_primary_id;
+    }
 
     public String getNo_of_photos() {
         return no_of_photos;

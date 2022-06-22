@@ -318,6 +318,29 @@ public class dbData {
         Log.d("Insert_id_drink_water", String.valueOf(id));
 
     }
+    public void Insert_drinking_water_source_server_data(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("water_source_details_id", tnebSystem.getWater_source_details_id());
+        values.put("dcode", tnebSystem.getDistictCode());
+        values.put("bcode", tnebSystem.getBlockCode());
+        values.put("pv_code", tnebSystem.getPvCode());
+        values.put("hab_code", tnebSystem.getHabitation_code());
+        values.put("hab_name", tnebSystem.getHabitation_name());
+        values.put("water_source_type_id", tnebSystem.getWater_source_type_id());
+        values.put("water_source_type_name", tnebSystem.getWater_source_type_name());
+        values.put("landmark", tnebSystem.getKEY_LAND_MARK());
+        values.put("image_1", stringToByte(tnebSystem.getImage_1()));
+        values.put("image_1_lat", tnebSystem.getImage_1_lat());
+        values.put("image_1_long", tnebSystem.getImage_1_long());
+        values.put("image_2", stringToByte(tnebSystem.getImage_2()));
+        values.put("image_2_lat", tnebSystem.getImage_2_lat());
+        values.put("image_2_long", tnebSystem.getImage_2_long());
+
+        long id = db.insert(DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA,null,values);
+        Log.d("Insert_id_server_data", String.valueOf(id));
+
+    }
 
 
     public ArrayList<TNEBSystem> getAll_BankTypes() {
@@ -1147,6 +1170,8 @@ public class dbData {
             if (cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {
                     TNEBSystem card = new TNEBSystem();
+                    card.setWater_source_details_primary_id(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("water_source_details_primary_id")));
                     card.setWater_source_details_id(cursor.getString(cursor
                             .getColumnIndexOrThrow("water_source_details_id")));
                     card.setDistictCode(cursor.getString(cursor
@@ -1192,6 +1217,62 @@ public class dbData {
         return cards;
     }
 
+    public ArrayList<TNEBSystem> getDrinkingWaterServerDetailsImages() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+             cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA,null);
+
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setServer_water_source_details_primary_id(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("server_water_source_details_primary_id")));
+                    card.setWater_source_details_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_source_details_id")));
+                    card.setDistictCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("dcode")));
+                    card.setBlockCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("bcode")));
+                    card.setPvCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("pv_code")));
+                    card.setHabitation_code(cursor.getString(cursor
+                            .getColumnIndexOrThrow("hab_code")));
+                    card.setHabitation_name(cursor.getString(cursor
+                            .getColumnIndexOrThrow("hab_name")));
+                    card.setWater_source_type_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_source_type_id")));
+                    card.setWater_source_type_name((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_source_type_name"))));
+                    card.setKEY_LAND_MARK((cursor.getString(cursor
+                            .getColumnIndexOrThrow("landmark"))));
+                    card.setImage_1(byteToString((cursor.getBlob(cursor
+                            .getColumnIndexOrThrow("image_1")))));
+                    card.setImage_1_lat((cursor.getString(cursor
+                            .getColumnIndexOrThrow("image_1_lat"))));
+                    card.setImage_1_long((cursor.getString(cursor
+                            .getColumnIndexOrThrow("image_1_long"))));
+                    card.setImage_2(byteToString((cursor.getBlob(cursor
+                            .getColumnIndexOrThrow("image_2")))));
+                    card.setImage_2_lat((cursor.getString(cursor
+                            .getColumnIndexOrThrow("image_2_lat"))));
+                    card.setImage_2_long((cursor.getString(cursor
+                            .getColumnIndexOrThrow("image_2_long"))));
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+
     public String BitMapToString(Bitmap bitmap){
         String temp="";
         try {
@@ -1215,7 +1296,22 @@ public class dbData {
             return bitmap;
         }
 
+    }
 
+    private byte[] stringToByte(String data){
+        byte[] byteArr =new byte[]{};
+        if(!data.equals("")){
+            return  byteArr = data.getBytes();
+        }
+        else {
+            return  byteArr;
+        }
+        // print the byte[] elements
+    }
+
+    private String byteToString(byte[] data){
+        String str = new String(data);
+        return str;
     }
 
     //Delete Tables
@@ -1274,6 +1370,9 @@ public class dbData {
     public void delete_DRINKING_WATER_SOURCE_VILLAGE_LEVEL() {
         db.execSQL("delete from " + DBHelper.DRINKING_WATER_SOURCE_VILLAGE_LEVEL);
     }
+    public void delete_DRINKING_WATER_SOURCE_SERVER_DATA() {
+        db.execSQL("delete from " + DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA);
+    }
 
 
     public void deleteAll() {
@@ -1295,6 +1394,7 @@ public class dbData {
         delete_TN_EB_WATER_SUPPLY_DETAILS_TABLE();
         delete_DRINKING_WATER_SOURCE_TABLE();
         delete_DRINKING_WATER_SOURCE_VILLAGE_LEVEL();
+        delete_DRINKING_WATER_SOURCE_SERVER_DATA();
         /*deleteDistrictTable();
         deleteBlockTable();
         deleteVillageTable();

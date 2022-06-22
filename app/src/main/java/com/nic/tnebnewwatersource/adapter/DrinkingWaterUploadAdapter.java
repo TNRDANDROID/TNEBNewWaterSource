@@ -83,7 +83,7 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
         holder.waterSourceUploadItemViewBinding.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ((DrinkingWaterSourceSave)context).save_and_delete_alert(new JSONObject(),String.valueOf(list.get(position).getWater_source_details_primary_id()),"delete");
             }
         });
 
@@ -152,7 +152,7 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
 
     public class toUploadSaveDataTask extends AsyncTask<String, Void,
             JSONObject> {
-        String water_source_details_id;
+        String water_source_details_primary_id;
         @Override
         protected JSONObject doInBackground(String... params) {
             try {
@@ -167,7 +167,8 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
                 String lat_2 = list.get(position).getImage_2_lat();
                 String long_2 = list.get(position).getImage_2_long();
                 String image_2 = list.get(position).getImage_2();
-                water_source_details_id = list.get(position).getWater_source_details_id();
+                String water_source_details_id = list.get(position).getWater_source_details_id();
+                water_source_details_primary_id = String.valueOf(list.get(position).getWater_source_details_primary_id());
                 dataSetTrack = new JSONObject();
                 try {
                     dataSetTrack.put(AppConstant.KEY_SERVICE_ID, "drinking_water_source_village_level_save");
@@ -183,7 +184,7 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
                         dataSetTrack.put("long_2", long_2);
                         dataSetTrack.put("image_2", image_2);
                     }
-                    dataSetTrack.put("water_source_details_id", 0);
+                    dataSetTrack.put("water_source_details_id", water_source_details_id);
                     Log.d("trackData",dataSetTrack.toString());
 
                 } catch (JSONException e) {
@@ -197,7 +198,7 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
 
         protected void onPostExecute(JSONObject dataset) {
             super.onPostExecute(dataset);
-            ((DrinkingWaterSourceSave)context).save_and_delete_alert(dataset,water_source_details_id,"save");
+            ((DrinkingWaterSourceSave)context).save_and_delete_alert(dataset,water_source_details_primary_id,"save");
         }
     }
 

@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
@@ -23,9 +26,9 @@ import android.graphics.BitmapFactory;
 import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -45,6 +48,7 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.nic.tnebnewwatersource.R;
 import com.nic.tnebnewwatersource.adapter.CommonAdapter;
+import com.nic.tnebnewwatersource.adapter.DrinkingWaterServerAdapter;
 import com.nic.tnebnewwatersource.adapter.DrinkingWaterUploadAdapter;
 import com.nic.tnebnewwatersource.api.Api;
 import com.nic.tnebnewwatersource.api.ApiService;
@@ -60,20 +64,19 @@ import com.nic.tnebnewwatersource.utils.CameraUtils;
 import com.nic.tnebnewwatersource.utils.UrlGenerator;
 import com.nic.tnebnewwatersource.utils.Utils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
 import in.mayanknagwanshi.imagepicker.ImageSelectActivity;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
-import static android.os.Build.VERSION_CODES.N;
 
 public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.ServerResponseListener{
     private ActivityDrinkingWaterSourceSaveBinding drinkingWaterSourceSaveBinding;
@@ -84,6 +87,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     ArrayList<TNEBSystem> habitationList;
     ArrayList<TNEBSystem> waterSourceTypeList;
     ArrayList<TNEBSystem> localWaterSourceDetailsList;
+    ArrayList<TNEBSystem> serverWaterSourceDetailsList;
 
     String hab_code="";
     String hab_name="";
@@ -108,8 +112,10 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     byte[] first_image_byteArray;
     byte[] second_image_byteArray;
     DrinkingWaterUploadAdapter drinkingWaterUploadAdapter;
+    DrinkingWaterServerAdapter drinkingWaterServerAdapter;
 
-    String water_source_details_id="";
+    String water_source_details_primary_id ="";
+    String water_source_details_id ="0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -196,6 +202,12 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 viewLocallySavedDrinkingWaterDetails();
             }
         });
+        drinkingWaterSourceSaveBinding.viewOnlineDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                get_server_drinking_water_details();
+            }
+        });
     }
 
     private void initialzeUI() {
@@ -220,6 +232,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         habitationList = new ArrayList<>();
         habitationList.clear();
         TNEBSystem habitationListValue = new TNEBSystem();
+        habitationListValue.setHabitation_code("0");
         habitationListValue.setHabitation_name("Select Habitation");
         habitationListValue.setHabitation_name_ta("குக்கிராமத்தைத் தேர்ந்தெடுக்கவும்");
         habitationList.add(habitationListValue);
@@ -465,62 +478,6 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            /*case CroperinoConfig.REQUEST_TAKE_PHOTO:
-                if (resultCode == Activity.RESULT_OK) {
-                    Uri i = Uri.fromFile(CroperinoFileUtil.getTempFile());
-                    // Capture Image
-                    if(image_flag.equals("capture_eb_meter_layout")){
-                        connectionSubmitActivityBinding.previewIcon.setVisibility(View.GONE);
-                        connectionSubmitActivityBinding.ebMeterIcon.setVisibility(View.VISIBLE);
-                        connectionSubmitActivityBinding.ebMeterIcon.setImageURI(i);
-                    }
-                    else if(image_flag.equals("capture_eb_bill_layout")) {
-                        connectionSubmitActivityBinding.previewIcon1.setVisibility(View.GONE);
-                        connectionSubmitActivityBinding.lastEbBillIcon.setVisibility(View.VISIBLE);
-                        connectionSubmitActivityBinding.lastEbBillIcon.setImageURI(i);
-                    }
-                    else if(image_flag.equals("capture_eb_card_layout")){
-                        connectionSubmitActivityBinding.previewIcon2.setVisibility(View.GONE);
-                        connectionSubmitActivityBinding.lastEbCardIcon.setVisibility(View.VISIBLE);
-                        connectionSubmitActivityBinding.lastEbCardIcon.setImageURI(i);
-                    }
-
-                    File fdelete = new File(i.getPath());
-                    if (fdelete.exists()) {
-                        if (fdelete.delete()) {
-                            System.out.println("file Deleted :" + i.getPath());
-                        } else {
-                            System.out.println("file not Deleted :" + i.getPath());
-                        }
-                    }
-
-                    //Start Crop Image
-//                    Croperino.runCropImage(CroperinoFileUtil.getTempFile(), AddInspectionReportScreen.this, true, 1, 1, R.color.gray, R.color.gray_variant);
-                }
-                break;
-            case CroperinoConfig.REQUEST_PICK_FILE:
-                if (resultCode == Activity.RESULT_OK) {
-                    CroperinoFileUtil.newGalleryFile(data, ConnectionSubmitActivity.this);
-                    Croperino.runCropImage(CroperinoFileUtil.getTempFile(), ConnectionSubmitActivity.this, true, 1, 1, R.color.gray, R.color.gray_variant);
-                }
-                break;
-            case CroperinoConfig.REQUEST_CROP_PHOTO:
-                if (resultCode == Activity.RESULT_OK) {
-                    Uri i = Uri.fromFile(CroperinoFileUtil.getTempFile());
-                    connectionSubmitActivityBinding.previewIcon.setVisibility(View.GONE);
-                    connectionSubmitActivityBinding.ebMeterIcon.setVisibility(View.VISIBLE);
-                    connectionSubmitActivityBinding.ebMeterIcon.setImageURI(i);
-                    File fdelete = new File(i.getPath());
-                    if (fdelete.exists()) {
-                        if (fdelete.delete()) {
-                            System.out.println("file Deleted :" + i.getPath());
-                        } else {
-                            System.out.println("file not Deleted :" + i.getPath());
-                        }
-                    }
-                }
-                break;
-*/
             case  1213:
                 if (requestCode == 1213 && resultCode == Activity.RESULT_OK) {
                     String filePath = data.getStringExtra(ImageSelectActivity.RESULT_FILE_PATH);
@@ -572,29 +529,35 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     public void fieldValidation(){
         if(!hab_code.equals("")){
             if(!water_source_type_id.equals("")){
-                if(prefManager.getkey_no_of_photos().equals("1")){
-                    if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
-                        saveLocally();
-                    }
-                    else {
-                        drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                        Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
-                    }
-                }
-                else {
-                    if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
-                        if(drinkingWaterSourceSaveBinding.secondImageIcon.getDrawable()!=null){
+                if(!drinkingWaterSourceSaveBinding.landMarkEt.getText().toString().equals("")){
+                    if(prefManager.getkey_no_of_photos().equals("1")){
+                        if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
                             saveLocally();
                         }
                         else {
                             drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                            Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture Second image");
+                            Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
                         }
                     }
                     else {
-                        drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                        Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
+                        if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
+                            if(drinkingWaterSourceSaveBinding.secondImageIcon.getDrawable()!=null){
+                                saveLocally();
+                            }
+                            else {
+                                drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+                                Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture Second image");
+                            }
+                        }
+                        else {
+                            drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+                            Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
+                        }
                     }
+                }
+                else {
+                    drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+                    Utils.showAlert(DrinkingWaterSourceSave.this,"Please Enter Land Mark");
                 }
             }
             else {
@@ -613,6 +576,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         try {
             String landmark = drinkingWaterSourceSaveBinding.landMarkEt.getText().toString();
             ContentValues contentValues = new ContentValues();
+            contentValues.put("water_source_details_id",water_source_details_id);
             contentValues.put("dcode",prefManager.getDistrictCode());
             contentValues.put("bcode",prefManager.getBlockCode());
             contentValues.put("pv_code",prefManager.getPvCode());
@@ -645,8 +609,11 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 drinkingWaterSourceSaveBinding.secondPreviewIcon.setVisibility(View.VISIBLE);
                 first_image_latitude=0.0;
                 first_image_longtitude=0.0;
+                second_image_latitude=0.0;
+                second_image_longtitude=0.0;
                 wayLatitude=0.0;
                 wayLongitude=0.0;
+                water_source_details_id="0";
                 first_image_byteArray=null;
                 second_image_byteArray=null;
                 Toasty.success(DrinkingWaterSourceSave.this,getResources().getString(R.string.images_inserted_successfully),Toasty.LENGTH_SHORT,true).show();
@@ -685,7 +652,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         }
     }
 
-    public void save_and_delete_alert(JSONObject saveDetailsDataSet, String water_source_details_id, String save_delete){
+    public void save_and_delete_alert(JSONObject saveDetailsDataSet, String water_source_details_primary_id, String save_delete){
         try {
             final Dialog dialog = new Dialog(this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -713,11 +680,11 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 @Override
                 public void onClick(View v) {
                     if(save_delete.equals("save")) {
-                        syncTrackData(saveDetailsDataSet, water_source_details_id);
+                        syncTrackData(saveDetailsDataSet, water_source_details_primary_id);
                         dialog.dismiss();
                     }
                     else if(save_delete.equals("delete")) {
-                        db.delete(DBHelper.DRINKING_WATER_SOURCE_VILLAGE_LEVEL, "water_source_details_id = ?", new String[]{water_source_details_id});
+                        db.delete(DBHelper.DRINKING_WATER_SOURCE_VILLAGE_LEVEL, "water_source_details_primary_id = ?", new String[]{water_source_details_primary_id});
                         viewLocallySavedDrinkingWaterDetails();
                         drinkingWaterUploadAdapter.notifyDataSetChanged();
                         dialog.dismiss();
@@ -731,8 +698,8 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         }
 
     }
-    public void syncTrackData(JSONObject saveDetailsDataSet,String water_source_details_id_) {
-        water_source_details_id=water_source_details_id_;
+    public void syncTrackData(JSONObject saveDetailsDataSet,String water_source_details_primary_id_) {
+        water_source_details_primary_id =water_source_details_primary_id_;
         String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), saveDetailsDataSet.toString());
         JSONObject dataSet = new JSONObject();
         try {
@@ -760,7 +727,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
                 if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
                     Utils.showAlert(this, getResources().getString(R.string.your_track_data_synchronized));
-                    db.delete(DBHelper.DRINKING_WATER_SOURCE_VILLAGE_LEVEL, "water_source_details_id = ?", new String[]{water_source_details_id});
+                    db.delete(DBHelper.DRINKING_WATER_SOURCE_VILLAGE_LEVEL, "water_source_details_primary_id = ?", new String[]{water_source_details_primary_id});
                     viewLocallySavedDrinkingWaterDetails();
                     drinkingWaterUploadAdapter.notifyDataSetChanged();
 
@@ -770,6 +737,16 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 Log.d("saved_response", "" + responseDecryptedBlockKey);
             }
 
+            if ("get_server_drinking_water_details".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                Log.d("server_drinking", "" + responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_server_drinking_water_details().execute(jsonObject);
+                }
+
+            }
 
 
         } catch (JSONException e) {
@@ -777,13 +754,239 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
         }
 
     }
-
     @Override
     public void OnError(VolleyError volleyError) {
 
     }
 
+    public void get_server_drinking_water_details() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("get_server_drinking_water_details", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_server_drinking_water_details_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_server_drinking_water_details_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), get_server_drinking_water_details_normal_json().toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("server_drinking", "" + dataSet);
+        return dataSet;
+    }
+    public static JSONObject get_server_drinking_water_details_normal_json() throws JSONException {
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "drinking_water_source_village_level_view");
+        Log.d("server_drinking", "" + dataSet);
+        return dataSet;
+    }
+    @SuppressLint("StaticFieldLeak")
+    public class Insert_server_drinking_water_details extends AsyncTask<JSONObject, Void, Void> {
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_SOURCE_SERVER_DATA();
+                JSONArray jsonArray = new JSONArray();
+                try {
+                    jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                serverWaterSourceDetailsList = new ArrayList<>();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    TNEBSystem ListValue = new TNEBSystem();
+                    try {
+                        ListValue.setWater_source_details_id(jsonArray.getJSONObject(i).getString("water_source_details_id"));
+                        ListValue.setWater_source_type_name(jsonArray.getJSONObject(i).getString("water_source_type_name"));
+                        ListValue.setDistictCode(jsonArray.getJSONObject(i).getString("dcode"));
+                        ListValue.setBlockCode(jsonArray.getJSONObject(i).getString("bcode"));
+                        ListValue.setPvCode(jsonArray.getJSONObject(i).getString("pvcode"));
+                        ListValue.setHabitation_code(jsonArray.getJSONObject(i).getString("hab_code"));
+                        ListValue.setHabitation_name(jsonArray.getJSONObject(i).getString("habitation_name"));
+                        ListValue.setWater_source_type_id(jsonArray.getJSONObject(i).getString("water_source_type_id"));
+                        ListValue.setKEY_LAND_MARK(jsonArray.getJSONObject(i).getString("landmark"));
+                        if(jsonArray.getJSONObject(i).isNull("photo_file_name_1")||jsonArray.getJSONObject(i).getString("photo_file_name_1").equals("")){
+                            ListValue.setImage_1_lat("");
+                            ListValue.setImage_1_long("");
+                            ListValue.setImage_1("");
+                        }
+                        else {
+                            ListValue.setImage_1_lat(jsonArray.getJSONObject(i).getString("photo_file_name_1_lat"));
+                            ListValue.setImage_1_long(jsonArray.getJSONObject(i).getString("photo_file_name_1_long"));
+                            ListValue.setImage_1(jsonArray.getJSONObject(i).getString("image_1"));
+                        }
+                        if(jsonArray.getJSONObject(i).isNull("photo_file_name_2")||jsonArray.getJSONObject(i).getString("photo_file_name_2").equals("")){
+                            ListValue.setImage_2_lat("");
+                            ListValue.setImage_2_long("");
+                            ListValue.setImage_2("");
+                        }
+                        else {
+                            ListValue.setImage_2_lat(jsonArray.getJSONObject(i).getString("photo_file_name_2_lat"));
+                            ListValue.setImage_2_long(jsonArray.getJSONObject(i).getString("photo_file_name_2_long"));
+                            ListValue.setImage_2(jsonArray.getJSONObject(i).getString("image_2"));
+                        }
+                        dbData.Insert_drinking_water_source_server_data(ListValue);
+                        //serverWaterSourceDetailsList.add(ListValue);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
+                }
+            }
+
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            setAdapter();
+
+        }
+    }
+    public void setAdapter(){
+        dbData.open();
+        serverWaterSourceDetailsList.addAll(dbData.getDrinkingWaterServerDetailsImages());
+        if(serverWaterSourceDetailsList.size()>0){
+            drinkingWaterSourceSaveBinding.scrollView.setVisibility(View.GONE);
+            drinkingWaterSourceSaveBinding.viewLayout.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.noDataFound.setVisibility(View.GONE);
+            drinkingWaterSourceSaveBinding.locallySavedRecycler.setVisibility(View.VISIBLE);
+            drinkingWaterServerAdapter = new DrinkingWaterServerAdapter(DrinkingWaterSourceSave.this,serverWaterSourceDetailsList,dbData);
+            drinkingWaterSourceSaveBinding.locallySavedRecycler.setAdapter(drinkingWaterServerAdapter);
+            drinkingWaterServerAdapter.notifyDataSetChanged();
+        }
+        else {
+            drinkingWaterSourceSaveBinding.scrollView.setVisibility(View.GONE);
+            drinkingWaterSourceSaveBinding.viewLayout.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.noDataFound.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.locallySavedRecycler.setVisibility(View.GONE);
+        }
+
+    }
+
+    ///Edit Server Data
+    public void edit_alert(int pos){
+        try {
+            final Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.alert_dialog);
+
+            TextView text = (TextView) dialog.findViewById(R.id.tv_message);
+            text.setText("Do you want to edit?");
+
+            Button yesButton = (Button) dialog.findViewById(R.id.btn_ok);
+            Button noButton = (Button) dialog.findViewById(R.id.btn_cancel);
+            noButton.setVisibility(View.VISIBLE);
+            noButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            yesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setTheValuesFromServer(pos);
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void setTheValuesFromServer(int pos){
+        drinkingWaterSourceSaveBinding.scrollView.setVisibility(View.VISIBLE);
+        drinkingWaterSourceSaveBinding.viewLayout.setVisibility(View.GONE);
+        hab_code = serverWaterSourceDetailsList.get(pos).getHabitation_code();
+        hab_name = serverWaterSourceDetailsList.get(pos).getHabitation_name();
+        water_source_type_id = serverWaterSourceDetailsList.get(pos).getWater_source_type_id();
+        water_source_type_name = serverWaterSourceDetailsList.get(pos).getWater_source_type_name();
+        drinkingWaterSourceSaveBinding.landMarkEt.setText(serverWaterSourceDetailsList.get(pos).getKEY_LAND_MARK());
+        if(serverWaterSourceDetailsList.get(pos).getImage_1()!=null&&!serverWaterSourceDetailsList.get(pos).getImage_1().equals("")){
+            drinkingWaterSourceSaveBinding.firstImageIcon.setImageBitmap(StringToBitMap(serverWaterSourceDetailsList.get(pos).getImage_1()));
+            drinkingWaterSourceSaveBinding.captureFirstImageLayout.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.firstImageIcon.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.previewIcon.setVisibility(View.GONE);
+            first_image_latitude = Double.parseDouble(serverWaterSourceDetailsList.get(pos).getImage_1_lat());
+            first_image_longtitude = Double.parseDouble(serverWaterSourceDetailsList.get(pos).getImage_1_long());
+            first_image_byteArray = BitmaptoByteArray(StringToBitMap(serverWaterSourceDetailsList.get(pos).getImage_1()));
+        }
+        else {
+            drinkingWaterSourceSaveBinding.firstImageIcon.setImageDrawable(null);
+            drinkingWaterSourceSaveBinding.captureFirstImageLayout.setVisibility(View.GONE);
+            drinkingWaterSourceSaveBinding.previewIcon.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.firstImageIcon.setVisibility(View.GONE);
+            first_image_latitude = 0.0;
+            first_image_longtitude = 0.0;
+            first_image_byteArray = null;
+        }
+        if(serverWaterSourceDetailsList.get(pos).getImage_2()!=null&&!serverWaterSourceDetailsList.get(pos).getImage_2().equals("")){
+            drinkingWaterSourceSaveBinding.secondImageIcon.setImageBitmap(StringToBitMap(serverWaterSourceDetailsList.get(pos).getImage_2()));
+            drinkingWaterSourceSaveBinding.captureSecondImageLayout.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.secondImageIcon.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.secondPreviewIcon.setVisibility(View.GONE);
+            second_image_latitude = Double.parseDouble(serverWaterSourceDetailsList.get(pos).getImage_2_lat());
+            second_image_longtitude = Double.parseDouble(serverWaterSourceDetailsList.get(pos).getImage_2_long());
+            second_image_byteArray = BitmaptoByteArray(StringToBitMap(serverWaterSourceDetailsList.get(pos).getImage_2()));
+        }
+        else {
+            drinkingWaterSourceSaveBinding.secondImageIcon.setImageDrawable(null);
+            drinkingWaterSourceSaveBinding.captureSecondImageLayout.setVisibility(View.GONE);
+            drinkingWaterSourceSaveBinding.secondPreviewIcon.setVisibility(View.VISIBLE);
+            drinkingWaterSourceSaveBinding.secondImageIcon.setVisibility(View.GONE);
+            second_image_latitude = 0.0;
+            second_image_longtitude = 0.0;
+            second_image_byteArray = null;
+        }
+            water_source_details_id=serverWaterSourceDetailsList.get(pos).getWater_source_details_id();
+
+
+        drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+        drinkingWaterSourceSaveBinding.habitationSpinner.setSelection(getHabitationSpinnerIndex(hab_code));
+        drinkingWaterSourceSaveBinding.waterSourceTypeSpinner.setSelection(getWaterSourceSpinnerIndex(water_source_type_id));
+
+    }
+    private int getHabitationSpinnerIndex(String myString){
+
+        int index = 0;
+
+        for (int i=0;i<habitationList.size();i++){
+            if (habitationList.get(i).getHabitation_code().equals(myString)){
+                index = i;
+            }
+        }
+        return index;
+    }
+    private int getWaterSourceSpinnerIndex(String myString){
+
+        int index = 0;
+
+        for (int i=0;i<waterSourceTypeList.size();i++){
+            if (waterSourceTypeList.get(i).getWater_source_type_id().equals(myString)){
+                index = i;
+            }
+        }
+        return index;
+    }
+    public Bitmap StringToBitMap(String encodedString){
+        try {
+//            byte [] encodeByte=Base64.decode(encodedString,Base64.DEFAULT);
+            byte [] encodeByte= Base64.decode(encodedString,0);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
     @Override
     public void onBackPressed() {
         if(drinkingWaterSourceSaveBinding.viewLayout.getVisibility()==View.VISIBLE){
