@@ -143,13 +143,20 @@ public class dbData {
         return TNEBSystem;
     }
 
-    public ArrayList<TNEBSystem> getAll_Village() {
+    public ArrayList<TNEBSystem> getAll_Village(String type,String dcode, String bcode) {
 
         ArrayList<TNEBSystem> cards = new ArrayList<>();
         Cursor cursor = null;
 
         try {
-            cursor = db.rawQuery("select * from "+DBHelper.VILLAGE_TABLE_NAME+" order by pvname asc",null);
+            if(type.equals("")){
+                cursor = db.rawQuery("select * from "+DBHelper.VILLAGE_TABLE_NAME+" order by pvname asc",null);
+            }
+            else {
+                cursor = db.rawQuery("select * from "+DBHelper.VILLAGE_TABLE_NAME+" where dcode = "+dcode+" and bcode = "+bcode+" order by pvname asc",null);
+
+            }
+
             // cursor = db.query(CardsDBHelper.TABLE_CARDS,
             //       COLUMNS, null, null, null, null, null);
             if (cursor.getCount() > 0) {
@@ -340,6 +347,147 @@ public class dbData {
         long id = db.insert(DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA,null,values);
         Log.d("Insert_id_server_data", String.valueOf(id));
 
+    }
+
+    //////New Water Supply Status Details
+    public void Insert_drinking_water_supply_timing(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("supply_timing_id", tnebSystem.getSupply_timing_id());
+        values.put("supply_timing", tnebSystem.getSupply_timing());
+
+        long id = db.insert(DBHelper.DRINKING_WATER_TIMING_DETAILS,null,values);
+        Log.d("Insert_id_water_timing", String.valueOf(id));
+
+    }
+    public void Insert_drinking_water_session(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("session_id", tnebSystem.getSession_id());
+        values.put("session_name", tnebSystem.getSession_name());
+
+        long id = db.insert(DBHelper.DRINKING_WATER_SESSION,null,values);
+        Log.d("Insert_id_water_session", String.valueOf(id));
+
+    }
+    public void Insert_drinking_water_type(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("water_type_id", tnebSystem.getWater_type_id());
+        values.put("water_type", tnebSystem.getWater_type());
+
+        long id = db.insert(DBHelper.DRINKING_WATER_TYPE,null,values);
+        Log.d("Insert_id_water_type", String.valueOf(id));
+
+    }
+    public void Insert_water_supply_reason(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("id", tnebSystem.getId());
+        values.put("reason_for_supply", tnebSystem.getReason_for_supply());
+        values.put("type", tnebSystem.getReason_type());
+
+        long id = db.insert(DBHelper.DRINKING_WATER_SUPPLY_REASON,null,values);
+        Log.d("Insert_id_supply_reason", String.valueOf(id));
+
+    }
+    public void Insert_minimum_maximum_date(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("minimum_date", tnebSystem.getMinimum_date());
+        values.put("maximum_date", tnebSystem.getMaximum_date());
+
+        long id = db.insert(DBHelper.MINIMUM_MAXIMUM_DATE,null,values);
+        Log.d("Insert_id_m_m_date", String.valueOf(id));
+
+    }
+    public void Insert_new_drinking_water_details_server1(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+
+        values.put("entry_date", tnebSystem.getEntry_date());
+        values.put("dcode", tnebSystem.getDistictCode());
+        values.put("bcode", tnebSystem.getBlockCode());
+        values.put("pv_code", tnebSystem.getPvCode());
+        values.put("hab_code", tnebSystem.getHabitation_code());
+        values.put("water_supply_status_id", tnebSystem.getWater_supply_status_id());
+        values.put("no_supply_reason_id", tnebSystem.getWater_supplied_reason_id());
+        values.put("session_fn_water_type_id", tnebSystem.getSession_fn_water_type_id());
+        values.put("session_an_water_type_id", tnebSystem.getSession_an_water_type_id());
+        values.put("session_an_timing_id", tnebSystem.getSession_an_timing_id());
+        values.put("session_fn_timing_id", tnebSystem.getSession_fn_timing_id());
+        values.put("session_fn_src_id", tnebSystem.getSession_fn_src_id());
+        values.put("session_an_src_id", tnebSystem.getSession_an_src_id());
+
+        long id = db.insert(DBHelper.NEW_DRINKING_WATER_DETAILS_SERVER_1,null,values);
+        Log.d("Insert_details_server1", String.valueOf(id));
+
+    }
+
+    //////////////
+
+    public ArrayList<TNEBSystem> get_new_drinking_water_details_server1(String type,String entry_date,String dcode,String bcode,String pv_code,String hab_code ) {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+        String selection;
+        String[] selectionArgs;
+        try {
+            if(type.equals("All")){
+                cursor = db.rawQuery("select * from "+DBHelper.NEW_DRINKING_WATER_DETAILS_SERVER_1,null);
+            }
+            else {
+                selection = "entry_date = ? and dcode = ? and bcode = ? and pv_code = ? and hab_code = ? ";
+                selectionArgs = new String[]{entry_date,dcode,bcode,pv_code,hab_code};
+                cursor = db.query(DBHelper.NEW_DRINKING_WATER_DETAILS_SERVER_1,new String[]{"*"},
+                        selection, selectionArgs, null, null, null);
+                // cursor = db.rawQuery("select * from "+DBHelper.NEW_DRINKING_WATER_DETAILS_LOCAL+" where hab_code = "+hab_code,null);
+
+            }
+
+
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setNew_water_details_primary_id(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("new_water_details_server_1_primary_id")));
+                    card.setEntry_date(cursor.getString(cursor
+                            .getColumnIndexOrThrow("entry_date")));
+                    card.setDistictCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("dcode")));
+                    card.setBlockCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("bcode")));
+                    card.setPvCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("pv_code")));
+                    card.setHabitation_code(cursor.getString(cursor
+                            .getColumnIndexOrThrow("hab_code")));
+                    card.setWater_supply_status_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_supply_status_id")));
+                    card.setWater_supplied_reason_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("no_supply_reason_id"))));
+                    card.setSession_fn_water_type_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_fn_water_type_id"))));
+                    card.setSession_an_water_type_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_an_water_type_id"))));
+                    card.setSession_an_timing_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_an_timing_id"))));
+                    card.setSession_fn_timing_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_fn_timing_id"))));
+                    card.setSession_fn_src_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_fn_src_id")));
+                    card.setSession_an_src_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_an_src_id"))));
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
     }
 
 
@@ -707,6 +855,157 @@ public class dbData {
         }
         return cards;
     }
+
+    /////**************New Water Supply Status Details
+    public ArrayList<TNEBSystem> getAll_drinking_water_supply_timing() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_TIMING_DETAILS+" order by supply_timing_id asc ",null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setSupply_timing_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("supply_timing_id")));
+                    card.setSupply_timing(cursor.getString(cursor
+                            .getColumnIndexOrThrow("supply_timing")));
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    public ArrayList<TNEBSystem> getAll_drinking_water_session() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SESSION+" order by session_id asc ",null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setSession_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_id")));
+                    card.setSession_name(cursor.getString(cursor
+                            .getColumnIndexOrThrow("session_name")));
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    public ArrayList<TNEBSystem> getAll_drinking_water_type() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_TYPE+" order by water_type_id asc ",null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setWater_type_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_type_id")));
+                    card.setWater_type(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_type")));
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    public ArrayList<TNEBSystem> getAll_water_supply_reason() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SUPPLY_REASON+" order by id asc ",null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setId(cursor.getString(cursor
+                            .getColumnIndexOrThrow("id")));
+                    card.setReason_for_supply(cursor.getString(cursor
+                            .getColumnIndexOrThrow("reason_for_supply")));
+                    card.setReason_type(cursor.getString(cursor
+                            .getColumnIndexOrThrow("type")));
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    public ArrayList<TNEBSystem> getAll_minimum_max_date() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.MINIMUM_MAXIMUM_DATE,null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+
+                    card.setMinimum_date(cursor.getString(cursor
+                            .getColumnIndexOrThrow("minimum_date")));
+                    card.setMaximum_date(cursor.getString(cursor
+                            .getColumnIndexOrThrow("maximum_date")));
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    ///////**********
 
     public ArrayList<TNEBSystem> getSavedWorkDetailsNew() {
 
@@ -1217,13 +1516,20 @@ public class dbData {
         return cards;
     }
 
-    public ArrayList<TNEBSystem> getDrinkingWaterServerDetailsImages() {
+    public ArrayList<TNEBSystem> getDrinkingWaterServerDetailsImages(String type,String hab_code) {
 
         ArrayList<TNEBSystem> cards = new ArrayList<>();
         Cursor cursor = null;
 
         try {
-             cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA,null);
+            if(type.equals("All")){
+                cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA,null);
+            }
+            else {
+                cursor = db.rawQuery("select * from "+DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA+" where hab_code = "+hab_code,null);
+
+            }
+
 
             if (cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {
@@ -1260,6 +1566,83 @@ public class dbData {
                             .getColumnIndexOrThrow("image_2_lat"))));
                     card.setImage_2_long((cursor.getString(cursor
                             .getColumnIndexOrThrow("image_2_long"))));
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            Log.d("DEBUG_TAG", "Exception raised with a value of " + e);
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
+    public ArrayList<TNEBSystem> getNewDrinkingWaterDetailsLocal(String type,String entry_date,String dcode,String bcode,String pv_code,String hab_code,String water_session_id ) {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+        String selection;
+        String[] selectionArgs;
+        try {
+            if(type.equals("All")){
+                cursor = db.rawQuery("select * from "+DBHelper.NEW_DRINKING_WATER_DETAILS_LOCAL,null);
+            }
+            else {
+                selection = "entry_date = ? and dcode = ? and bcode = ? and pv_code = ? and hab_code = ? and water_session_id = ? ";
+                selectionArgs = new String[]{entry_date,dcode,bcode,pv_code,hab_code,water_session_id};
+                cursor = db.query(DBHelper.NEW_DRINKING_WATER_DETAILS_LOCAL,new String[]{"*"},
+                        selection, selectionArgs, null, null, null);
+               // cursor = db.rawQuery("select * from "+DBHelper.NEW_DRINKING_WATER_DETAILS_LOCAL+" where hab_code = "+hab_code,null);
+
+            }
+
+
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setNew_water_details_primary_id(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("new_water_details_primary_id")));
+                    card.setEntry_date(cursor.getString(cursor
+                            .getColumnIndexOrThrow("entry_date")));
+                    card.setDistictCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("dcode")));
+                    card.setBlockCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("bcode")));
+                    card.setPvCode(cursor.getString(cursor
+                            .getColumnIndexOrThrow("pv_code")));
+                    card.setPvName(cursor.getString(cursor
+                            .getColumnIndexOrThrow("pv_name")));
+                    card.setHabitation_code(cursor.getString(cursor
+                            .getColumnIndexOrThrow("hab_code")));
+                    card.setHabitation_name(cursor.getString(cursor
+                            .getColumnIndexOrThrow("hab_name")));
+                    card.setWater_supply_status_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_supply_status_id")));
+                    card.setWater_supplied_reason_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("no_supply_reason_id"))));
+                    card.setReason_for_supply((cursor.getString(cursor
+                            .getColumnIndexOrThrow("no_supply_reason_name"))));
+                    card.setWater_type_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_type_id"))));
+                    card.setWater_type((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_type_name"))));
+                    card.setSession_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_session_id"))));
+                    card.setSession_name((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_session_name"))));
+                    card.setWater_source_details_id(cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_source_details_id")));
+                    card.setWater_source_type_name((cursor.getString(cursor
+                            .getColumnIndexOrThrow("water_source_type_name"))));
+                    card.setMorning_water_supply_timing_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("morning_water_supply_timing_id"))));
+                    card.setMorning_water_supply_timing_name((cursor.getString(cursor
+                            .getColumnIndexOrThrow("morning_water_supply_timing_name"))));
+                    card.setEvening_water_supply_timing_id((cursor.getString(cursor
+                            .getColumnIndexOrThrow("evening_water_supply_timing_id"))));
+                    card.setEvening_water_supply_timing_name((cursor.getString(cursor
+                            .getColumnIndexOrThrow("evening_water_supply_timing_name"))));
                     cards.add(card);
                 }
             }
@@ -1373,6 +1756,27 @@ public class dbData {
     public void delete_DRINKING_WATER_SOURCE_SERVER_DATA() {
         db.execSQL("delete from " + DBHelper.DRINKING_WATER_SOURCE_SERVER_DATA);
     }
+    public void delete_DRINKING_WATER_TIMING_DETAILS() {
+        db.execSQL("delete from " + DBHelper.DRINKING_WATER_TIMING_DETAILS);
+    }
+    public void delete_DRINKING_WATER_SESSION() {
+        db.execSQL("delete from " + DBHelper.DRINKING_WATER_SESSION);
+    }
+    public void delete_DRINKING_WATER_TYPE() {
+        db.execSQL("delete from " + DBHelper.DRINKING_WATER_TYPE);
+    }
+    public void delete_DRINKING_WATER_SUPPLY_REASON() {
+        db.execSQL("delete from " + DBHelper.DRINKING_WATER_SUPPLY_REASON);
+    }
+    public void delete_MINIMUM_MAXIMUM_DATE() {
+        db.execSQL("delete from " + DBHelper.MINIMUM_MAXIMUM_DATE);
+    }
+    public void delete_NEW_DRINKING_WATER_DETAILS_LOCAL() {
+        db.execSQL("delete from " + DBHelper.NEW_DRINKING_WATER_DETAILS_LOCAL);
+    }
+    public void delete_NEW_DRINKING_WATER_DETAILS_SERVER_1() {
+        db.execSQL("delete from " + DBHelper.NEW_DRINKING_WATER_DETAILS_SERVER_1);
+    }
 
 
     public void deleteAll() {
@@ -1395,6 +1799,16 @@ public class dbData {
         delete_DRINKING_WATER_SOURCE_TABLE();
         delete_DRINKING_WATER_SOURCE_VILLAGE_LEVEL();
         delete_DRINKING_WATER_SOURCE_SERVER_DATA();
+
+        ////*********New Water Supply Status Details
+        delete_DRINKING_WATER_TIMING_DETAILS();
+        delete_DRINKING_WATER_SESSION();
+        delete_DRINKING_WATER_TYPE();
+        delete_DRINKING_WATER_SUPPLY_REASON();
+        delete_MINIMUM_MAXIMUM_DATE();
+        delete_NEW_DRINKING_WATER_DETAILS_LOCAL();
+        delete_NEW_DRINKING_WATER_DETAILS_SERVER_1();
+        ////
         /*deleteDistrictTable();
         deleteBlockTable();
         deleteVillageTable();

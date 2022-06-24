@@ -439,7 +439,78 @@
                         style="@string/font_circular_bold" />
 
                 </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_2">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey_3"></View>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/grey_3"
+                        android:layout_alignParentBottom="true"></View>
 
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:tint="@color/colorPrimary"
+                        android:layout_below="@+id/new_water_supply"
+                        android:src="@drawable/play_cornered"
+                        android:layout_marginStart="-4dp"
+                        android:layout_marginTop="-13dp"
+                        />
+                    <ImageView
+                        android:layout_marginLeft="-4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:tint="@color/colorPrimary"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/play_cornered"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:tint="@color/colorPrimary"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/new_water_supply"
+                        android:src="@drawable/play_cornered"
+                        android:rotation="180"
+                        android:layout_marginRight="-12dp"
+                        android:layout_marginTop="-12dp"
+                        />
+                    <ImageView
+                        android:rotation="180"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:tint="@color/colorPrimary"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/play_cornered"
+                        android:layout_marginRight="-10dp"
+                        android:layout_marginTop="2dp"
+                        />
+                    <TextView
+                        android:id="@+id/new_water_supply"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Water Supply Status Details"
+                        android:onClick="@{()-> activity.newWaterSupplyActivity()}"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:minLines="2"
+                        android:gravity="center"
+                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        style="@string/font_circular_bold" />
+
+                </RelativeLayout>
 
             </LinearLayout>
 

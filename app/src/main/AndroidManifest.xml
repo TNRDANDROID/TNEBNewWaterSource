@@ -51,7 +51,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.DrinkingWaterSourceSave"></activity>
+        <activity android:name=".activity.NewWaterSupplyStatusEntryForm"></activity>
+        <activity android:name=".activity.DrinkingWaterSourceSave" />
         <activity android:name=".activity.WaterSupplyActivity" />
         <activity android:name=".activity.PendingScreen" />
 

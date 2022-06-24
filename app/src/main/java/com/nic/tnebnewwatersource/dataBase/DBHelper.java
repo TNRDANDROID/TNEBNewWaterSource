@@ -34,6 +34,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DRINKING_WATER_SOURCE_VILLAGE_LEVEL = "m_driking_water_source_village_level";
     public static final String DRINKING_WATER_SOURCE_SERVER_DATA = "m_drinking_water_source_server_data";
 
+    ////new Water Supply Status Details
+    public static  final String DRINKING_WATER_TIMING_DETAILS="drinking_water_supply_timing";
+    public static  final String DRINKING_WATER_SESSION="drinking_water_session";
+    public static  final String DRINKING_WATER_TYPE="drinking_water_type";
+    public static  final String DRINKING_WATER_SUPPLY_REASON="drinking_water_supply_reason";
+    public static  final String MINIMUM_MAXIMUM_DATE="minimum_maximum_date";
+    public static  final String NEW_DRINKING_WATER_DETAILS_LOCAL="new_drinking_water_details_local";
+    public static  final String NEW_DRINKING_WATER_DETAILS_SERVER_1="new_drinking_water_details_server1";
+
     private Context context;
 
     public DBHelper(Context context) {
@@ -255,6 +264,66 @@ public class DBHelper extends SQLiteOpenHelper {
                 "image_2_lat TEXT," +
                 "image_2_long TEXT)");
 
+        db.execSQL("CREATE TABLE " + DRINKING_WATER_TIMING_DETAILS + " ("
+                + "supply_timing_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "supply_timing_id TEXT," +
+                "supply_timing TEXT)");
+        db.execSQL("CREATE TABLE " + DRINKING_WATER_SESSION + " ("
+                + "session_name_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "session_id TEXT," +
+                "session_name TEXT)");
+        db.execSQL("CREATE TABLE " + DRINKING_WATER_TYPE + " ("
+                + "water_type_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "water_type_id TEXT," +
+                "water_type TEXT)");
+        db.execSQL("CREATE TABLE " + DRINKING_WATER_SUPPLY_REASON + " ("
+                + "water_supply_reason_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "id TEXT," +
+                "reason_for_supply TEXT," +
+                "type TEXT)");
+        db.execSQL("CREATE TABLE " + MINIMUM_MAXIMUM_DATE + " ("
+                +"minimum_date TEXT," +
+                "maximum_date TEXT)");
+
+        db.execSQL("CREATE TABLE " + NEW_DRINKING_WATER_DETAILS_LOCAL + " ("
+                + "new_water_details_primary_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "entry_date TEXT," +
+                "dcode TEXT," +
+                "bcode TEXT," +
+                "pv_code TEXT," +
+                "pv_name TEXT," +
+                "hab_code TEXT," +
+                "hab_name TEXT," +
+                "water_supply_status_id TEXT," +
+                "no_supply_reason_id TEXT," +
+                "no_supply_reason_name TEXT," +
+                "water_type_id TEXT," +
+                "water_type_name TEXT," +
+                "water_session_id TEXT," +
+                "water_session_name TEXT," +
+                "morning_water_supply_timing_id TEXT," +
+                "morning_water_supply_timing_name TEXT," +
+                "evening_water_supply_timing_id TEXT," +
+                "evening_water_supply_timing_name TEXT," +
+                "water_source_details_id TEXT," +
+                "water_source_type_name TEXT)");
+
+        db.execSQL("CREATE TABLE " + NEW_DRINKING_WATER_DETAILS_SERVER_1 + " ("
+                + "new_water_details_server_1_primary_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "entry_date TEXT," +
+                "dcode TEXT," +
+                "bcode TEXT," +
+                "pv_code TEXT," +
+                "hab_code TEXT," +
+                "water_supply_status_id TEXT," +
+                "no_supply_reason_id TEXT," +
+                "session_fn_water_type_id TEXT," +
+                "session_an_water_type_id TEXT," +
+                "session_an_timing_id TEXT," +
+                "session_fn_timing_id TEXT," +
+                "session_fn_src_id TEXT," +
+                "session_an_src_id TEXT)");
+
 
     }
 
@@ -282,6 +351,13 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_TABLE);
             db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_VILLAGE_LEVEL);
             db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SOURCE_SERVER_DATA);
+            db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_TIMING_DETAILS);
+            db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SESSION);
+            db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_TYPE);
+            db.execSQL("DROP TABLE IF EXISTS " + DRINKING_WATER_SUPPLY_REASON);
+            db.execSQL("DROP TABLE IF EXISTS " + MINIMUM_MAXIMUM_DATE);
+            db.execSQL("DROP TABLE IF EXISTS " + NEW_DRINKING_WATER_DETAILS_LOCAL);
+            db.execSQL("DROP TABLE IF EXISTS " + NEW_DRINKING_WATER_DETAILS_SERVER_1);
 
 
             onCreate(db);

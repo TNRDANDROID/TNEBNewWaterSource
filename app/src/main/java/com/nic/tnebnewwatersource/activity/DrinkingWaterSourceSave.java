@@ -745,6 +745,12 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
                     new Insert_server_drinking_water_details().execute(jsonObject);
                 }
+                else {
+                    drinkingWaterSourceSaveBinding.scrollView.setVisibility(View.GONE);
+                    drinkingWaterSourceSaveBinding.viewLayout.setVisibility(View.VISIBLE);
+                    drinkingWaterSourceSaveBinding.noDataFound.setVisibility(View.VISIBLE);
+                    drinkingWaterSourceSaveBinding.locallySavedRecycler.setVisibility(View.GONE);
+                }
 
             }
 
@@ -848,7 +854,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     }
     public void setAdapter(){
         dbData.open();
-        serverWaterSourceDetailsList.addAll(dbData.getDrinkingWaterServerDetailsImages());
+        serverWaterSourceDetailsList.addAll(dbData.getDrinkingWaterServerDetailsImages("All",""));
         if(serverWaterSourceDetailsList.size()>0){
             drinkingWaterSourceSaveBinding.scrollView.setVisibility(View.GONE);
             drinkingWaterSourceSaveBinding.viewLayout.setVisibility(View.VISIBLE);

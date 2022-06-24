@@ -1,6 +1,7 @@
 package com.nic.tnebnewwatersource.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -235,6 +236,13 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         get_Tn_eb_Tank_Capacity_List();
         get_Key_drinking_water_source_type();
         get_no_of_water_source_photos();
+        get_drinking_water_supply_timing();
+        get_drinking_water_session();
+        get_drinking_water_type();
+        get_server_drinking_water_details();
+        get_water_supply_reason();
+        get_min_max_date();
+        get_daily_drinking_water_supply_status_v2_view();
 //        getDistrictList();
 //        getBlockList();
 
@@ -750,6 +758,27 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         }
     }
 
+    public void get_drinking_water_supply_timing() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("drinking_water_supply_timing", Api.Method.POST, UrlGenerator.getMainServiceUrl(), drinking_water_supply_timing_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public void get_drinking_water_session() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("drinking_water_session", Api.Method.POST, UrlGenerator.getMainServiceUrl(), drinking_water_session_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public void get_drinking_water_type() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("drinking_water_type", Api.Method.POST, UrlGenerator.getMainServiceUrl(), drinking_water_type_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public JSONObject connectionListJsonParams() throws JSONException {
@@ -869,7 +898,99 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         return dataSet;
     }
 
+    public JSONObject drinking_water_supply_timing_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.drinking_water_supply_timing_Json(this).toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("water_supply_timing", "" + dataSet);
+        return dataSet;
+    }
+    public JSONObject drinking_water_session_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.drinking_water_session_Json(this).toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("water_session", "" + dataSet);
+        return dataSet;
+    }
+    public JSONObject drinking_water_type_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.drinking_water_type_Json(this).toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("water_type", "" + dataSet);
+        return dataSet;
+    }
 
+    public void get_server_drinking_water_details() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("get_server_drinking_water_details", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_server_drinking_water_details_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_server_drinking_water_details_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), get_server_drinking_water_details_normal_json().toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("server_drinking", "" + dataSet);
+        return dataSet;
+    }
+    public static JSONObject get_server_drinking_water_details_normal_json() throws JSONException {
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "drinking_water_source_village_level_view");
+        Log.d("server_drinking", "" + dataSet);
+        return dataSet;
+    }
+
+    public void get_water_supply_reason() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("get_water_supply_reason", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_water_supply_reason_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_water_supply_reason_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.get_water_supply_reasonJsonParams(0).toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("water_supply_reason", "" + dataSet);
+        return dataSet;
+    }
+    public void get_daily_drinking_water_supply_status_v2_view() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("water_supply_status_v2", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_daily_drinking_water_supply_status_v2_view_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_daily_drinking_water_supply_status_v2_view_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.daily_drinking_water_supply_status_v2_view_Json(this).toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("water_supply_status_v2", "" + dataSet);
+        return dataSet;
+    }
+
+    public void get_min_max_date() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("get_min_max_date", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_min_max_date_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_min_max_date_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.min_max_dateJsonParams().toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("min_max_date", "" + dataSet);
+        return dataSet;
+    }
     @Override
     public void OnMyResponse(ServerResponse serverResponse) {
         try {
@@ -1068,6 +1189,83 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                 Log.d("no_of_photos", "" + responseDecryptedBlockKey);
             }
 
+            if ("drinking_water_supply_timing".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_drinking_water_supply_timing().execute(jsonObject);
+                }
+                Log.d("water_supply_timing", "" + responseDecryptedBlockKey);
+            }
+            if ("drinking_water_session".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_drinking_water_session().execute(jsonObject);
+                }
+                Log.d("water_session", "" + responseDecryptedBlockKey);
+            }
+            if ("drinking_water_type".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_drinking_water_type().execute(jsonObject);
+                }
+                Log.d("water_type", "" + responseDecryptedBlockKey);
+            }
+
+            if ("get_server_drinking_water_details".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                Log.d("server_drinking", "" + responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_server_drinking_water_details().execute(jsonObject);
+                }
+
+
+            }
+
+            if ("get_water_supply_reason".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                Log.d("get_water_supply_reason", "" + responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_water_supply_reason().execute(jsonObject);
+                }
+
+            }
+            if ("water_supply_status_v2".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                Log.d("water_supply_status_v2", "" + responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_new_drinking_water_details_server1().execute(jsonObject);
+                }
+
+            }
+
+            if ("get_min_max_date".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    String minimum_date = jsonObject.getString("min_date");
+                    String maximum_date = jsonObject.getString("max_date");
+                    TNEBSystem tnebSystem = new TNEBSystem();
+                    tnebSystem.setMinimum_date(minimum_date);
+                    tnebSystem.setMaximum_date(maximum_date);
+                    dbData.open();
+                    dbData.delete_MINIMUM_MAXIMUM_DATE();
+                    dbData.Insert_minimum_maximum_date(tnebSystem);
+                }
+                Log.d("get_min_max_date", "" + responseDecryptedBlockKey);
+            }
 
 
 
@@ -1217,7 +1415,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         @Override
         protected Void doInBackground(JSONObject... params) {
             dbData.open();
-            ArrayList<TNEBSystem> villagelist_count = dbData.getAll_Village();
+            ArrayList<TNEBSystem> villagelist_count = dbData.getAll_Village("","","");
             if (villagelist_count.size() <= 0) {
                 if (params.length > 0) {
                     JSONArray jsonArray = new JSONArray();
@@ -1572,6 +1770,259 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
             return null;
 
+
+        }
+    }
+    public class Insert_drinking_water_supply_timing extends AsyncTask<JSONObject, Void, Void> {
+
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_TIMING_DETAILS();
+                ArrayList<TNEBSystem> list_count = dbData.getAll_drinking_water_supply_timing();
+                if (list_count.size() <= 0) {
+                    JSONArray jsonArray = new JSONArray();
+                    try {
+                        jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        TNEBSystem ListValue = new TNEBSystem();
+                        try {
+                            ListValue.setSupply_timing_id(jsonArray.getJSONObject(i).getString("supply_timing_id"));
+                            ListValue.setSupply_timing(jsonArray.getJSONObject(i).getString("supply_timing"));
+                            dbData.Insert_drinking_water_supply_timing(ListValue);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+            }
+
+
+            return null;
+
+
+        }
+    }
+    public class Insert_drinking_water_session extends AsyncTask<JSONObject, Void, Void> {
+
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_SESSION();
+                ArrayList<TNEBSystem> list_count = dbData.getAll_drinking_water_session();
+                if (list_count.size() <= 0) {
+                    JSONArray jsonArray = new JSONArray();
+                    try {
+                        jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        TNEBSystem ListValue = new TNEBSystem();
+                        try {
+                            ListValue.setSession_id(jsonArray.getJSONObject(i).getString("session_id"));
+                            ListValue.setSession_name(jsonArray.getJSONObject(i).getString("session_name"));
+                            dbData.Insert_drinking_water_session(ListValue);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+            }
+
+
+            return null;
+
+
+        }
+    }
+    public class Insert_drinking_water_type extends AsyncTask<JSONObject, Void, Void> {
+
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_TYPE();
+                ArrayList<TNEBSystem> list_count = dbData.getAll_drinking_water_type();
+                if (list_count.size() <= 0) {
+                    JSONArray jsonArray = new JSONArray();
+                    try {
+                        jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        TNEBSystem ListValue = new TNEBSystem();
+                        try {
+                            ListValue.setWater_type_id(jsonArray.getJSONObject(i).getString("water_type_id"));
+                            ListValue.setWater_type(jsonArray.getJSONObject(i).getString("water_type"));
+                            dbData.Insert_drinking_water_type(ListValue);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+            }
+
+
+            return null;
+
+
+        }
+    }
+    public class Insert_water_supply_reason extends AsyncTask<JSONObject, Void, Void> {
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_SUPPLY_REASON();
+                JSONArray jsonArray = new JSONArray();
+                try {
+                    jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    TNEBSystem ListValue = new TNEBSystem();
+                    try {
+                        ListValue.setId(jsonArray.getJSONObject(i).getString("id"));
+                        ListValue.setReason_for_supply(jsonArray.getJSONObject(i).getString("reason_for_supply"));
+                        ListValue.setReason_type(jsonArray.getJSONObject(i).getString("type"));
+                        dbData.Insert_water_supply_reason(ListValue);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+        }
+    }
+    @SuppressLint("StaticFieldLeak")
+    public class Insert_server_drinking_water_details extends AsyncTask<JSONObject, Void, Void> {
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_DRINKING_WATER_SOURCE_SERVER_DATA();
+                JSONArray jsonArray = new JSONArray();
+                try {
+                    jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    TNEBSystem ListValue = new TNEBSystem();
+                    try {
+                        ListValue.setWater_source_details_id(jsonArray.getJSONObject(i).getString("water_source_details_id"));
+                        ListValue.setWater_source_type_name(jsonArray.getJSONObject(i).getString("water_source_type_name"));
+                        ListValue.setDistictCode(jsonArray.getJSONObject(i).getString("dcode"));
+                        ListValue.setBlockCode(jsonArray.getJSONObject(i).getString("bcode"));
+                        ListValue.setPvCode(jsonArray.getJSONObject(i).getString("pvcode"));
+                        ListValue.setHabitation_code(jsonArray.getJSONObject(i).getString("hab_code"));
+                        ListValue.setHabitation_name(jsonArray.getJSONObject(i).getString("habitation_name"));
+                        ListValue.setWater_source_type_id(jsonArray.getJSONObject(i).getString("water_source_type_id"));
+                        ListValue.setKEY_LAND_MARK(jsonArray.getJSONObject(i).getString("landmark"));
+                        if(jsonArray.getJSONObject(i).isNull("photo_file_name_1")||jsonArray.getJSONObject(i).getString("photo_file_name_1").equals("")){
+                            ListValue.setImage_1_lat("");
+                            ListValue.setImage_1_long("");
+                            ListValue.setImage_1("");
+                        }
+                        else {
+                            ListValue.setImage_1_lat(jsonArray.getJSONObject(i).getString("photo_file_name_1_lat"));
+                            ListValue.setImage_1_long(jsonArray.getJSONObject(i).getString("photo_file_name_1_long"));
+                            ListValue.setImage_1(jsonArray.getJSONObject(i).getString("image_1"));
+                        }
+                        if(jsonArray.getJSONObject(i).isNull("photo_file_name_2")||jsonArray.getJSONObject(i).getString("photo_file_name_2").equals("")){
+                            ListValue.setImage_2_lat("");
+                            ListValue.setImage_2_long("");
+                            ListValue.setImage_2("");
+                        }
+                        else {
+                            ListValue.setImage_2_lat(jsonArray.getJSONObject(i).getString("photo_file_name_2_lat"));
+                            ListValue.setImage_2_long(jsonArray.getJSONObject(i).getString("photo_file_name_2_long"));
+                            ListValue.setImage_2(jsonArray.getJSONObject(i).getString("image_2"));
+                        }
+                        dbData.Insert_drinking_water_source_server_data(ListValue);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+        }
+    }
+
+    public class Insert_new_drinking_water_details_server1 extends AsyncTask<JSONObject, Void, Void> {
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_NEW_DRINKING_WATER_DETAILS_SERVER_1();
+                JSONArray jsonArray = new JSONArray();
+                try {
+                    jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    TNEBSystem ListValue = new TNEBSystem();
+                    try {
+                        ListValue.setEntry_date(jsonArray.getJSONObject(i).getString("entry_dt"));
+                        ListValue.setDistictCode(jsonArray.getJSONObject(i).getString("dcode"));
+                        ListValue.setBlockCode(jsonArray.getJSONObject(i).getString("bcode"));
+                        ListValue.setPvCode(jsonArray.getJSONObject(i).getString("pvcode"));
+                        ListValue.setHabitation_code(jsonArray.getJSONObject(i).getString("habcode"));
+                        ListValue.setWater_supply_status_id(jsonArray.getJSONObject(i).getString("water_supply_status"));
+                        ListValue.setWater_supplied_reason_id(jsonArray.getJSONObject(i).getString("no_supply_reason"));
+                        ListValue.setSession_fn_water_type_id(jsonArray.getJSONObject(i).getString("session_fn_water_type"));
+                        ListValue.setSession_fn_timing_id(jsonArray.getJSONObject(i).getString("session_fn_timing"));
+                        ListValue.setSession_fn_src_id(jsonArray.getJSONObject(i).getString("session_fn_src_id"));
+                        ListValue.setSession_an_water_type_id(jsonArray.getJSONObject(i).getString("session_an_water_type"));
+                        ListValue.setSession_an_timing_id(jsonArray.getJSONObject(i).getString("session_an_timing"));
+                        ListValue.setSession_an_src_id(jsonArray.getJSONObject(i).getString("session_an_src_id"));
+
+                        dbData.Insert_new_drinking_water_details_server1(ListValue);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
 
         }
     }

@@ -266,6 +266,7 @@ Log.d("params",""+params);
                         prefManager.setDistrictName(jsonObject.get(AppConstant.DISTRICT_NAME));
                         prefManager.setBlockName(jsonObject.get(AppConstant.BLOCK_NAME));
                         prefManager.setkey_levels(jsonObject.getString("levels"));
+                        prefManager.setkey_levels(jsonObject.getString("levels"));
                         prefManager.setDesignation(jsonObject.get(AppConstant.DESIG_NAME));
                         prefManager.setName(String.valueOf(jsonObject.get(AppConstant.NAME)));
                         prefManager.setPV_NAME_TA(String.valueOf(jsonObject.get(AppConstant.PV_NAME_TA)));

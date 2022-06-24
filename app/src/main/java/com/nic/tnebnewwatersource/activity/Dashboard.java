@@ -106,6 +106,11 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
+    public void newWaterSupplyActivity() {
+        Intent intent = new Intent(this, NewWaterSupplyStatusEntryForm.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 
 
 

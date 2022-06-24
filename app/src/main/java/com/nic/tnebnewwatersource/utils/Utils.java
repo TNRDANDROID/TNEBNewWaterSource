@@ -1338,6 +1338,34 @@ public class Utils {
         return dataSet;
     }
 
+    public static JSONObject drinking_water_supply_timing_Json(Activity activity) throws JSONException {
+        prefManager = new PrefManager(activity);
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "drinking_water_supply_timing");
+        Log.d("water_supply_timing", "" + dataSet);
+        return dataSet;
+    }
+    public static JSONObject drinking_water_session_Json(Activity activity) throws JSONException {
+        prefManager = new PrefManager(activity);
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "drinking_water_session");
+        Log.d("water_session", "" + dataSet);
+        return dataSet;
+    }
+    public static JSONObject drinking_water_type_Json(Activity activity) throws JSONException {
+        prefManager = new PrefManager(activity);
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "drinking_water_type");
+        Log.d("water_type", "" + dataSet);
+        return dataSet;
+    }
+    public static JSONObject daily_drinking_water_supply_status_v2_view_Json(Activity activity) throws JSONException {
+        prefManager = new PrefManager(activity);
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "daily_drinking_water_supply_status_v2_view");
+        Log.d("water_supply_status_v2", "" + dataSet);
+        return dataSet;
+    }
 
 
 

@@ -1193,4 +1193,197 @@ public class TNEBSystem {
     public void setWater_source_type_name(String water_source_type_name) {
         this.water_source_type_name = water_source_type_name;
     }
+
+    ////New Water Supply Status Details
+    private String supply_timing_id;
+    private String supply_timing;
+    private String session_id;
+    private String session_name;
+    private String water_type_id;
+    private String water_type;
+    private String minimum_date;
+    private String maximum_date;
+    private String entry_date;
+    private String water_supply_status_id;
+    private int new_water_details_primary_id;
+
+    public String getWater_supply_status_id() {
+        return water_supply_status_id;
+    }
+
+    public void setWater_supply_status_id(String water_supply_status_id) {
+        this.water_supply_status_id = water_supply_status_id;
+    }
+
+    public String getEntry_date() {
+        return entry_date;
+    }
+
+    public void setEntry_date(String entry_date) {
+        this.entry_date = entry_date;
+    }
+
+    public int getNew_water_details_primary_id() {
+        return new_water_details_primary_id;
+    }
+
+    public void setNew_water_details_primary_id(int new_water_details_primary_id) {
+        this.new_water_details_primary_id = new_water_details_primary_id;
+    }
+
+    public String getMinimum_date() {
+        return minimum_date;
+    }
+
+    public void setMinimum_date(String minimum_date) {
+        this.minimum_date = minimum_date;
+    }
+
+    public String getMaximum_date() {
+        return maximum_date;
+    }
+
+    public void setMaximum_date(String maximum_date) {
+        this.maximum_date = maximum_date;
+    }
+
+    public String getSupply_timing_id() {
+        return supply_timing_id;
+    }
+
+    public void setSupply_timing_id(String supply_timing_id) {
+        this.supply_timing_id = supply_timing_id;
+    }
+
+    public String getSupply_timing() {
+        return supply_timing;
+    }
+
+    public void setSupply_timing(String supply_timing) {
+        this.supply_timing = supply_timing;
+    }
+
+    public String getSession_id() {
+        return session_id;
+    }
+
+    public void setSession_id(String session_id) {
+        this.session_id = session_id;
+    }
+
+    public String getSession_name() {
+        return session_name;
+    }
+
+    public void setSession_name(String session_name) {
+        this.session_name = session_name;
+    }
+
+    public String getWater_type_id() {
+        return water_type_id;
+    }
+
+    public void setWater_type_id(String water_type_id) {
+        this.water_type_id = water_type_id;
+    }
+
+    public String getWater_type() {
+        return water_type;
+    }
+
+    public void setWater_type(String water_type) {
+        this.water_type = water_type;
+    }
+
+    private String morning_water_supply_timing_id;
+    private String morning_water_supply_timing_name;
+    private String evening_water_supply_timing_id;
+    private String evening_water_supply_timing_name;
+
+    public String getMorning_water_supply_timing_id() {
+        return morning_water_supply_timing_id;
+    }
+
+    public void setMorning_water_supply_timing_id(String morning_water_supply_timing_id) {
+        this.morning_water_supply_timing_id = morning_water_supply_timing_id;
+    }
+
+    public String getMorning_water_supply_timing_name() {
+        return morning_water_supply_timing_name;
+    }
+
+    public void setMorning_water_supply_timing_name(String morning_water_supply_timing_name) {
+        this.morning_water_supply_timing_name = morning_water_supply_timing_name;
+    }
+
+    public String getEvening_water_supply_timing_id() {
+        return evening_water_supply_timing_id;
+    }
+
+    public void setEvening_water_supply_timing_id(String evening_water_supply_timing_id) {
+        this.evening_water_supply_timing_id = evening_water_supply_timing_id;
+    }
+
+    public String getEvening_water_supply_timing_name() {
+        return evening_water_supply_timing_name;
+    }
+
+    public void setEvening_water_supply_timing_name(String evening_water_supply_timing_name) {
+        this.evening_water_supply_timing_name = evening_water_supply_timing_name;
+    }
+
+    private String session_fn_water_type_id;
+    private String session_an_water_type_id;
+    private String session_an_timing_id;
+    private String session_fn_timing_id;
+    private String session_fn_src_id;
+    private String session_an_src_id;
+
+    public String getSession_fn_water_type_id() {
+        return session_fn_water_type_id;
+    }
+
+    public void setSession_fn_water_type_id(String session_fn_water_type_id) {
+        this.session_fn_water_type_id = session_fn_water_type_id;
+    }
+
+    public String getSession_an_water_type_id() {
+        return session_an_water_type_id;
+    }
+
+    public void setSession_an_water_type_id(String session_an_water_type_id) {
+        this.session_an_water_type_id = session_an_water_type_id;
+    }
+
+    public String getSession_an_timing_id() {
+        return session_an_timing_id;
+    }
+
+    public void setSession_an_timing_id(String session_an_timing_id) {
+        this.session_an_timing_id = session_an_timing_id;
+    }
+
+    public String getSession_fn_timing_id() {
+        return session_fn_timing_id;
+    }
+
+    public void setSession_fn_timing_id(String session_fn_timing_id) {
+        this.session_fn_timing_id = session_fn_timing_id;
+    }
+
+    public String getSession_fn_src_id() {
+        return session_fn_src_id;
+    }
+
+    public void setSession_fn_src_id(String session_fn_src_id) {
+        this.session_fn_src_id = session_fn_src_id;
+    }
+
+    public String getSession_an_src_id() {
+        return session_an_src_id;
+    }
+
+    public void setSession_an_src_id(String session_an_src_id) {
+        this.session_an_src_id = session_an_src_id;
+    }
 }
