@@ -209,7 +209,7 @@
     <string name="not_taken">Not Taken</string>
 
     <string name="please_uplaod_all_data">Please Upload All Data</string>
-    <string name="habitation_activity">Whether Drinking Water was Supplied to the Habitation</string>
+    <string name="habitation_activity">Water Source Entry</string>
     <string name="full_supply">Full Supply</string>
     <string name="partial_supply">Partial Supply</string>
     <string name="no_supply">No Supply</string>

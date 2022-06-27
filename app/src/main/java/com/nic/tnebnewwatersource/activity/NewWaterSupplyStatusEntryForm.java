@@ -320,10 +320,12 @@ public class NewWaterSupplyStatusEntryForm extends AppCompatActivity implements 
             habitationFilterAdapter(prefManager.getDistrictCode(),prefManager.getBlockCode(),prefManager.getPvCode());
         }
         else {
+            waterSupplyStatusEntryFormBinding.selectVillageLayout.setVisibility(View.GONE);
+            waterSupplyStatusEntryFormBinding.habitationLayout.setVisibility(View.GONE);
             pv_code = prefManager.getPvCode();
             pv_name = prefManager.getPvName();
             hab_code = prefManager.getHabCode();
-            //hab_name = prefManager.get();
+            hab_name = prefManager.getHabName();
         }
         getMinimumMaxDateList();
         setMorningWaterSupplyTimingAdapter();
@@ -667,28 +669,34 @@ public class NewWaterSupplyStatusEntryForm extends AppCompatActivity implements 
 
     public void validationForm1(){
         if(!waterSupplyStatusEntryFormBinding.dateText.getText().toString().equals("")){
-            if(!hab_code.equals("")){
-                if(!water_supply_status.equals("")){
-                    if(water_supply_status.equals("N")){
-                        if(!reason_id.equals("")){
-                            saveDataLocally();
+            if(!pv_code.equals("")){
+                if(!hab_code.equals("")){
+                    if(!water_supply_status.equals("")){
+                        if(water_supply_status.equals("N")){
+                            if(!reason_id.equals("")){
+                                saveDataLocally();
+                            }
+                            else {
+                                Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.select_reason));
+                            }
+
                         }
                         else {
-                            Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.select_reason));
+                            validationForm2();
                         }
-
                     }
                     else {
-                        validationForm2();
+                        Utils.showAlert(NewWaterSupplyStatusEntryForm.this,"Water Supply Status!");
                     }
                 }
                 else {
-                    Utils.showAlert(NewWaterSupplyStatusEntryForm.this,"Water Supply Status!");
+                    Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.select_habitation));
                 }
             }
             else {
-                Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.select_habitation));
+                Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.select_village));
             }
+
         }
         else {
             Utils.showAlert(NewWaterSupplyStatusEntryForm.this,getResources().getString(R.string.choose_date));

@@ -496,7 +496,7 @@
                         android:id="@+id/new_water_supply"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Water Supply Status Details"
+                        android:text="Daily Water Supply Details Entry"
                         android:onClick="@{()-> activity.newWaterSupplyActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"

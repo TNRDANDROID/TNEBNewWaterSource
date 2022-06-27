@@ -49,6 +49,7 @@ public class PrefManager {
     private static final String KEY_VILLAGE_CODE_JSON = "village_code_json";
     private static final String DELETE_ADAPTER_POSITION = "delete_adapter_position";
     private static final String KEY_HAB_CODE = "Hab_Code";
+    private static final String KEY_HAB_NAME = "Hab_Name";
     private static final String KEY_MOTOR_TYPE="motor_type";
     private static final String KEY_MINI_MOTOR_TYPE="mini_motor_type";
     private static final String KEY_GLR_MOTOR_TYPE="glr_motor_type";
@@ -408,7 +409,16 @@ public class PrefManager {
     }
 
     public String getHabCode() {
-        return pref.getString(KEY_HAB_CODE, null);
+        return pref.getString(KEY_HAB_NAME, null);
+    }
+    public Object setHabName(Object key) {
+        editor.putString(KEY_HAB_NAME, String.valueOf(key));
+        editor.commit();
+        return key;
+    }
+
+    public String getHabName() {
+        return pref.getString(KEY_HAB_NAME, null);
     }
 
 
