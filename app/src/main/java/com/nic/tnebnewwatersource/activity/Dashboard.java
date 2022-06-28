@@ -15,11 +15,14 @@ import com.nic.tnebnewwatersource.api.ServerResponse;
 import com.nic.tnebnewwatersource.dataBase.DBHelper;
 import com.nic.tnebnewwatersource.dataBase.dbData;
 import com.nic.tnebnewwatersource.databinding.DashboardBinding;
+import com.nic.tnebnewwatersource.model.TNEBSystem;
 import com.nic.tnebnewwatersource.session.PrefManager;
 import com.nic.tnebnewwatersource.support.ProgressHUD;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity implements Api.ServerResponseListener, View.OnClickListener{
     private DashboardBinding dashboardBinding;
@@ -39,6 +42,7 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         try {
             dbHelper = new DBHelper(this);
             db = dbHelper.getWritableDatabase();
+            dbData.open();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,10 +50,26 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         localLanguage =prefManager.getLocalLanguage();
         //Utils.setLocale(localLanguage,this);
 
-        dashboardBinding.activityTneb.setEnabled(false);
-        dashboardBinding.activityTnebUpdate.setEnabled(false);
-        dashboardBinding.activityBankDetails.setEnabled(false);
-        dashboardBinding.activityComplaintMonitoring.setEnabled(false);
+
+        dashboardBinding.availableConnectionActivity.setEnabled(false);
+        dashboardBinding.missedConnectionActivity.setEnabled(false);
+        dashboardBinding.bankDetailsActivity.setEnabled(false);
+        dashboardBinding.complaintMonitoringActivity.setEnabled(false);
+        dashboardBinding.waterSourceEntry.setEnabled(false);
+        dashboardBinding.dailyWaterSupplyDetailsEntry.setEnabled(false);
+        accessController();
+       /* dashboardBinding.availableConnectionActivity.setClickable(false);
+        dashboardBinding.missedConnectionActivity.setClickable(false);
+        dashboardBinding.bankDetailsActivity.setClickable(false);
+        dashboardBinding.complaintMonitoringActivity.setClickable(false);
+        if(prefManager.getkey_levels().equals("V")){
+            dashboardBinding.waterSourceEntry.setEnabled(true);
+            dashboardBinding.waterSourceEntry.setClickable(true);
+        }
+        else {
+            dashboardBinding.waterSourceEntry.setEnabled(false);
+            dashboardBinding.waterSourceEntry.setClickable(false);
+        }*/
 
     }
 
@@ -64,6 +84,47 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         }
     }
 
+    private void accessController(){
+        ArrayList<TNEBSystem> accessList = new ArrayList<>();
+        accessList.addAll(dbData.getAll_Menu_Access_Control());
+        if(accessList.size()>0){
+           for (int i=0;i<accessList.size();i++){
+               if(accessList.get(i).getMenu_name().equals("available_connection_activity")){
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.availableConnectionActivity.setEnabled(true);
+                    }
+               }
+               else if(accessList.get(i).getMenu_name().equals("missed_connection_activity")){
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.missedConnectionActivity.setEnabled(true);
+                    }
+               }
+               else if(accessList.get(i).getMenu_name().equals("bank_details_activity")){
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.bankDetailsActivity.setEnabled(true);
+                    }
+               }
+               else if(accessList.get(i).getMenu_name().equals("complaint_monitoring_activity")){
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.complaintMonitoringActivity.setEnabled(true);
+                    }
+               }
+               else if(accessList.get(i).getMenu_name().equals("water_source_entry")){
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.waterSourceEntry.setEnabled(true);
+                    }
+               }
+               else {
+                    if(accessList.get(i).getMenu_access_control().equals("Y")){
+                        dashboardBinding.dailyWaterSupplyDetailsEntry.setEnabled(true);
+                    }
+               }
+           }
+        }
+        else {
+
+        }
+    }
 
     @Override
     public void OnMyResponse(ServerResponse serverResponse) {

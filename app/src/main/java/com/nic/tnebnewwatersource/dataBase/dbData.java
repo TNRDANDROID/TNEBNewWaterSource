@@ -423,6 +423,17 @@ public class dbData {
         Log.d("Insert_details_server1", String.valueOf(id));
 
     }
+    public void Insert_menu_access_control(TNEBSystem tnebSystem) {
+
+        ContentValues values = new ContentValues();
+        values.put("menu_id", tnebSystem.getMenu_id());
+        values.put("menu_name", tnebSystem.getMenu_name());
+        values.put("menu_access_control", tnebSystem.getMenu_access_control());
+
+        long id = db.insert(DBHelper.MENU_ACCESS_CONTROL,null,values);
+        Log.d("Insert_id_menu", String.valueOf(id));
+
+    }
 
     //////////////
 
@@ -490,6 +501,41 @@ public class dbData {
         return cards;
     }
 
+    public ArrayList<TNEBSystem> getAll_Menu_Access_Control() {
+
+        ArrayList<TNEBSystem> cards = new ArrayList<>();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("select * from "+DBHelper.MENU_ACCESS_CONTROL,null);
+            // cursor = db.query(CardsDBHelper.TABLE_CARDS,
+            //       COLUMNS, null, null, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    TNEBSystem card = new TNEBSystem();
+                    card.setMenu_control_primary_key(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("menu_control_primary_key")));
+                    card.setMenu_id(cursor.getInt(cursor
+                            .getColumnIndexOrThrow("menu_id")));
+                    card.setMenu_name(cursor.getString(cursor
+                            .getColumnIndexOrThrow("menu_name")));
+                    card.setMenu_access_control(cursor.getString(cursor
+                            .getColumnIndexOrThrow("menu_access_control")));
+
+
+                    cards.add(card);
+                }
+            }
+        } catch (Exception e){
+            //   Log.d(DEBUG_TAG, "Exception raised with a value of " + e);
+            e.printStackTrace();
+        } finally{
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return cards;
+    }
 
     public ArrayList<TNEBSystem> getAll_BankTypes() {
 
@@ -1777,6 +1823,9 @@ public class dbData {
     public void delete_NEW_DRINKING_WATER_DETAILS_SERVER_1() {
         db.execSQL("delete from " + DBHelper.NEW_DRINKING_WATER_DETAILS_SERVER_1);
     }
+    public void delete_MENU_ACCESS_CONTROL() {
+        db.execSQL("delete from " + DBHelper.MENU_ACCESS_CONTROL);
+    }
 
 
     public void deleteAll() {
@@ -1808,6 +1857,7 @@ public class dbData {
         delete_MINIMUM_MAXIMUM_DATE();
         delete_NEW_DRINKING_WATER_DETAILS_LOCAL();
         delete_NEW_DRINKING_WATER_DETAILS_SERVER_1();
+        delete_MENU_ACCESS_CONTROL();
         ////
         /*deleteDistrictTable();
         deleteBlockTable();

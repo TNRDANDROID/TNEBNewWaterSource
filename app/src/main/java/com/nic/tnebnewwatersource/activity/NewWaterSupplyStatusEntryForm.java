@@ -322,6 +322,7 @@ public class NewWaterSupplyStatusEntryForm extends AppCompatActivity implements 
         else {
             waterSupplyStatusEntryFormBinding.selectVillageLayout.setVisibility(View.GONE);
             waterSupplyStatusEntryFormBinding.habitationLayout.setVisibility(View.GONE);
+            waterSupplyStatusEntryFormBinding.waterSuppliedStatusLayout.setVisibility(View.VISIBLE);
             pv_code = prefManager.getPvCode();
             pv_name = prefManager.getPvName();
             hab_code = prefManager.getHabCode();

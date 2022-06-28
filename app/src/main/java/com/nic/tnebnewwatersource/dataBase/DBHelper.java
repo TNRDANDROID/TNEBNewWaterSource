@@ -43,6 +43,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static  final String NEW_DRINKING_WATER_DETAILS_LOCAL="new_drinking_water_details_local";
     public static  final String NEW_DRINKING_WATER_DETAILS_SERVER_1="new_drinking_water_details_server1";
 
+    public static  final String MENU_ACCESS_CONTROL="menu_access_control";
+
     private Context context;
 
     public DBHelper(Context context) {
@@ -281,6 +283,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 "id TEXT," +
                 "reason_for_supply TEXT," +
                 "type TEXT)");
+
+        db.execSQL("CREATE TABLE " + MENU_ACCESS_CONTROL + " ("
+                + "menu_control_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "menu_id INTEGER," +
+                "menu_name TEXT," +
+                "menu_access_control TEXT)");
+
         db.execSQL("CREATE TABLE " + MINIMUM_MAXIMUM_DATE + " ("
                 +"minimum_date TEXT," +
                 "maximum_date TEXT)");
@@ -358,6 +367,7 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + MINIMUM_MAXIMUM_DATE);
             db.execSQL("DROP TABLE IF EXISTS " + NEW_DRINKING_WATER_DETAILS_LOCAL);
             db.execSQL("DROP TABLE IF EXISTS " + NEW_DRINKING_WATER_DETAILS_SERVER_1);
+            db.execSQL("DROP TABLE IF EXISTS " + MENU_ACCESS_CONTROL);
 
 
             onCreate(db);

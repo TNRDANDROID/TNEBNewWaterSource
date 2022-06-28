@@ -1322,6 +1322,12 @@ public class Utils {
         Log.d("get_min_max_date", "" + dataSet);
         return dataSet;
     }
+    public static JSONObject menu_access_control_JsonParams() throws JSONException {
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_SERVICE_ID, "mobile_app_menu_access_level");
+        Log.d("menu_access_control", "" + dataSet);
+        return dataSet;
+    }
 
     public static JSONObject get_water_supply_reasonJsonParams(int status_type) throws JSONException {
         JSONObject dataSet = new JSONObject();

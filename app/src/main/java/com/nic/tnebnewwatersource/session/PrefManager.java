@@ -50,6 +50,7 @@ public class PrefManager {
     private static final String DELETE_ADAPTER_POSITION = "delete_adapter_position";
     private static final String KEY_HAB_CODE = "Hab_Code";
     private static final String KEY_HAB_NAME = "Hab_Name";
+    private static final String KEY_HAB_NAME_TA = "Hab_Name_Ta";
     private static final String KEY_MOTOR_TYPE="motor_type";
     private static final String KEY_MINI_MOTOR_TYPE="mini_motor_type";
     private static final String KEY_GLR_MOTOR_TYPE="glr_motor_type";
@@ -409,7 +410,7 @@ public class PrefManager {
     }
 
     public String getHabCode() {
-        return pref.getString(KEY_HAB_NAME, null);
+        return pref.getString(KEY_HAB_CODE, null);
     }
     public Object setHabName(Object key) {
         editor.putString(KEY_HAB_NAME, String.valueOf(key));
@@ -419,6 +420,15 @@ public class PrefManager {
 
     public String getHabName() {
         return pref.getString(KEY_HAB_NAME, null);
+    }
+    public Object setHabNameTa(Object key) {
+        editor.putString(KEY_HAB_NAME_TA, String.valueOf(key));
+        editor.commit();
+        return key;
+    }
+
+    public String getHabNameta() {
+        return pref.getString(KEY_HAB_NAME_TA, null);
     }
 
 

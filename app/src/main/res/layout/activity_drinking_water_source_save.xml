@@ -229,8 +229,8 @@
                         <EditText
                             android:layout_centerVertical="true"
                             android:id="@+id/land_mark_et"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:singleLine="true"
                             android:layout_marginStart="@dimen/_10sdp"
                             android:textSize="@dimen/_11sdp"

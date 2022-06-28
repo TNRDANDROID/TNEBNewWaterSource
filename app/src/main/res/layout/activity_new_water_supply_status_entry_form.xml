@@ -59,7 +59,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/view_layout"
             android:layout_below="@+id/header_layout">
 
@@ -84,7 +84,8 @@
             android:layout_height="match_parent"
             android:id="@+id/scroll_view"
             android:background="@color/white"
-            android:layout_below="@id/header_layout">
+            android:layout_below="@id/header_layout"
+            android:layout_above="@+id/save_btn">
 
             <LinearLayout
                 android:id="@+id/add_layout"
@@ -452,32 +453,34 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/grad_curve"
-                    android:gravity="center"
-                    android:id="@+id/save_btn"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_gravity="center_horizontal"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_10sdp"
-                        android:paddingLeft="@dimen/_20sdp"
-                        android:paddingRight="@dimen/_20sdp"
-                        android:text="@string/submit"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_15sdp"
-                        android:textColor="@color/white"
-                        />
 
-                </RelativeLayout>
 
             </LinearLayout>
 
         </ScrollView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grad_curve"
+            android:gravity="center"
+            android:id="@+id/save_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:text="@string/submit"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white"
+                />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 </layout>

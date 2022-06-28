@@ -242,6 +242,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         get_server_drinking_water_details();
         get_water_supply_reason();
         get_min_max_date();
+        get_menu_access_control();
         get_daily_drinking_water_supply_status_v2_view();
 //        getDistrictList();
 //        getBlockList();
@@ -991,6 +992,21 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
         Log.d("min_max_date", "" + dataSet);
         return dataSet;
     }
+    public void get_menu_access_control() {
+        try {
+            new ApiService(this).makeJSONObjectRequest("menu_access_control", Api.Method.POST, UrlGenerator.getMainServiceUrl(), get_menu_access_control_JSONParams(), "not cache", this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    public JSONObject get_menu_access_control_JSONParams() throws JSONException {
+        String authKey = Utils.encrypt(prefManager.getUserPassKey(), getResources().getString(R.string.init_vector), Utils.menu_access_control_JsonParams().toString());
+        JSONObject dataSet = new JSONObject();
+        dataSet.put(AppConstant.KEY_USER_NAME, prefManager.getUserName());
+        dataSet.put(AppConstant.DATA_CONTENT, authKey);
+        Log.d("menu_access_control", "" + dataSet);
+        return dataSet;
+    }
     @Override
     public void OnMyResponse(ServerResponse serverResponse) {
         try {
@@ -1126,9 +1142,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     //JSONObject jsonObject1=jsonObject.getJSONObject(AppConstant.JSON_DATA);
                     new InsertBankTypesListTask().execute(jsonObject);
                 }
-                else {
 
-                }
 
             }
             if ("village_bank_accounts".equals(urlType) && responseObj != null) {
@@ -1142,9 +1156,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     //JSONObject jsonObject1=jsonObject.getJSONObject(AppConstant.JSON_DATA);
                     new Insert_village_bank_accounts().execute(jsonObject);
                 }
-                else {
 
-                }
 
             }
             if ("tneb_motor_hp".equals(urlType) && responseObj != null) {
@@ -1236,6 +1248,16 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                 Log.d("get_water_supply_reason", "" + responseDecryptedBlockKey);
                 if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
                     new Insert_water_supply_reason().execute(jsonObject);
+                }
+
+            }
+            if ("menu_access_control".equals(urlType) && responseObj != null) {
+                String key = responseObj.getString(AppConstant.ENCODE_DATA);
+                String responseDecryptedBlockKey = Utils.decrypt(prefManager.getUserPassKey(), key);
+                JSONObject jsonObject = new JSONObject(responseDecryptedBlockKey);
+                Log.d("menu_access_control", "" + responseDecryptedBlockKey);
+                if (jsonObject.getString("STATUS").equalsIgnoreCase("OK") && jsonObject.getString("RESPONSE").equalsIgnoreCase("OK")) {
+                    new Insert_menu_access_control().execute(jsonObject);
                 }
 
             }
@@ -2011,6 +2033,50 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                         dbData.Insert_new_drinking_water_details_server1(ListValue);
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    }
+
+                }
+            }
+
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+        }
+    }
+    public class Insert_menu_access_control extends AsyncTask<JSONObject, Void, Void> {
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            if (params.length > 0) {
+                dbData.open();
+                dbData.delete_MENU_ACCESS_CONTROL();
+                JSONArray jsonArray = new JSONArray();
+                try {
+                    jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONArray menu_access_data_array = new JSONArray();
+                    try {
+                        menu_access_data_array = jsonArray.getJSONObject(i).getJSONArray("menu_access_data");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    for(int j = 0; j < menu_access_data_array.length(); j++){
+                        TNEBSystem ListValue = new TNEBSystem();
+                        try {
+                            ListValue.setMenu_id(menu_access_data_array.getJSONObject(j).getInt("menu_id"));
+                            ListValue.setMenu_name(menu_access_data_array.getJSONObject(j).getString("menu_name"));
+                            ListValue.setMenu_access_control(menu_access_data_array.getJSONObject(j).getString("access_control"));
+                            dbData.Insert_menu_access_control(ListValue);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                 }

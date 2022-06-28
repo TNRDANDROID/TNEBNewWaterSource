@@ -32,6 +32,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -120,6 +121,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         drinkingWaterSourceSaveBinding = DataBindingUtil.setContentView(this, R.layout.activity_drinking_water_source_save);
         drinkingWaterSourceSaveBinding.setActivity(this);
         prefManager = new PrefManager(this);

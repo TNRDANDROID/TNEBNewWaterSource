@@ -1386,4 +1386,41 @@ public class TNEBSystem {
     public void setSession_an_src_id(String session_an_src_id) {
         this.session_an_src_id = session_an_src_id;
     }
+
+    private int menu_id;
+    private int menu_control_primary_key;
+    private String menu_name;
+    private String menu_access_control;
+
+    public int getMenu_control_primary_key() {
+        return menu_control_primary_key;
+    }
+
+    public void setMenu_control_primary_key(int menu_control_primary_key) {
+        this.menu_control_primary_key = menu_control_primary_key;
+    }
+
+    public int getMenu_id() {
+        return menu_id;
+    }
+
+    public void setMenu_id(int menu_id) {
+        this.menu_id = menu_id;
+    }
+
+    public String getMenu_name() {
+        return menu_name;
+    }
+
+    public void setMenu_name(String menu_name) {
+        this.menu_name = menu_name;
+    }
+
+    public String getMenu_access_control() {
+        return menu_access_control;
+    }
+
+    public void setMenu_access_control(String menu_access_control) {
+        this.menu_access_control = menu_access_control;
+    }
 }

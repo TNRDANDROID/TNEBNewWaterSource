@@ -28,8 +28,8 @@
                 android:src="@drawable/back"
                 android:padding="0dp"
                 android:onClick="@{()-> activity.onBackPressed()}"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_centerVertical="true"></ImageView>
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,13 +38,13 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_13sdp"
                 android:gravity="center"
-                android:layout_toRightOf="@+id/back_img"
-                android:layout_toLeftOf="@+id/home_icon"
+                android:layout_toEndOf="@+id/back_img"
+                android:layout_toStartOf="@+id/home_icon"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_40sdp"
+                android:layout_marginEnd="@dimen/_40sdp"
                 android:text="@string/dashboard"
-                style="@style/font_circular_bold"></TextView>
+                style="@style/font_circular_bold"/>
 
             <ImageView
                 android:layout_width="@dimen/_30sdp"
@@ -55,8 +55,8 @@
                 android:visibility="gone"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:padding="5dp"></ImageView>
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="5dp"/>
         </RelativeLayout>
 
 
@@ -82,24 +82,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/activity_tneb"
+                        android:layout_below="@+id/available_connection_activity"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -112,10 +112,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/activity_tneb"
+                        android:layout_below="@+id/available_connection_activity"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -125,11 +125,11 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/activity_tneb"
+                        android:id="@+id/available_connection_activity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/details_of_electrical_connections_available"
@@ -155,24 +155,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/activity_tneb_update"
+                        android:layout_below="@+id/missed_connection_activity"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -185,10 +185,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/activity_tneb_update"
+                        android:layout_below="@+id/missed_connection_activity"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -198,11 +198,11 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/activity_tneb_update"
+                        android:id="@+id/missed_connection_activity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/details_of_electrical_connections_not_available"
@@ -228,24 +228,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/activity_bank_details"
+                        android:layout_below="@+id/bank_details_activity"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -258,10 +258,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/activity_bank_details"
+                        android:layout_below="@+id/bank_details_activity"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -271,11 +271,11 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/activity_bank_details"
+                        android:id="@+id/bank_details_activity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/bank_account_details"
@@ -301,24 +301,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/activity_complaint_monitoring"
+                        android:layout_below="@+id/complaint_monitoring_activity"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -331,10 +331,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/activity_complaint_monitoring"
+                        android:layout_below="@+id/complaint_monitoring_activity"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -344,11 +344,11 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/activity_complaint_monitoring"
+                        android:id="@+id/complaint_monitoring_activity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/complaint_monitoring"
@@ -374,24 +374,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/extra_activity"
+                        android:layout_below="@+id/water_source_entry"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -404,10 +404,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/extra_activity"
+                        android:layout_below="@+id/water_source_entry"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -417,11 +417,11 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/extra_activity"
+                        android:id="@+id/water_source_entry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/habitation_activity"
@@ -446,24 +446,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"></View>
+                        android:background="@color/grey_3"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_1sdp"
                         android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"></View>
+                        android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/new_water_supply"
+                        android:layout_below="@+id/daily_water_supply_details_entry"
                         android:src="@drawable/play_cornered"
                         android:layout_marginStart="-4dp"
                         android:layout_marginTop="-13dp"
                         />
                     <ImageView
-                        android:layout_marginLeft="-4dp"
+                        android:layout_marginStart="-4dp"
                         android:layout_marginTop="4dp"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -476,10 +476,10 @@
                         android:layout_height="@dimen/_30sdp"
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/new_water_supply"
+                        android:layout_below="@+id/daily_water_supply_details_entry"
                         android:src="@drawable/play_cornered"
                         android:rotation="180"
-                        android:layout_marginRight="-12dp"
+                        android:layout_marginEnd="-12dp"
                         android:layout_marginTop="-12dp"
                         />
                     <ImageView
@@ -489,14 +489,14 @@
                         android:tint="@color/colorPrimary"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/play_cornered"
-                        android:layout_marginRight="-10dp"
+                        android:layout_marginEnd="-10dp"
                         android:layout_marginTop="2dp"
                         />
                     <TextView
-                        android:id="@+id/new_water_supply"
+                        android:id="@+id/daily_water_supply_details_entry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Daily Water Supply Details Entry"
+                        android:text="@string/daily_water_supply_details_entry"
                         android:onClick="@{()-> activity.newWaterSupplyActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"

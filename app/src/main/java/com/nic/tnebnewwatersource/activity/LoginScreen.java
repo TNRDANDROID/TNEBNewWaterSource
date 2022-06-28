@@ -155,7 +155,9 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     }
 
     public void checkLoginScreen() {
-        loginScreenBinding.username.setText("aritmnrvp25u2"); //loc
+        /*loginScreenBinding.username.setText("testdemo"); //loc village level
+        loginScreenBinding.password.setText("test123#$");*/
+        loginScreenBinding.username.setText("kpmanghab1"); //loc-hab level
         loginScreenBinding.password.setText("test123#$");
         /*loginScreenBinding.username.setText("aritmnrvp25u2"); //prod
         loginScreenBinding.password.setText("rdas566#$");*/
@@ -266,8 +268,9 @@ Log.d("params",""+params);
                         prefManager.setDistrictName(jsonObject.get(AppConstant.DISTRICT_NAME));
                         prefManager.setBlockName(jsonObject.get(AppConstant.BLOCK_NAME));
                         prefManager.setkey_levels(jsonObject.getString("levels"));
-                        //prefManager.setHabCode(jsonObject.getString("habcode"));
-                        //prefManager.setHabName(jsonObject.getString("habname"));
+                        prefManager.setHabCode(jsonObject.getString("habcode"));
+                        prefManager.setHabName(jsonObject.getString("habname"));
+                        prefManager.setHabNameTa(jsonObject.getString("habname_ta"));
                         prefManager.setDesignation(jsonObject.get(AppConstant.DESIG_NAME));
                         prefManager.setName(String.valueOf(jsonObject.get(AppConstant.NAME)));
                         prefManager.setPV_NAME_TA(String.valueOf(jsonObject.get(AppConstant.PV_NAME_TA)));
