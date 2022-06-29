@@ -44,6 +44,19 @@
                 android:onClick="@{()-> activity.logout()}"
                 android:scaleType="centerInside"
                 android:src="@mipmap/log_out" />
+            <ImageView
+                android:id="@+id/refresh"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                android:onClick="@{()-> activity.fetchAllResponseFromApi()}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_reload_icon" />
 
 
         </RelativeLayout>

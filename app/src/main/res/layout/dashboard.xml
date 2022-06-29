@@ -78,135 +78,40 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
+                    android:id="@+id/available_connection_activity"
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    android:onClick="@{()-> activity.connectionListActivity()}">
 
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/available_connection_activity"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/available_connection_activity"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
                     <TextView
-                        android:id="@+id/available_connection_activity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/details_of_electrical_connections_available"
-                        android:onClick="@{()-> activity.connectionListActivity()}"
-                        android:layout_centerVertical="true"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_10sdp"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingBottom="@dimen/_10sdp"
-                        android:minLines="2"
-                        android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_12sdp"
-                        style="@string/font_circular_bold" />
+                        android:id="@+id/available_connection_text"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="@string/details_of_electrical_connections_available"
+                           android:layout_centerVertical="true"
+                           android:paddingLeft="@dimen/_10sdp"
+                           android:paddingRight="@dimen/_10sdp"
+                           android:paddingTop="@dimen/_10sdp"
+                           android:paddingBottom="@dimen/_10sdp"
+                           android:minLines="2"
+                           android:gravity="center"
+                           android:textColor="@color/white"
+                           android:textSize="@dimen/_12sdp"
+                           style="@string/font_circular_bold" />
 
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    android:onClick="@{()-> activity.missedConnectionActivity()}"
+                    android:id="@+id/missed_connection_activity">
 
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/missed_connection_activity"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/missed_connection_activity"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
                     <TextView
-                        android:id="@+id/missed_connection_activity"
+                        android:id="@+id/missed_connection_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/details_of_electrical_connections_not_available"
-                        android:onClick="@{()-> activity.missedConnectionActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -214,72 +119,25 @@
                         android:paddingBottom="@dimen/_10sdp"
                         android:minLines="2"
                         android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
                         style="@string/font_circular_bold" />
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/bank_details_activity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    android:onClick="@{()-> activity.bankDetailActivity()}"
+                    >
 
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/bank_details_activity"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/bank_details_activity"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
                     <TextView
-                        android:id="@+id/bank_details_activity"
+                        android:id="@+id/bank_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/bank_account_details"
-                        android:onClick="@{()-> activity.bankDetailActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -287,145 +145,52 @@
                         android:paddingBottom="@dimen/_5sdp"
                         android:minLines="2"
                         android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
                         style="@string/font_circular_bold" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/complaint_monitoring_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:onClick="@{()-> activity.complaintMonitoringActivity()}"
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    >
+
+                    <TextView
+                        android:id="@+id/complaint_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/complaint_monitoring"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:minLines="2"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        style="@string/font_circular_bold" />
+
 
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
+                    android:id="@+id/water_source_entry"
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    android:onClick="@{()-> activity.waterSupplyActivity()}"
+                    >
 
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/complaint_monitoring_activity"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/complaint_monitoring_activity"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
                     <TextView
-                        android:id="@+id/complaint_monitoring_activity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/complaint_monitoring"
-                        android:onClick="@{()-> activity.complaintMonitoringActivity()}"
-                        android:layout_centerVertical="true"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_10sdp"
-                        android:paddingTop="@dimen/_5sdp"
-                        android:paddingBottom="@dimen/_5sdp"
-                        android:minLines="2"
-                        android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_12sdp"
-                        style="@string/font_circular_bold" />
-
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
-
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/water_source_entry"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/water_source_entry"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
-                    <TextView
-                        android:id="@+id/water_source_entry"
+                        android:id="@+id/water_source_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/habitation_activity"
-                        android:onClick="@{()-> activity.waterSupplyActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -433,71 +198,25 @@
                         android:paddingBottom="@dimen/_10sdp"
                         android:minLines="2"
                         android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
                         style="@string/font_circular_bold" />
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/daily_water_supply_details_entry"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/grey_2">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"/>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/grey_3"
-                        android:layout_alignParentBottom="true"/>
+                    android:onClick="@{()-> activity.newWaterSupplyActivity()}"
+                    android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
+                    >
 
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_below="@+id/daily_water_supply_details_entry"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="-13dp"
-                        />
-                    <ImageView
-                        android:layout_marginStart="-4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentStart="true"
-                        android:src="@drawable/play_cornered"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/daily_water_supply_details_entry"
-                        android:src="@drawable/play_cornered"
-                        android:rotation="180"
-                        android:layout_marginEnd="-12dp"
-                        android:layout_marginTop="-12dp"
-                        />
-                    <ImageView
-                        android:rotation="180"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:tint="@color/colorPrimary"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/play_cornered"
-                        android:layout_marginEnd="-10dp"
-                        android:layout_marginTop="2dp"
-                        />
                     <TextView
-                        android:id="@+id/daily_water_supply_details_entry"
+                        android:id="@+id/daily_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/daily_water_supply_details_entry"
-                        android:onClick="@{()-> activity.newWaterSupplyActivity()}"
                         android:layout_centerVertical="true"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
@@ -505,7 +224,6 @@
                         android:paddingBottom="@dimen/_10sdp"
                         android:minLines="2"
                         android:gravity="center"
-                        android:background="@drawable/elevation_bottom_lite_bg_gradient_all_corner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
                         style="@string/font_circular_bold" />

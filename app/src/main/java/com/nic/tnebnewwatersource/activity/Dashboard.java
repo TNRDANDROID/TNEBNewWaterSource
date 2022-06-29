@@ -57,6 +57,21 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
         dashboardBinding.complaintMonitoringActivity.setEnabled(false);
         dashboardBinding.waterSourceEntry.setEnabled(false);
         dashboardBinding.dailyWaterSupplyDetailsEntry.setEnabled(false);
+
+
+        dashboardBinding.availableConnectionActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+        dashboardBinding.missedConnectionActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+        dashboardBinding.bankDetailsActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+        dashboardBinding.complaintMonitoringActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+        dashboardBinding.waterSourceEntry.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+        dashboardBinding.dailyWaterSupplyDetailsEntry.setBackgroundDrawable(getResources().getDrawable(R.drawable.blur_bg));
+
+        dashboardBinding.availableConnectionText.setTextColor(getResources().getColor(R.color.grey3));
+        dashboardBinding.missedConnectionText.setTextColor(getResources().getColor(R.color.grey3));
+        dashboardBinding.bankText.setTextColor(getResources().getColor(R.color.grey3));
+        dashboardBinding.complaintText.setTextColor(getResources().getColor(R.color.grey3));
+        dashboardBinding.waterSourceText.setTextColor(getResources().getColor(R.color.grey3));
+        dashboardBinding.dailyText.setTextColor(getResources().getColor(R.color.grey3));
         accessController();
        /* dashboardBinding.availableConnectionActivity.setClickable(false);
         dashboardBinding.missedConnectionActivity.setClickable(false);
@@ -92,31 +107,43 @@ public class Dashboard extends AppCompatActivity implements Api.ServerResponseLi
                if(accessList.get(i).getMenu_name().equals("available_connection_activity")){
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.availableConnectionActivity.setEnabled(true);
+                        dashboardBinding.availableConnectionActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.availableConnectionText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
                else if(accessList.get(i).getMenu_name().equals("missed_connection_activity")){
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.missedConnectionActivity.setEnabled(true);
+                        dashboardBinding.missedConnectionActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.missedConnectionText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
                else if(accessList.get(i).getMenu_name().equals("bank_details_activity")){
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.bankDetailsActivity.setEnabled(true);
+                        dashboardBinding.bankDetailsActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.bankText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
                else if(accessList.get(i).getMenu_name().equals("complaint_monitoring_activity")){
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.complaintMonitoringActivity.setEnabled(true);
+                        dashboardBinding.complaintMonitoringActivity.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.complaintText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
                else if(accessList.get(i).getMenu_name().equals("water_source_entry")){
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.waterSourceEntry.setEnabled(true);
+                        dashboardBinding.waterSourceEntry.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.waterSourceText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
                else {
                     if(accessList.get(i).getMenu_access_control().equals("Y")){
                         dashboardBinding.dailyWaterSupplyDetailsEntry.setEnabled(true);
+                        dashboardBinding.dailyWaterSupplyDetailsEntry.setBackgroundDrawable(getResources().getDrawable(R.drawable.elevation_bottom_lite_bg_gradient_all_corner));
+                        dashboardBinding.dailyText.setTextColor(getResources().getColor(R.color.white));
                     }
                }
            }

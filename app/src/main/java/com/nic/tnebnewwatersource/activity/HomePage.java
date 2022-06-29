@@ -223,29 +223,34 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
 
     public void fetchAllResponseFromApi() {
-        getProfileImage();
-        getVillageList();
-        getHabList();
-        getMotorTypeList();
-        getConnectionStatusList();
-        getConnectionPurposeList();
-        getConnectionList();
-        getNoOfBankDetailsCollectedCount();
-        get_village_bank_accounts_list();
-        get_Tn_eb_Motor_Hp_List();
-        get_Tn_eb_Tank_Capacity_List();
-        get_Key_drinking_water_source_type();
-        get_no_of_water_source_photos();
-        get_drinking_water_supply_timing();
-        get_drinking_water_session();
-        get_drinking_water_type();
-        get_server_drinking_water_details();
-        get_water_supply_reason();
-        get_min_max_date();
-        get_menu_access_control();
-        get_daily_drinking_water_supply_status_v2_view();
+        if (Utils.isOnline()) {
+            getProfileImage();
+            getVillageList();
+            getHabList();
+            getMotorTypeList();
+            getConnectionStatusList();
+            getConnectionPurposeList();
+            getConnectionList();
+            getNoOfBankDetailsCollectedCount();
+            get_village_bank_accounts_list();
+            get_Tn_eb_Motor_Hp_List();
+            get_Tn_eb_Tank_Capacity_List();
+            get_Key_drinking_water_source_type();
+            get_no_of_water_source_photos();
+            get_drinking_water_supply_timing();
+            get_drinking_water_session();
+            get_drinking_water_type();
+            get_water_supply_reason();
+            get_min_max_date();
+            get_menu_access_control();
+            get_server_drinking_water_details();
+            get_daily_drinking_water_supply_status_v2_view();
 //        getDistrictList();
 //        getBlockList();
+        }
+        else {
+            Utils.showAlert(HomePage.this,getResources().getString(R.string.no_internet_connection));
+        }
 
     }
 
@@ -1510,10 +1515,9 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            ArrayList<TNEBSystem> list_count = dbData.getAll_ConnectionStatus();
-            if (list_count.size() <= 0) {
                 if (params.length > 0) {
+                    dbData.open();
+                    dbData.deleteConnectionStatusListTable();
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1533,7 +1537,6 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     }
                 }
 
-            }
             return null;
 
 
@@ -1543,10 +1546,10 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            ArrayList<TNEBSystem> list_count = dbData.getAll_MotorTypeList();
-            if (list_count.size() <= 0) {
+
                 if (params.length > 0) {
+                    dbData.open();
+                    dbData.deleteMotorTypeListTable();
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1566,7 +1569,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     }
                 }
 
-            }
+
             return null;
 
 
@@ -1576,10 +1579,10 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            ArrayList<TNEBSystem> list_count = dbData.getAll_ConnectionPurposeList();
-            if (list_count.size() <= 0) {
+
                 if (params.length > 0) {
+                    dbData.open();
+                    dbData.deleteConnectionPurposeListTable();
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1601,7 +1604,6 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     }
                 }
 
-            }
             return null;
 
 
@@ -1612,11 +1614,12 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            dbData.delete_tn_eb_type_of_bank_details_save_tableTable();
-            Cursor cursor = getRawEvents("SELECT * FROM " + DBHelper.TN_EB_BANK_TYPE_DETAILS_SAVE_TABLE, null);
-            if (cursor.getCount() <= 0) {
-                if (params.length > 0) {
+
+            if (params.length > 0 ) {
+                dbData.open();
+                dbData.delete_tn_eb_type_of_bank_details_save_tableTable();
+                Cursor cursor = getRawEvents("SELECT * FROM " + DBHelper.TN_EB_BANK_TYPE_DETAILS_SAVE_TABLE, null);
+                if (cursor.getCount() <= 0) {
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1650,11 +1653,12 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            dbData.delete_TN_EB_BANK_SERVER_DETAILS_TABLE();
-            Cursor cursor = getRawEvents("SELECT * FROM " + DBHelper.TN_EB_BANK_SERVER_DETAILS_TABLE, null);
-            if (cursor.getCount() <= 0) {
-                if (params.length > 0) {
+
+            if (params.length > 0 ) {
+                dbData.open();
+                dbData.delete_TN_EB_BANK_SERVER_DETAILS_TABLE();
+                Cursor cursor = getRawEvents("SELECT * FROM " + DBHelper.TN_EB_BANK_SERVER_DETAILS_TABLE, null);
+                if (cursor.getCount() <= 0) {
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1696,10 +1700,11 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            ArrayList<TNEBSystem> list_count = dbData.getAll_Tneb_Horse_Power_List();
-            if (list_count.size() <= 0) {
+
                 if (params.length > 0) {
+                    dbData.open();
+                    dbData.delete_TNEB_MOTOR_HP_POWER_LIST();
+
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1719,7 +1724,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     }
                 }
 
-            }
+
             return null;
 
 
@@ -1730,10 +1735,10 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
 
         @Override
         protected Void doInBackground(JSONObject... params) {
-            dbData.open();
-            ArrayList<TNEBSystem> list_count = dbData.getAll_Tneb_Tank_Capacity_List();
-            if (list_count.size() <= 0) {
+
                 if (params.length > 0) {
+                    dbData.open();
+                    dbData.delete_TNEB_TANK_CAPACITY_LIST();
                     JSONArray jsonArray = new JSONArray();
                     try {
                         jsonArray = params[0].getJSONArray(AppConstant.JSON_DATA);
@@ -1754,7 +1759,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                     }
                 }
 
-            }
+
             return null;
 
 

@@ -443,7 +443,13 @@ public class NewWaterSupplyStatusEntryForm extends AppCompatActivity implements 
     }
     private void setVillageSpinner(){
         dbData.open();
+        TNEBSystem card = new TNEBSystem();
+        card.setDistictCode("0");
+        card.setBlockCode("0");
+        card.setPvCode("0");
+        card.setPvName("Select Village");
         villageList = new ArrayList<>();
+        villageList.add(card);
         villageList.addAll(dbData.getAll_Village("Particular",prefManager.getDistrictCode(),prefManager.getBlockCode()));
         if(villageList.size()>0){
             waterSupplyStatusEntryFormBinding.villageSpinner.setAdapter(new CommonAdapter(NewWaterSupplyStatusEntryForm.this, villageList,"VillageList"));
