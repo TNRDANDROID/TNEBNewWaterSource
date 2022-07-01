@@ -163,7 +163,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 if(position>0){
                     water_source_type_id = waterSourceTypeList.get(position).getWater_source_type_id();
                     water_source_type_name = waterSourceTypeList.get(position).getWater_source_type_name();
-                    is_others = waterSourceTypeList.get(position).getIs_others();
+                    /*is_others = waterSourceTypeList.get(position).getIs_others();
                     if(is_others.equals("Y")){
                         drinkingWaterSourceSaveBinding.specifyEt.setText("");
                         drinkingWaterSourceSaveBinding.specifyLayout.setVisibility(View.VISIBLE);
@@ -172,7 +172,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                         drinkingWaterSourceSaveBinding.specifyEt.setText("");
                         is_others ="";
                         drinkingWaterSourceSaveBinding.specifyLayout.setVisibility(View.GONE);
-                    }
+                    }*/
 
                 }
                 else {
@@ -547,41 +547,35 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
     public void fieldValidation(){
         if(!hab_code.equals("")){
             if(!water_source_type_id.equals("")){
-                if(!drinkingWaterSourceSaveBinding.specifyEt.getText().toString().equals("")){
-                    if(!drinkingWaterSourceSaveBinding.landMarkEt.getText().toString().equals("")){
-                        if(prefManager.getkey_no_of_photos().equals("1")){
-                            if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
+                if(!drinkingWaterSourceSaveBinding.landMarkEt.getText().toString().equals("")){
+                    if(prefManager.getkey_no_of_photos().equals("1")){
+                        if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
+                            saveLocally();
+                        }
+                        else {
+                            drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+                            Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
+                        }
+                    }
+                    else {
+                        if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
+                            if(drinkingWaterSourceSaveBinding.secondImageIcon.getDrawable()!=null){
                                 saveLocally();
                             }
                             else {
                                 drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                                Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
+                                Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture Second image");
                             }
                         }
                         else {
-                            if(drinkingWaterSourceSaveBinding.firstImageIcon.getDrawable()!=null){
-                                if(drinkingWaterSourceSaveBinding.secondImageIcon.getDrawable()!=null){
-                                    saveLocally();
-                                }
-                                else {
-                                    drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                                    Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture Second image");
-                                }
-                            }
-                            else {
-                                drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                                Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
-                            }
+                            drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
+                            Utils.showAlert(DrinkingWaterSourceSave.this,"Please Capture first image");
                         }
-                    }
-                    else {
-                        drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                        Utils.showAlert(DrinkingWaterSourceSave.this,"Please Enter Land Mark");
                     }
                 }
                 else {
                     drinkingWaterSourceSaveBinding.saveBtn.setEnabled(true);
-                    Utils.showAlert(DrinkingWaterSourceSave.this,getResources().getString(R.string.please_specify));
+                    Utils.showAlert(DrinkingWaterSourceSave.this,"Please Enter Land Mark");
                 }
                /* if(!is_others.equals("Y")){
                     if(!drinkingWaterSourceSaveBinding.specifyEt.getText().toString().equals("")){
