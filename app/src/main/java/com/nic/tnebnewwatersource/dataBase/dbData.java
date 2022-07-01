@@ -320,6 +320,7 @@ public class dbData {
         ContentValues values = new ContentValues();
         values.put("water_source_type_id", tnebSystem.getWater_source_type_id());
         values.put("water_source_type_name", tnebSystem.getWater_source_type_name());
+        //values.put("is_others", tnebSystem.getIs_others());
 
         long id = db.insert(DBHelper.DRINKING_WATER_SOURCE_TABLE,null,values);
         Log.d("Insert_id_drink_water", String.valueOf(id));
@@ -336,6 +337,7 @@ public class dbData {
         values.put("hab_name", tnebSystem.getHabitation_name());
         values.put("water_source_type_id", tnebSystem.getWater_source_type_id());
         values.put("water_source_type_name", tnebSystem.getWater_source_type_name());
+        //values.put("is_others", tnebSystem.getIs_others());
         values.put("landmark", tnebSystem.getKEY_LAND_MARK());
         values.put("image_1", stringToByte(tnebSystem.getImage_1()));
         values.put("image_1_lat", tnebSystem.getImage_1_lat());
@@ -888,6 +890,8 @@ public class dbData {
                             .getColumnIndexOrThrow("water_source_type_id")));
                     card.setWater_source_type_name(cursor.getString(cursor
                             .getColumnIndexOrThrow("water_source_type_name")));
+                    /*card.setIs_others(cursor.getString(cursor
+                            .getColumnIndexOrThrow("is_others")));*/
 
                     cards.add(card);
                 }
@@ -1535,6 +1539,8 @@ public class dbData {
                             .getColumnIndexOrThrow("water_source_type_id")));
                     card.setWater_source_type_name((cursor.getString(cursor
                             .getColumnIndexOrThrow("water_source_type_name"))));
+                    card.setIs_others((cursor.getString(cursor
+                            .getColumnIndexOrThrow("is_others"))));
                     card.setKEY_LAND_MARK((cursor.getString(cursor
                             .getColumnIndexOrThrow("landmark"))));
                     card.setImage_1(BitMapToString(ByteArraytoBitmap(cursor.getBlob(cursor
@@ -1598,6 +1604,8 @@ public class dbData {
                             .getColumnIndexOrThrow("water_source_type_id")));
                     card.setWater_source_type_name((cursor.getString(cursor
                             .getColumnIndexOrThrow("water_source_type_name"))));
+                    /*card.setIs_others((cursor.getString(cursor
+                            .getColumnIndexOrThrow("is_others"))));*/
                     card.setKEY_LAND_MARK((cursor.getString(cursor
                             .getColumnIndexOrThrow("landmark"))));
                     card.setImage_1(byteToString((cursor.getBlob(cursor

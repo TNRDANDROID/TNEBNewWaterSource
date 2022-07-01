@@ -227,6 +227,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + DRINKING_WATER_SOURCE_TABLE + " ("
                 + "water_source_type_id_primary_key INTEGER PRIMARY KEY AUTOINCREMENT," +
                  "water_source_type_id TEXT," +
+                 "is_others TEXT," +
                  "water_source_type_name TEXT)");
 
         db.execSQL("CREATE TABLE " + DRINKING_WATER_SOURCE_VILLAGE_LEVEL + " ("
@@ -240,6 +241,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "no_of_photos TEXT," +
                 "water_source_type_id TEXT," +
                 "water_source_type_name TEXT," +
+                "is_others TEXT," +
                 "landmark TEXT," +
                 "image_1 BLOB," +
                 "image_1_lat TEXT," +
@@ -258,6 +260,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "hab_name TEXT," +
                 "water_source_type_id TEXT," +
                 "water_source_type_name TEXT," +
+                "is_others TEXT," +
                 "landmark TEXT," +
                 "image_1 BLOB," +
                 "image_1_lat TEXT," +

@@ -235,7 +235,7 @@
     <string name="select_water_supply_through">Select Water Supply through</string>
     <string name="reason">Reason</string>
     <string name="water_supply_through">Water Supply Through</string>
-
+    <string name="please_specify">Please Specify</string>
 
 
 </resources>

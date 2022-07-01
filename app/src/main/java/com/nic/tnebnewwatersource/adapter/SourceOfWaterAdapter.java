@@ -60,7 +60,12 @@ public class SourceOfWaterAdapter extends RecyclerView.Adapter<SourceOfWaterAdap
 
         holder.sourceOfWaterItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name());
         holder.sourceOfWaterItemViewBinding.landMark.setText(list.get(position).getKEY_LAND_MARK());
-
+        /*if(!list.get(position).getIs_others().equals("")){
+            holder.sourceOfWaterItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name()+" ("+list.get(position).getIs_others()+" )");
+        }
+        else {
+            holder.sourceOfWaterItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name());
+        }*/
         if(list.get(position).getImage_1()!=null&&!list.get(position).getImage_1().equals("")){
             holder.sourceOfWaterItemViewBinding.image1.setImageBitmap(StringToBitMap(list.get(position).getImage_1()));
         }

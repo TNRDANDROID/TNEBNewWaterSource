@@ -1785,6 +1785,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                             try {
                                 ListValue.setWater_source_type_id(jsonArray.getJSONObject(i).getString("water_source_type_id"));
                                 ListValue.setWater_source_type_name(jsonArray.getJSONObject(i).getString("water_source_type_name"));
+                                //ListValue.setIs_others(jsonArray.getJSONObject(i).getString("is_others"));
                                 dbData.Insert_drinking_water_source_type(ListValue);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -1097,6 +1097,15 @@ public class TNEBSystem {
     private String image_2_lat;
     private String image_2_long;
     private String no_of_photos;
+    private String is_others;
+
+    public String getIs_others() {
+        return is_others;
+    }
+
+    public void setIs_others(String is_others) {
+        this.is_others = is_others;
+    }
 
     public int getServer_water_source_details_primary_id() {
         return server_water_source_details_primary_id;

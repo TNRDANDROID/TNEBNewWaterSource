@@ -72,6 +72,12 @@ public class DrinkingWaterUploadAdapter extends RecyclerView.Adapter<DrinkingWat
         holder.waterSourceUploadItemViewBinding.habitationName.setText(list.get(position).getHabitation_name());
         holder.waterSourceUploadItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name());
         holder.waterSourceUploadItemViewBinding.landMark.setText(list.get(position).getKEY_LAND_MARK());
+       /* if(!list.get(position).getIs_others().equals("")){
+            holder.waterSourceUploadItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name()+" ("+list.get(position).getIs_others()+" )");
+        }
+        else {
+            holder.waterSourceUploadItemViewBinding.waterSourceName.setText(list.get(position).getWater_source_type_name());
+        }*/
 
         holder.waterSourceUploadItemViewBinding.upload.setOnClickListener(new View.OnClickListener() {
             @Override
