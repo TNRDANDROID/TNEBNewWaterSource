@@ -1098,6 +1098,24 @@ public class TNEBSystem {
     private String image_2_long;
     private String no_of_photos;
     private String is_others;
+    private String image_directory_1;
+    private String image_directory_2;
+
+    public String getImage_directory_1() {
+        return image_directory_1;
+    }
+
+    public void setImage_directory_1(String image_directory_1) {
+        this.image_directory_1 = image_directory_1;
+    }
+
+    public String getImage_directory_2() {
+        return image_directory_2;
+    }
+
+    public void setImage_directory_2(String image_directory_2) {
+        this.image_directory_2 = image_directory_2;
+    }
 
     public String getIs_others() {
         return is_others;

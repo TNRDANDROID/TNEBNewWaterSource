@@ -233,8 +233,9 @@
     <string name="select_water_supply_through">Select Water Supply through</string>
     <string name="reason">Reason</string>
     <string name="water_supply_through">Water Supply Through</string>
-    <string name="daily_water_supply_details_entry">Daily Water Supply Details Entry</string>
+
     <string name="please_specify">Please Specify</string>
 
-
+    <string name="daily_water_supply_details_entry">Daily Water Supply Details Entry</string>
+    <string name="user_cancelled_image_capture">User Cancelled Image Capture</string>
 </resources>

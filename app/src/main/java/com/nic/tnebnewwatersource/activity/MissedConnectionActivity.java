@@ -764,7 +764,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
         return temp;
     }
 
-    public Bitmap stringToBitmap(String encodedImage){
+    public Bitmap stringToBitmap(String encodedImage) {
         byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         return decodedByte;
@@ -830,12 +830,12 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
                 } else if (resultCode == RESULT_CANCELED) {
                     // user cancelled Image capture
                     Toast.makeText(getApplicationContext(),
-                            getResources().getString(R.string.user_canceled_image_capture), Toast.LENGTH_SHORT)
+                                    getResources().getString(R.string.user_canceled_image_capture), Toast.LENGTH_SHORT)
                             .show();
                 } else {
                     // failed to capture image
                     Toast.makeText(getApplicationContext(),
-                            getResources().getString(R.string.sorry_failed_to_capture_image), Toast.LENGTH_SHORT)
+                                    getResources().getString(R.string.sorry_failed_to_capture_image), Toast.LENGTH_SHORT)
                             .show();
                 }
                 break;
@@ -865,7 +865,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
 
                 break;
 
-            case  1213:
+            case 1213:
                 if (requestCode == 1213 && resultCode == Activity.RESULT_OK) {
                     String filePath = data.getStringExtra(ImageSelectActivity.RESULT_FILE_PATH);
                     Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
@@ -1007,12 +1007,13 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
 
         }*/
 
-            if(image_flag.equals("capture_eb_meter_layout")){
-                offlatTextValue = wayLatitude;
-                offlongTextValue = wayLongitude;
-            }
+        if (image_flag.equals("capture_eb_meter_layout")) {
+            offlatTextValue = wayLatitude;
+            offlongTextValue = wayLongitude;
+        }
 
     }
+
     private void ExpandedImage(Drawable profile) {
         try {
             //We need to get the instance of the LayoutInflater, use the context of this activity
@@ -1047,7 +1048,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
         }
     }
 
-    public void save_and_delete_alert(String delete_id,String save_delete){
+    public void save_and_delete_alert(String delete_id, String save_delete) {
         try {
             final Dialog dialog = new Dialog(this);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -1055,10 +1056,9 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
             dialog.setContentView(R.layout.alert_dialog);
 
             TextView text = (TextView) dialog.findViewById(R.id.tv_message);
-            if(save_delete.equals("save")) {
+            if (save_delete.equals("save")) {
                 text.setText(getResources().getString(R.string.do_u_want_to_upload));
-            }
-            else if(save_delete.equals("delete")){
+            } else if (save_delete.equals("delete")) {
                 text.setText(getResources().getString(R.string.do_u_want_to_delete));
             }
 
@@ -1074,16 +1074,14 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
             yesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(save_delete.equals("save")) {
+                    if (save_delete.equals("save")) {
 
-                    }
-                    else if(save_delete.equals("delete")) {
-                        if(Utils.isOnline()) {
+                    } else if (save_delete.equals("delete")) {
+                        if (Utils.isOnline()) {
                             deleteParticularNewConnectionList(delete_id);
                             dialog.dismiss();
-                        }
-                        else {
-                            Utils.showAlert(MissedConnectionActivity.this,getResources().getString(R.string.no_internet_connection));
+                        } else {
+                            Utils.showAlert(MissedConnectionActivity.this, getResources().getString(R.string.no_internet_connection));
                             dialog.dismiss();
                         }
                     }
@@ -1096,6 +1094,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
         }
 
     }
+
     private void deleteParticularNewConnectionList(String id) {
         try {
             new ApiService(this).makeJSONObjectRequest("DeleteConnectionList", Api.Method.POST, UrlGenerator.getMainServiceUrl(), deleteParticularListJsonParams(id), "not cache", this);
@@ -1113,6 +1112,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
         Log.d("districtList", "" + authKey);
         return dataSet;
     }
+
     public static JSONObject newConnectionListDeleteJsonParams(String id) throws JSONException {
         JSONObject dataSet = new JSONObject();
         dataSet.put(AppConstant.KEY_SERVICE_ID, "delete_new_connection_details");
@@ -1120,7 +1120,8 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
         Log.d("connectionListParam", "" + dataSet);
         return dataSet;
     }
-    public void speechToText(String request_id){
+
+    public void speechToText(String request_id) {
         Intent intent
                 = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -1131,15 +1132,13 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
 
         try {
 
-            if(request_id.equals("LOCATION")) {
+            if (request_id.equals("LOCATION")) {
                 startActivityForResult(intent, LAND_MARK_SPEECH_REQUEST_CODE);
-            }
-            else if(request_id.equals("NAME")) {
+            } else if (request_id.equals("NAME")) {
                 startActivityForResult(intent, NAME_SPEECH_REQUEST_CODE);
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Toast
                     .makeText(MissedConnectionActivity.this, " " + e.getMessage(),
                             Toast.LENGTH_SHORT)
@@ -1169,7 +1168,7 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
                 if (location != null) {
                     wayLatitude = location.getLatitude();
                     wayLongitude = location.getLongitude();
-                    Log.d("LocationAccuracy",""+location.getAccuracy());
+                    Log.d("LocationAccuracy", "" + location.getAccuracy());
                     Log.d("Locations", "" + wayLatitude + "," + wayLongitude);
                     if (CameraUtils.checkPermissions(MissedConnectionActivity.this)) {
                         captureImage1();
@@ -1198,6 +1197,16 @@ public class MissedConnectionActivity extends AppCompatActivity implements Api.S
                     locationRequest.setInterval(10 * 1000);
 
 
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
                     mFusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
                         if (location != null) {
                             wayLatitude = location.getLatitude();

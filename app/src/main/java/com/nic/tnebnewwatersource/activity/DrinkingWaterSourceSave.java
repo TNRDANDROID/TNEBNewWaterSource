@@ -26,8 +26,11 @@ import android.graphics.BitmapFactory;
 import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -70,6 +73,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -482,13 +486,33 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                 }).show();
     }
     private void launchCamera() {
+    if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
 
-        Intent intent = new Intent(this, ImageSelectActivity.class);
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(cameraIntent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
+
+        }
+        else {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            File file = CameraUtils.getOutputMediaFile(MEDIA_TYPE_IMAGE);
+            if (file != null) {
+                imageStoragePath = file.getAbsolutePath();
+            }
+
+            Uri fileUri = CameraUtils.getOutputMediaFileUri(this, file);
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+            // start the image capture Intent
+            startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
+        }
+        /*Intent intent = new Intent(this, ImageSelectActivity.class);
         intent.putExtra(ImageSelectActivity.FLAG_COMPRESS, true);//default is true
         intent.putExtra(ImageSelectActivity.FLAG_CAMERA, true);//default is true
         intent.putExtra(ImageSelectActivity.FLAG_GALLERY, false);//default is true
         intent.putExtra(ImageSelectActivity.FLAG_CROP, false);//default is false
-        startActivityForResult(intent, 1213);
+        startActivityForResult(intent, 1213);*/
 
     }
     @Override
@@ -497,7 +521,7 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
 
         switch (requestCode) {
             case  1213:
-                if (requestCode == 1213 && resultCode == Activity.RESULT_OK) {
+                if (resultCode == Activity.RESULT_OK) {
                     String filePath = data.getStringExtra(ImageSelectActivity.RESULT_FILE_PATH);
                     Bitmap rotatedBitmap = BitmapFactory.decodeFile(filePath);
                     //rotatedBitmap = getResizedBitmap(rotatedBitmap,700);
@@ -515,6 +539,44 @@ public class DrinkingWaterSourceSave extends AppCompatActivity implements  Api.S
                     }
 
 
+                }
+                break;
+            case CAMERA_CAPTURE_IMAGE_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        Bitmap photo= (Bitmap) data.getExtras().get("data");
+                        if(image_flag.equals("capture_first_image")){
+                            drinkingWaterSourceSaveBinding.previewIcon.setVisibility(View.GONE);
+                            drinkingWaterSourceSaveBinding.firstImageIcon.setVisibility(View.VISIBLE);
+                            drinkingWaterSourceSaveBinding.firstImageIcon.setImageBitmap(photo);
+                            first_image_byteArray=BitmaptoByteArray(photo);
+                        }
+                        else if(image_flag.equals("capture_second_image")) {
+                            drinkingWaterSourceSaveBinding.secondPreviewIcon.setVisibility(View.GONE);
+                            drinkingWaterSourceSaveBinding.secondImageIcon.setVisibility(View.VISIBLE);
+                            drinkingWaterSourceSaveBinding.secondImageIcon.setImageBitmap(photo);
+                            second_image_byteArray=BitmaptoByteArray(photo);
+                        }
+                    }
+                    else {
+                        // Refreshing the gallery
+                        CameraUtils.refreshGallery(getApplicationContext(), imageStoragePath);
+
+                        // successfully captured the image
+                        // display it in image view
+                        //previewCapturedImage();
+                    }
+                }
+                else if (resultCode == RESULT_CANCELED) {
+                    // user cancelled Image capture
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getString(R.string.user_cancelled_image_capture), Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    // failed to capture image
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getString(R.string.sorry_failed_to_capture_image), Toast.LENGTH_SHORT)
+                            .show();
                 }
                 break;
 

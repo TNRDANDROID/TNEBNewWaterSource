@@ -48,11 +48,11 @@
                 android:layout_height="@dimen/_30sdp"
                 android:id="@+id/list_icon"
                 android:src="@drawable/list_icon_missed_connection"
-                android:tint="@color/white"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:padding="7dp"></ImageView>
+                android:padding="7dp"
+                customfontdemo:tint="@color/white"></ImageView>
 
 
         </RelativeLayout>
@@ -507,8 +507,7 @@
                                     android:clickable="true"
                                     android:visibility="gone"
                                     android:layout_alignParentEnd="true"
-                                    android:tint="@android:color/holo_orange_light"
-                                    ></ImageView>
+                                    customfontdemo:tint="@android:color/holo_orange_light"></ImageView>
 
                             </RelativeLayout>
 

@@ -2066,7 +2066,7 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                for (int i = 0; i < jsonArray.length(); i++) {
+                /*for (int i = 0; i < jsonArray.length(); i++) {
                     JSONArray menu_access_data_array = new JSONArray();
                     try {
                         menu_access_data_array = jsonArray.getJSONObject(i).getJSONArray("menu_access_data");
@@ -2084,6 +2084,20 @@ public class HomePage extends AppCompatActivity implements Api.ServerResponseLis
                             e.printStackTrace();
                         }
                     }
+
+                }*/
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    TNEBSystem ListValue = new TNEBSystem();
+                    try {
+                        ListValue.setMenu_id(jsonArray.getJSONObject(i).getInt("menu_id"));
+                        ListValue.setMenu_name(jsonArray.getJSONObject(i).getString("menu_name"));
+                        ListValue.setMenu_access_control(jsonArray.getJSONObject(i).getString("access_control"));
+                        dbData.Insert_menu_access_control(ListValue);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
 
                 }
             }
